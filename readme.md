@@ -49,6 +49,7 @@ mimeApps.sh
 ```
 lightdmConfig.sh
 ```
+
 11. Instalación de programas externos con
 ```
 extInstall.sh

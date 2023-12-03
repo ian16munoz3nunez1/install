@@ -36,9 +36,9 @@ do
 
     if [ $STATUS -eq 0 ]
     then
-        echo -e "\e[1;32[+] Paquete \"$i\" instalado correctamente\e[0m"; sleep 2
+        echo -e "\e[5m\e[1;32[+] Paquete \"$i\" instalado correctamente\e[0m"; sleep 2
     else
-        echo -e "\e[1;31[!] Error al instalar el paquete \"$i\"\e[0m"; sleep 2
+        echo -e "\e[5m\e[1;31[!] Error al instalar el paquete \"$i\"\e[0m"; sleep 2
     fi
 done
 
