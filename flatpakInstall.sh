@@ -4,7 +4,7 @@ echo -e "\e[1;34m[*] Iniciando configuración de Flatpak\e[0m"
 sudo apt install -y flatpak
 sudo flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
 sudo apt install gnome-software-plugin-flatpak
-echo -e "\e[5m\e[1;32[+] Configuración de Flatpak completada\e[0m"; sleep 2
+echo -e "\e[5m\e[1;32m[+] Configuración de Flatpak completada\e[0m"; sleep 2
 
 echo -e "\e[1;34m[*] Iniciando instalación de paquetes Flatpak\e[0m"; sleep 2
 flatPaks=('io.atom.Atom'
@@ -45,6 +45,7 @@ do
     read -n 1 -p "[S/n]: " ans
 
     if [[ $ans == "" || ($ans == "S" || $ans == "s") ]];
+    then
         echo -e "\n\e[1;36m[*] Instalando paquete \"$i\"...\e[0m"
     else
         echo -e "\n\e[1;33m[!] Saltando instalacion del paquete \"$i\"\e[0m"
@@ -58,7 +59,7 @@ do
     then
         echo -e "\e[5m\e[1;32m[+] Paquete \"$i\" instalado correctamente\e[0m";
     else
-        echo -e "\e[5m\e[1;31[!] Error al instalar el paquete \"$i\"\e[0m";
+        echo -e "\e[5m\e[1;31m[!] Error al instalar el paquete \"$i\"\e[0m";
     fi
 done
 echo -e "\e[5m\e[1;32m[+] Instalación de paquetes Flatpak completada\e[0m"; sleep 2

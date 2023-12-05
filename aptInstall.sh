@@ -69,6 +69,7 @@ aptPacks=('adwaita-icon-theme'
     'nautilus'
     'ncal'
     'neofetch'
+    'net-tools'
     'obs-studio'
     'octave'
     'octave-*'
@@ -132,7 +133,6 @@ do
         echo -e "\e[5m\e[1;32m[+] Paquete \"$i\" instalado correctamente\e[0m"
     else
         echo -e "\e[5m\e[1;31m[!] Error al instalar el paquete \"$i\"\e[0m"
-        exit 1
     fi
 done
 
