@@ -42,8 +42,5 @@ do
     fi
 done
 
-git clone git@github.com:ian16munoz3nunez1/utils.git $HOME/.utils
-git clone git@github.com:ian16munoz3nunez1/tcpIpy.git $HOME/.tcpIpy
-
 echo -e "\e[5m\e[1;32m[+] Instalación de paquetes pip completada\e[0m"; sleep 2
 
