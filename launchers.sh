@@ -36,3 +36,13 @@ Exec=wine \"/home/ianemn/myapp/prefix/drive_c/Program Files (x86)/Didactic/fl_si
 Terminal=false
 Keywords=Neumatic;Simulator;Fluid;FluidSim;" > /usr/share/applications/fluidSimP.desktop
 
+touch /usr/share/applications/simulIDE.desktop
+echo -e "[Desktop Entry]
+Type=Application
+Name=SimulIDE
+Comment=Electronics Simulator
+Icon=$HOME/Imágenes/imgs/lanzadores/simulide.png
+Exec=$HOME/.bin/simulIDE/simulide
+Terminal=false
+Keywords=Electronics;Simulator;Simul;Proteus;Multisim;" > /usr/share/applications/simulIDE.desktop
+
