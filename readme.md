@@ -60,3 +60,8 @@ lightdmConfig.sh
 extInstall.sh
 ```
 
+13. Configuración de lanzadores con
+```
+launchers.sh
+```
+
