@@ -1,23 +1,14 @@
 #!/bin/bash
 
+cd $HOME/Descargas
+cwd=$PWD
+
 #### Descarga de FigletFonts
-git clone https://github.com/xero/figlet-fonts.git $HOME/figlet-fonts
-if [ $STATUS -eq 0 ]
-then
-    echo -e "\e[1;32m[+] Descarga de FigletFonts completada\e[0m"
-else
-    echo -e "\e[1;31m[!] Error al descargar FigletFonts\e[0m"
-fi
+[ ! -d $HOME/figlet-fonts ] && git clone https://github.com/xero/figlet-fonts.git $HOME/figlet-fonts
 
 #### Descarga de programas Python
-git clone git@github.com:ian16munoz3nunez1/utils.git $HOME/.utils
-git clone git@github.com:ian16munoz3nunez1/tcpIpy.git $HOME/.tcpIpy
-if [ $STATUS -eq 0 ]
-then
-    echo -e "\e[1;32m[+] Descarga de programas Python completada\e[0m"
-else
-    echo -e "\e[1;31m[!] Error al descargar programas Python\e[0m"
-fi
+[ ! -d $HOME/.utils ] && git clone git@github.com:ian16munoz3nunez1/utils.git $HOME/.utils
+[ ! -d $HOME/.tcpIpy ] && git clone git@github.com:ian16munoz3nunez1/tcpIpy.git $HOME/.tcpIpy
 
 #### Descarga de MPLAB X IDE/IPE
 echo -e "\n\e[1;36m[*] Iniciando instalación de MPLAB X...\e[0m"
@@ -43,7 +34,8 @@ fi
 
 #### Descarga de CoppeliaSim
 echo -e "\n\e[1;36m[*] Iniciando instalación de CoppeliaSim...\e[0m"
-coppeliaSim=(curl -L "https://www.coppeliarobotics.com/downloads?flavor=edu&platform=ubuntu22-x86_64" | grep -Po "href=\"https.+xz" | grep -Po "https.+xz")
+coppeliaSim=$(curl -L "https://www.coppeliarobotics.com/downloads?flavor=edu&platform=ubuntu22-x86_64" | grep -Po "href=\"https.+xz" | grep -Po "https.+xz")
+echo "$coppeliaSim"
 wget "$coppeliaSim"
 if [ $STATUS -eq 0 ]
 then
@@ -65,9 +57,9 @@ fi
 
 #### Descarga de BooleDeusto
 mkdir -p $HOME/.bin
-git clone https://github.com/zstars/booledeusto
+[ ! -d ./booledeusto ] && git clone https://github.com/zstars/booledeusto
 mv ./booledeusto/exe/boole.exe $HOME/.bin
-rd booledeusto
+rm -r --interactive=never booledeusto
 if [ $STATUS -eq 0 ]
 then
     echo -e "\e[1;32m[+] Descarga de Boole Deusto completada\e[0m"
@@ -76,15 +68,23 @@ else
 fi
 
 #### Descarga de xiso
-git clone https://github.com/XboxDev/extract-xiso $HOME/.bin/xiso
+[ ! -d $HOME/.bin/xiso ] && git clone https://github.com/XboxDev/extract-xiso $HOME/.bin/xiso
 mkdir $HOME/.bin/xiso/build
 cmake -S $HOME/.bin/xiso -B $HOME/.bin/xiso/build
 make -C $HOME/.bin/xiso/build
+if [ $STATUS -eq 0 ]
+then
+    echo -e "\e[1;32m[+] Descarga de xiso completada\e[0m"
+else
+    echo -e "\e[1;31m[!] Error al descargar xiso\e[0m"
+fi
 
 #### Descarga de espressif para Arduino
 mkdir -p $HOME/Arduino/hardware/espressif
-git clone https://github.com/espressif/arduino-esp32 $HOME/Arduino/hardware/espressif/esp32
-python3 $HOME/Arduino/hardware/espressif/esp32/tools/get.py
+[ ! -d $HOME/Arduino/hardware/espressif/esp32 ] && git clone https://github.com/espressif/arduino-esp32 $HOME/Arduino/hardware/espressif/esp32
+cd $HOME/Arduino/hardware/espressif/esp32/tools
+python3 get.py
+cd $cwd
 if [ $STATUS -eq 0 ]
 then
     echo -e "\e[1;32m[+] Descarga de Espressif completada\e[0m"
@@ -93,7 +93,7 @@ else
 fi
 
 #### Descarga de SimulIDE
-simulide=(curl -L "https://launchpad.net/simulide/+milestone/1.0.0-sr2" | grep -Po "href=\"https.+gz\"" | grep -Po "https.+gz")
+simulide=$(curl -L "https://launchpad.net/simulide/+milestone/1.0.0-sr2" | grep -Po "href=\"https.+gz\"" | grep -Po "https.+gz")
 wget "$simulide"
 if [ $STATUS -eq 0 ]
 then
@@ -114,9 +114,9 @@ fi
 #### Descarga de Lenguaje Latino
 sudo apt update
 sudo apt-get install git cmake build-essential libreadline-dev libpthread-stubs0-dev
-sudo git clone https://github.com/lenguaje-latino/latino-core $HOME/latino-core
-sudo cmake -S $HOME/.latino-core $HOME/.latino-core
-sudo make -C $HOME/latino-core install
+[ ! -d $HOME/.latino-core ] && git clone https://github.com/lenguaje-latino/latino-core $HOME/.latino-core
+cmake -S $HOME/.latino-core -B $HOME/.latino-core
+sudo make -C $HOME/.latino-core install
 if [ $STATUS -eq 0 ]
 then
     echo -e "\e[1;32m[+] Descarga de Latino completada\e[0m"
@@ -125,5 +125,5 @@ else
 fi
 
 #### Descarga de imagenes de fondo y lanzadores
-git clone https://github.com/ian16munoz3nunez1/imgs $HOME/Imágenes/imgs
+[ ! -d $HOME/Imágenes/imgs ] && git clone git@github.com:ian16munoz3nunez1/imgs $HOME/Imágenes/imgs
 
