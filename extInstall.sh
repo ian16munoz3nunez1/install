@@ -3,16 +3,9 @@
 cd $HOME/Descargas
 cwd=$PWD
 
-#### Descarga de FigletFonts
-[ ! -d $HOME/figlet-fonts ] && git clone https://github.com/xero/figlet-fonts.git $HOME/figlet-fonts
-
-#### Descarga de programas Python
-[ ! -d $HOME/.utils ] && git clone git@github.com:ian16munoz3nunez1/utils.git $HOME/.utils
-[ ! -d $HOME/.tcpIpy ] && git clone git@github.com:ian16munoz3nunez1/tcpIpy.git $HOME/.tcpIpy
-
 #### Descarga de MPLAB X IDE/IPE
 echo -e "\n\e[1;36m[*] Iniciando instalación de MPLAB X...\e[0m"
-wget "https://ww1.microchip.com/downloads/aemDocuments/documents/DEV/ProductDocuments/SoftwareTools/MPLABX-v6.05-linux-installer.tar"
+wget "https://ww1.microchip.com/downloads/en/DeviceDoc/MPLABX-v5.50-linux-installer.tar"
 STATUS=$?
 if [ $STATUS -eq 0 ]
 then
@@ -123,6 +116,22 @@ then
 else
     echo -e "\e[1;31m[!] Error al descargar Latino\e[0m"
 fi
+
+#### Descarga de rpi-imager
+wget "https://downloads.raspberrypi.org/imager/imager_latest_amd64.deb"
+if [ $STATUS -eq 0 ]
+then
+    echo -e "\e[1;32m[+] Descarga de rpi-imager completada\e[0m"
+else
+    echo -e "\e[1;31m[!] Error al descargar rpi-imager\e[0m"
+fi
+
+#### Descarga de FigletFonts
+[ ! -d $HOME/figlet-fonts ] && git clone https://github.com/xero/figlet-fonts.git $HOME/figlet-fonts
+
+#### Descarga de programas Python
+[ ! -d $HOME/.utils ] && git clone git@github.com:ian16munoz3nunez1/utils.git $HOME/.utils
+[ ! -d $HOME/.tcpIpy ] && git clone git@github.com:ian16munoz3nunez1/tcpIpy.git $HOME/.tcpIpy
 
 #### Descarga de imagenes de fondo y lanzadores
 [ ! -d $HOME/Imágenes/imgs ] && git clone git@github.com:ian16munoz3nunez1/imgs $HOME/Imágenes/imgs
