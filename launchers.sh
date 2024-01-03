@@ -41,8 +41,8 @@ echo -e "[Desktop Entry]
 Type=Application
 Name=SimulIDE
 Comment=Electronics Simulator
-Icon=$HOME/Imágenes/imgs/lanzadores/simulide.png
-Exec=$HOME/.bin/simulIDE/simulide
+Icon=/home/ianemn/Imágenes/imgs/lanzadores/simulide.png
+Exec=/home/ianemn/.bin/simulIDE/simulide
 Terminal=false
 Keywords=Electronics;Simulator;Simul;Proteus;Multisim;" > /usr/share/applications/simulIDE.desktop
 
