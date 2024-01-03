@@ -5,7 +5,7 @@ cwd=$PWD
 
 #### Descarga de MPLAB X IDE/IPE
 echo -e "\n\e[1;36m[*] Iniciando instalación de MPLAB X...\e[0m"
-wget "https://ww1.microchip.com/downloads/en/DeviceDoc/MPLABX-v5.50-linux-installer.tar"
+wget "https://ww1.microchip.com/downloads/en/DeviceDoc/MPLABX-v5.00-linux-installer.tar"
 STATUS=$?
 if [ $STATUS -eq 0 ]
 then
