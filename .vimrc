@@ -128,7 +128,7 @@ call plug#end()
 " atom-dark-256
 " solarized
 " one
-colorscheme badwolf " Selecciona el tema del editor
+colorscheme one " Selecciona el tema del editor
 let g:airline_theme='transparent' " Selecciona el tema de la linea de datos
 let NERDTreeQuitOnOpen=1 " Configuracion de NERDTree
 
