@@ -26,16 +26,17 @@ alias startapache='sudo /opt/lampp/lampp startapache'
 alias stopapache='sudo /opt/lampp/lampp stopapache'
 alias startXampp='sudo /opt/lampp/lampp start'
 alias stopXampp='sudo /opt/lampp/lampp stop'
-alias xc8='/opt/microchip/xc8/vX.XX/bin/xc8'
-alias boole='wine $HOME/.bin/boole.exe'
+alias boole='wine $HOME/.bin/boole.exe 2>/dev/null'
 alias xiso='$HOME/.bin/xiso/build/extract-xiso'
+alias au3='wine $HOME/myapp/prefix/drive_c/Program\ Files/AutoIt3.exe'
 alias find1Files='find -maxdepth 1 -type f'
 alias find2Files='find -maxdepth 2 -type f'
 alias find3Files='find -maxdepth 3 -type f'
 alias find4Files='find -maxdepth 4 -type f'
 
 # misVariables
-export PATH=\"\$PATH\":/home/ianemn/.local/bin\"\"
+export PATH=\"\$PATH\":$HOME/.local/bin\"\"
+export PATH=\"\$PATH\":/opt/microchip/xc8/vX.XX/bin\"\"
 export TOKENGIT=''
 export WINEPREFIX=\$HOME/myapp/prefix
 export WINEARCH=win32
