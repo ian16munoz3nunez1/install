@@ -33,6 +33,10 @@ alias find1Files='find -maxdepth 1 -type f'
 alias find2Files='find -maxdepth 2 -type f'
 alias find3Files='find -maxdepth 3 -type f'
 alias find4Files='find -maxdepth 4 -type f'
+alias find1Dirs='find -maxdepth 1 -type d'
+alias find2Dirs='find -maxdepth 2 -type d'
+alias find3Dirs='find -maxdepth 3 -type d'
+alias find4Dirs='find -maxdepth 4 -type d'
 
 # misVariables
 export PATH=\"\$PATH\":$HOME/.local/bin\"\"
