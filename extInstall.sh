@@ -126,6 +126,17 @@ else
     echo -e "\e[1;31m[!] Error al descargar rpi-imager\e[0m"
 fi
 
+#### Descarga de AutoIt3
+echo -e "\n\e[1;36m[*] Iniciando descarga de AutoIt3...\e[0m"
+wget "https://www.autoitscript.com/cgi-bin/getfile.pl?autoit3/autoit-v3-setup.zip" -O autoit-v3-setup.zip
+STATUS=$?
+if [ $STATUS -eq 0 ]
+then
+    echo -e "\e[1;32m[+] Descarga de AutoIt3 completada\e[0m"
+else
+    echo -e "\e[1;31m[!] Error al descargar AutoIt3\e[0m"
+fi
+
 #### Descarga de FigletFonts
 [ ! -d $HOME/figlet-fonts ] && git clone https://github.com/xero/figlet-fonts.git $HOME/figlet-fonts
 
