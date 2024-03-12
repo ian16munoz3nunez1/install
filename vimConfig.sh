@@ -4,5 +4,3 @@ curl -fLo $HOME/.vim/autoload/plug.vim --create-dirs https://raw.githubuserconte
 
 mv ./.vimrc $HOME
 
-rd data
-

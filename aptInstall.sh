@@ -63,6 +63,7 @@ aptPacks=('adb'
     'golang-go'
     'gparted'
     'gpick'
+    'graphviz'
     'gwenview'
     'hicolor-icon-theme'
     'htop'
@@ -134,8 +135,10 @@ aptPacks=('adb'
     'wavemon'
     'wine wine64 winetricks'
     'wxmaxima'
+    'xdot'
     'xfce-screensaver'
     'xrdp'
+    'xsensors'
     'yt-dlp')
 
 for i in ${aptPacks[@]}
