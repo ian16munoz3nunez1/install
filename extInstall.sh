@@ -143,7 +143,9 @@ read -n 1 -p "[S/n]: " ans
 if [[ $ans == "" || ($ans == "S" || $ans == "s") ]];
 then
     echo -e "\e[1;36m[*] Iniciando descarga de SimulIDE...\e[0m"
-    simulide=$(curl -L "https://launchpad.net/simulide/+milestone/1.0.0-sr2" | grep -Po "href=\"https.+gz\"" | grep -Po "https.+gz")
+    # simulide=$(curl -L "https://launchpad.net/simulide/+milestone/1.0.0-sr2" | grep -Po "href=\"https.+gz\"" | grep -Po "https.+gz")
+    simulide=$(curl -L "https://launchpad.net/simulide/1.0.0/1.0.0-sr2" | grep -Po "href=\"https.+gz\"" | grep -Po "https.+gz")
+    # simulide=$(curl -L "https://launchpad.net/simulide/1.1.0/1.1.0-sr0" | grep -Po "href=\"https.+gz\"" | grep -Po "https.+gz")
     wget "$simulide"
     if [ $STATUS -eq 0 ]
     then
