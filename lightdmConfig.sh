@@ -13,7 +13,6 @@ cp /etc/lightdm/lightdm-gtk-greeter.conf /etc/lightdm/lightdm-gtk-greeter.conf.o
 
 echo -e "[greeter]
 background = /usr/share/desktop-base/kali-theme/login/background
-greeter-hide-users=false
 theme-name = Kali-Purple-Dark
 xft-antialias = true
 xft-hintstyle = slight
@@ -28,5 +27,5 @@ default-user-image = #emblem-kali
 keyboard = onboard" > /etc/lightdm/lightdm-gtk-greeter.conf
 
 echo -e "\n[Seat:*]
-greeter-hide-users=false" >> /etc/lightdm/lightdm.conf
+greeter-hide-users = false" >> /etc/lightdm/lightdm.conf
 

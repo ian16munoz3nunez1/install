@@ -32,6 +32,7 @@ flatPaks=(
     #### E
     'org.eclipse.Java'
     #### F
+    'org.freecadweb.FreeCAD'
     'im.bernard.Funkcio'
     #### G
     'de.uni_heidelberg.zah.GaiaSky'
@@ -58,6 +59,7 @@ flatPaks=(
     'io.mpv.Mpv'
     #### O
     'md.obsidian.Obsidian'
+    'com.obsproject.Studio'
     'org.onlyoffice.desktopeditors'
     'io.github.wojciech_graj.OrbVis'
     #### P
@@ -73,6 +75,8 @@ flatPaks=(
     'de.haeckerfelix.Shortwave'
     'com.github.marinm.songrec'
     'com.spotify.Client'
+    'org.supertuxproject.SuperTux'
+    'net.supertuxkart.SuperTuxKart'
     #### T
     'com.github.IsmaelMartinez.teams_for_linux'
     'com.github.kmwallio.thiefmd'

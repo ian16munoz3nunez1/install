@@ -1,5 +1,5 @@
 #!/bin/bash
 
-ssh-keygen
+ssh-keygen -t rsa
 ssh-add $HOME/.ssh/id_rsa
 
