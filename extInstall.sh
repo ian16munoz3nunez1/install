@@ -299,6 +299,7 @@ then
     echo -e "\n\e[1;36m[*] Iniciando descarga de mu-editor...\e[0m"
     mu=$(curl -L 'https://codewith.mu/en/download' | grep -Po 'https.+tar')
     wget "$mu"
+    STATUS=$?
     if [ $STATUS -eq 0 ]
     then
         echo -e "\e[1;32m[+] Descarga de mu-editor completada\e[0m"
