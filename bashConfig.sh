@@ -1,5 +1,18 @@
 #!/bin/bash
 
+shell=$(echo $SHELL | xargs basename)
+
+if [ $shell == "zsh" ];
+then
+    shellFile="$HOME/.zshrc"
+elif [ $shell == "bash" ];
+then
+    shellFile="$HOME/.bashrc"
+else
+    echo "Shell don't recognize"
+    exit 1
+fi
+
 echo -e "\n# misAlias
 alias figletFonts='python3 $HOME/.utils/figletFonts.py'
 alias ftpy='python3 $HOME/.utils/ftpy.py'
@@ -45,5 +58,5 @@ export PATH=\"\$PATH\":/opt/microchip/xc8/vX.XX/bin\"\"
 export TOKENGIT=''
 export WINEPREFIX=\$HOME/myapp/prefix
 export WINEARCH=win32
-export WINEPATH=\$HOME/myapp" >> $HOME/.zshrc
+export WINEPATH=\$HOME/myapp\n" >> $shellFile
 
