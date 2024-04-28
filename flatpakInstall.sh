@@ -32,6 +32,7 @@ flatPaks=(
     #### E
     'org.eclipse.Java'
     #### F
+    'com.github.johnfactotum.Foliate'
     'org.freecadweb.FreeCAD'
     'im.bernard.Funkcio'
     #### G
@@ -41,18 +42,21 @@ flatPaks=(
     'net.oz9aec.Gpredict'
     'com.github.artemanufrij.graphui'
     #### H
+    'io.github.finefindus.Hieroglyphic'
     'com.github.hopsan.Hopsan'
     #### I
     'com.jetbrains.IntelliJ-IDEA-Community'
     #### J
     'org.jupyter.JupyterLab'
     #### K
+    'org.kde.kalzium'
     'org.kde.kasts'
     'org.learningequality.Kolibri'
     'org.kde.kweather'
     #### L
     'org.leocad.LeoCAD'
     #### M
+    'org.gnome.Maps'
     'com.github.fabiocolacio.marker'
     'io.gitlab.zehkira.Monophony'
     'io.github.seadve.Mousai'
