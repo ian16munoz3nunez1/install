@@ -1,0 +1,19 @@
+#!/bin/bash
+
+now=$(date +"%Y/%m/%d %H:%M:%S")
+iface="wlan0"
+ip="8.8.8.8"
+netPath="/home/ianemn/.logs/rememberMe.log"
+
+ping -c 2 -I $iface $ip &>/dev/null
+if [ $? -ge 1 ] ; then
+    echo "$now -> Network is DOWN. Resetting" >> $netPath
+    ifdown $iface
+    sleep 5
+    ifup --force $iface
+else
+    echo "$now -> Network is UP." >> $netPath
+fi
+
+# Add '* * * * * /home/<username>/.bin/rememberMe' into crontab file with crontab -e
+
