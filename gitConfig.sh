@@ -14,6 +14,7 @@ git config --global alias.a 'add'
 git config --global alias.c 'commit'
 git config --global alias.cm 'commit -m'
 git config --global alias.b 'branch'
+git config --global alias.ba 'branch -a'
 git config --global alias.cob 'checkout -b'
 git config --global alias.wt 'worktree'
 

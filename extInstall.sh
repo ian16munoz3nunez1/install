@@ -310,3 +310,22 @@ else
     echo -e "\n\e[1;33m[!] Saltando descarga de mu-editor...\e[0m"
 fi
 
+#### Descarga de Balena-Etcher
+echo -e "\n\e[1;35m[?] Descargar Balena-Etcher?...\e[0m"
+read -n 1 -p "[S/n]: " ans
+if [[ $ans == "" || ($ans == "S" || $ans == "s") ]];
+then
+    echo -e "\n\e[1;36m Iniciando descarga de Balena-Etcher...\e[0m"
+    balena="https://github.com/balena-io/etcher/releases/download/v1.18.11/balenaEtcher-1.18.11-x64.AppImage"
+    wget "$balena"
+    STATUS=$?
+    if [ $STATUS -eq 0 ]
+    then
+        echo -e "\e[1;32m[+] Descarga de Balena-Etcher completada\e[0m"
+    else
+        echo -e "\e[1;31m[!] Error al descargar Balena-Etcher\e[0m"
+    fi
+else
+    echo -e "\n\e[1;33m[!] Saltando descarga de Balena-Etcher...\e[0m"
+fi
+
