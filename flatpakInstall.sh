@@ -11,10 +11,12 @@ flatPaks=(
     #### A
     'org.kde.akregator'
     'com.google.AndroidStudio'
+    'io.github.nokse22.asciidraw'
     'io.atom.Atom'
     'org.kde.audiotube'
     'org.openchemistry.Avogadro2'
     #### B
+    'org.exbin.BinEd'
     'org.blender.Blender'
     'com.github.bjaraujo.Bombermaaan'
     'com.usebottles.bottles'
@@ -22,22 +24,33 @@ flatPaks=(
     'com.brave.Browser'
     #### C
     'com.github.carlos157oliveira.Calculus'
+    'ar.xjuan.Cambalache'
     'org.kde.cantor'
+    'com.google.Chrome'
+    'net.sourceforge.chromium-bsu'
     'com.ktechpit.colorwall'
+    'io.github.ferraridamiano.ConverterNOW'
+    'fr.nytuo.cosmiccomics'
     'com.ultimaker.cura'
     #### D
     'com.jgraph.drawio.desktop'
+    'com.diy_fever.DIYLayoutCreator'
     'org.duckstation.DuckStation'
+    'com.github.juzzlin.DustRacing2D'
     'ro.go.hmlendea.DL-Desktop'
     #### E
     'org.eclipse.Java'
     #### F
+    'de.lernsoftware_filius.Filius'
     'com.github.johnfactotum.Foliate'
     'org.freecadweb.FreeCAD'
     'im.bernard.Funkcio'
     #### G
     'de.uni_heidelberg.zah.GaiaSky'
     'org.kde.gcompris'
+    'org.gnome.gitg'
+    'com.axosoft.GitKraken'
+    'com.jetpackduba.Gitnuro'
     'org.gnome.Weather'
     'net.oz9aec.Gpredict'
     'com.github.artemanufrij.graphui'
@@ -45,6 +58,7 @@ flatPaks=(
     'io.github.finefindus.Hieroglyphic'
     'com.github.hopsan.Hopsan'
     #### I
+    'net.werwolv.ImHex'
     'com.jetbrains.IntelliJ-IDEA-Community'
     #### J
     'org.jupyter.JupyterLab'
@@ -55,11 +69,10 @@ flatPaks=(
     'org.kde.kweather'
     #### L
     'org.leocad.LeoCAD'
+    'org.librepcb.LibrePCB'
     #### M
-    'org.gnome.Maps'
     'com.github.fabiocolacio.marker'
     'io.gitlab.zehkira.Monophony'
-    'io.github.seadve.Mousai'
     'io.mpv.Mpv'
     #### O
     'md.obsidian.Obsidian'
@@ -67,17 +80,20 @@ flatPaks=(
     'org.onlyoffice.desktopeditors'
     'io.github.wojciech_graj.OrbVis'
     #### P
-    'org.photoqt.PhotoQt'
     'org.cvfosammmm.Porto'
     'com.getpostman.Postman'
     'org.ppsspp.PPSSPP'
     'org.pymol.PyMOL'
     #### Q
     'io.qt.QtCreator'
+    #### R
+    'cz.cvut.edu.comparch.qtrvsim'
     #### S
     'org.scilab.Scilab'
+    'org.gnome.World.Secrets'
     'de.haeckerfelix.Shortwave'
     'com.github.marinm.songrec'
+    'com.github.k4zmu2a.spacecadetpinball'
     'com.spotify.Client'
     'org.supertuxproject.SuperTux'
     'net.supertuxkart.SuperTuxKart'

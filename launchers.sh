@@ -66,6 +66,16 @@ Exec=/home/ianemn/.bin/simulIDE/simulide
 Terminal=false
 Keywords=Electronics;Simulator;Simul;Proteus;Multisim;" > /usr/share/applications/simulIDE.desktop
 
+touch /usr/share/applications/BalenaEtcher.desktop
+echo -e "[Desktop Entry]
+Type=Application
+Name=Balena Etcher
+Comment=Flasher
+Icon=/home/ianemn/Imágenes/imgs/lanzadores/balena.png
+Exec=/home/ianemn/.bin/balenaEtcher.AppImage
+Terminal=false
+Keywords=Flash;Flasher;" > /usr/share/applications/BalenaEtcher.desktop
+
 touch /usr/share/applications/xampp.desktop
 echo -e "[Desktop Entry]
 Type=Application
