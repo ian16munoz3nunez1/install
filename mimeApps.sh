@@ -23,6 +23,9 @@ application/zip=engrampa.desktop;
 application/pdf=atril.desktop;
 application/vnd.rar=org.kde.ark.desktop;
 video/x-matroska=vlc.desktop;
+image/jpeg=org.xfce.ristretto.desktop;
+image/png=org.xfce.ristretto.desktop;
+image/webp=org.kde.gwenview.desktop;
 
 [Default Applications]
 text/csv=libreoffice-calc.desktop

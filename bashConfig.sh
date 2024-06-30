@@ -54,9 +54,11 @@ alias find4Dirs='find -maxdepth 4 -type d'
 
 # misVariables
 export PATH=\"\$PATH\":$HOME/.local/bin\"\"
+export PATH=\"$PATH\":/snap/bin\"\"
 export PATH=\"\$PATH\":/opt/microchip/xc8/vX.XX/bin\"\"
 export TOKENGIT=''
 export WINEPREFIX=\$HOME/myapp/prefix
 export WINEARCH=win32
 export WINEPATH=\$HOME/myapp\n" >> $shellFile
+unset _JAVA_OPTIONS
 
