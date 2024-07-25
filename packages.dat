@@ -126,6 +126,7 @@ Lonewolf                ,                       ,                          ,site
 lshw                    ,lshw                   ,                          ,                                          ,information about hardware configuration
 lynx                    ,lynx                   ,                          ,                                          ,classic non-graphical (text-mode) web browser
 Marble                  ,marble                 ,marble                    ,org.kde.marble                            ,globe and map widget
+mariadb-server          ,mariadb-server         ,                          ,                                          ,MariaDB database server binaries
 Marker                  ,                       ,marker                    ,com.github.fabiocolacio.marker            ,Powerful markdown editor for the GNOME desktop.
 Midnight Commander      ,mc                     ,                          ,                                          ,Midnight Commander - a powerful file manager
 mcrypt                  ,mcrypt                 ,                          ,                                          ,Replacement for old unix crypt(1)
@@ -211,6 +212,8 @@ Wildcard                ,                       ,                          ,io.g
 Wine                    ,wine                   ,                          ,                                          ,Windows API implementation - standard suite
 Wine64                  ,wine64                 ,                          ,                                          ,Windows API implementation - 64-bit binary loader
 Winetricks              ,winetricks             ,                          ,                                          ,simple tool to work around common problems in Wine
+wireless-tools          ,wireless-tools         ,                          ,                                          ,Tools for manipulating Linux Wireless Extensions
+wpasupplicant           ,wpasupplicant          ,                          ,                                          ,client support for WPA and WPA2 (IEEE 802.11i)
 WXmaxima                ,wxmaxima               ,wxmaxima                  ,io.github.wxmaxima_developers.wxMaxima    ,GUI for the computer algebra system Maxima
 XDG desktop portal      ,xdg-desktop-portal-dev ,                          ,                                          ,desktop integration portal - development files
 XDot                    ,xdot                   ,                          ,                                          ,interactive viewer for Graphviz dot files
