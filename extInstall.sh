@@ -329,3 +329,48 @@ else
     echo -e "\n\e[1;33m[!] Saltando descarga de Balena-Etcher...\e[0m"
 fi
 
+#### Descarga de iconos y temas para XFCE
+echo -e "\n\e[1;35m[?] Descargar paquete de iconos?...\e[0m"
+read -n 1 -p "[S/n]: " ans
+if [[ $ans == "" || ($ans == "S" || $ans == "s") ]];
+then
+    echo -e "\n\e[1;36mIniciando descarga de Flat-Remix...\e[0m"
+    flat="https://github.com/daniruiz/flat-remix"
+    git clone "$flat"
+
+    echo -e "\n\e[1;36mIniciando descarga de Infinity...\e[0m"
+    infinity="https://github.com/L4ki/Infinity-Plasma-Themes"
+    git clone "$infinity"
+
+    echo -e "\n\e[1;36mIniciando descarga de Beyond...\e[0m"
+    beyond="https://github.com/rickcannon/Beyond"
+    git clone "$beyond"
+
+    echo -e "\n\e[1;36mIniciando descarga de Catalina...\e[0m"
+    catalina="https://github.com/zayronxio/Os-Catalina-icons"
+    git clone "$catalina"
+
+else
+    echo -e "\n\e[1;33m[!] Saltando descarga de iconos y temas\e[0m"
+fi
+
+#### Descarga de OhMyBash
+echo -e "\n\e[1;35m[?] Descargar OhMyBash?...\e[0m"
+read -n 1 -p "[S/n]: " ans
+if [[ $ans == "" || ($ans == "S" || $ans == "s") ]];
+then
+    echo -e "\n\e[1;36mIniciando descarga de OhMyBash...\e[0m"
+    omb="https://github.com/ohmybash/oh-my-bash"
+    git clone "$omb"
+    bash -c "./oh-my-bash/tools/install.sh"
+    STATUS=$?
+    if [ $STATUS -eq 0 ];
+    then
+        echo -e "\e[1;32m[+] Descarga de OhMyBash completada\e[0m"
+    else
+        echo -e "\e[1;31m[!] Error al descargar OhMyBash\e[0m"
+    fi
+else
+    echo -e "\n\e[1;33m[!] Saltando descarga de OhMyBash\e[0m"
+fi
+
