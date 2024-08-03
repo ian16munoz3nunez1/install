@@ -1,5 +1,6 @@
 Name                    ,aptitude               ,snap                      ,flatpak                                   ,Description
 Akregator               ,                       ,                          ,org.kde.akregator                         ,Manténgase al día con sus fuentes de noticias
+Alpaca                  ,                       ,                          ,com.jeffser.Alpaca                        ,Chatea con modelos de IA
 Android Debug Bridge    ,adb                    ,                          ,                                          ,Android Debug Bridge
 Android Studio          ,                       ,android-studio            ,com.google.AndroidStudio                  ,IDE for Android app development
 Adwaita Icon Theme      ,adwaita-icon-theme     ,                          ,                                          ,default icon theme of GNOME
@@ -64,8 +65,11 @@ FreeCAD                 ,                       ,freecad                   ,org.
 Fritzing                ,fritzing               ,                          ,                                          ,Easy-to-use electronic design software
 fsarchiver              ,fsarchiver             ,                          ,                                          ,file system archiver
 Funkcio                 ,                       ,                          ,im.bernard.Funkcio                        ,Draw functions from points
+g++                     ,                       ,                          ,                                          ,GNU C++ compiler
+Gapless                 ,                       ,                          ,com.github.neithern.g4music               ,Play your music elegantly
 Gaia Sky                ,                       ,                          ,de.uni_heidelberg.zah.GaiaSky             ,Explore the universe in 3D
 GBrainy                 ,gbrainy                ,                          ,org.gnome.gbrainy                         ,gbrainy is a game to train memory, arithmetical, verbal and logical skills.
+gcc                     ,gcc                    ,                          ,                                          ,GNU C compiler
 GCompris                ,gcompris-qt            ,gcompris                  ,org.kde.gcompris                          ,Juego educativo multiactividad para niños de 2 a 10 años
 Geogebra                ,geogebra               ,                          ,org.geogebra.GeoGebra                     ,Dynamic mathematics software for education
 Gimp                    ,gimp                   ,gimp                      ,org.gimp.GIMP                             ,GNU Image Manipulation Program
@@ -99,6 +103,8 @@ ImHex                   ,imhex                  ,                          ,net.
 Inkscape                ,inkscape               ,                          ,                                          ,vector-based drawing program
 IntelliJ                ,                       ,intellij-idea-community   ,com.jetbrains.IntelliJ-IDEA-Community     ,Capable and Ergonomic Java IDE
 iotop                   ,iotop                  ,                          ,                                          ,simple top-like I/O monitor
+iproute2                ,                       ,                          ,                                          ,networking and traffic control tools
+iputils-ping            ,                       ,                          ,                                          ,Tools to test the reachability of network hosts
 JDK                     ,default-jdk            ,                          ,                                          ,Standard Java or Java compatible Development Kit
 JRE                     ,default-jre            ,                          ,                                          ,Standard Java or Java compatible Runtime
 Jupyter Lab             ,                       ,jupyterlab-desktop        ,org.jupyter.JupyterLab                    ,JupyterLab desktop application, based on Electron
@@ -114,6 +120,7 @@ KDEconnect              ,kdeconnect             ,                          ,    
 KDEnLive                ,kdenlive               ,kdenlive                  ,org.kde.kdenlive                          ,non-linear video editor
 KiCad                   ,kicad                  ,kicad                     ,org.kicad.KiCad                           ,Electronic schematic and PCB design software
 Kolibri                 ,                       ,                          ,org.learningequality.Kolibri              ,Offline learning platform
+Krita                   ,krita                  ,krita                     ,org.kde.krita                             ,pixel-based image manipulation program
 KTorrent                ,ktorrent               ,ktorrent                  ,org.kde.ktorrent                          ,BitTorrent client based on the KDE platform
 KWeather                ,                       ,kweather                  ,org.kde.kweather                          ,Ver predicciones meteorológicas en tiempo real y otra información
 LeoCAD                  ,                       ,leocad                    ,org.leocad.LeoCAD                         ,Design virtual models you can build with LEGO bricks
@@ -136,10 +143,12 @@ Moon Buggy              ,moon-buggy             ,moon-buggy                ,    
 Moon Lander             ,moon-lander            ,                          ,                                          ,game based on the classic moon lander
 mpv                     ,mpv                    ,mpv                       ,io.mpv.Mpv                                ,A free, open source, and cross-platform media player
 Mu Editor               ,mu-editor              ,mu-editor                 ,                                          ,simple editor for beginner Python programmers
+nano                    ,                       ,                          ,                                          ,small, friendly text editor inspired by Pico
 Nautilus                ,nautilus               ,                          ,                                          ,file manager and graphical shell for GNOME
 ncal                    ,ncal                   ,                          ,                                          ,display a calendar and the date of Easter
 neofetch                ,neofetch               ,                          ,                                          ,Shows Linux System Information with Distribution Logo
 net-tools               ,net-tools              ,                          ,                                          ,NET-3 networking toolkit
+Newsflash               ,                       ,                          ,io.gitlab.news_flash.NewsFlash            ,Manténgase al día con sus canales
 Obsidian                ,                       ,obsidian                  ,md.obsidian.Obsidian                      ,Markdown-based knowledge base
 OBS Studio              ,obs-studio             ,obs-studio                ,com.obsproject.Studio                     ,Live stream and record videos
 Octave                  ,octave                 ,octave                    ,org.octave.Octave                         ,GNU Octave language for numerical computations
@@ -177,6 +186,7 @@ SongRec                 ,                       ,                          ,com.
 Space Cadet Pinball     ,                       ,space-cadet-pinball       ,com.github.k4zmu2a.spacecadetpinball      ,Game engine for Space Cadet Pinball
 Spotify                 ,                       ,spotify                   ,com.spotify.Client                        ,Online music streaming service
 Spyder                  ,spyder                 ,                          ,org.spyder_ide.spyder                     ,Richly-featured Python IDE
+sudo                    ,                       ,                          ,                                          ,Provide limited super user privileges to specific users
 SuperTux                ,supertux               ,supertux                  ,org.supertuxproject.SuperTux              ,A jump-and-run game starring Tux the Penguin
 SuperTuxKart            ,supertuxkart           ,supertuxkart              ,net.supertuxkart.SuperTuxKart             ,Un juego de carreras de karts en 3D de código abierto.
 ssh                     ,ssh                    ,                          ,                                          ,secure shell client and server (metapackage)
@@ -196,11 +206,13 @@ TigerVNC                ,                       ,tigervnc                  ,org.
 tmux                    ,tmux                   ,                          ,                                          ,terminal multiplexer
 Tor                     ,tor                    ,                          ,org.torproject.torbrowser-launcher        ,anonymizing overlay network for TCP
 Tor Launcher            ,torbrowser-launcher    ,                          ,                                          ,helps download and run the Tor Browser Bundle
+traceroute              ,                       ,                          ,                                          ,Traces the route taken by packets over an IPv4/IPv6 network
 tree                    ,tree                   ,                          ,                                          ,displays an indented directory tree, in color
 ufw                     ,ufw                    ,                          ,                                          ,program for managing a Netfilter firewall
 Ukui Themes             ,ukui-themes            ,                          ,                                          ,Official themes for the UKUI desktop
 UltimateMediaDownloader ,                       ,                          ,com.ktechpit.ultimate-media-downloader    ,Online video & audio downloader for Linux, 1300+ websites support
 Video Downloader        ,                       ,                          ,com.github.unrud.VideoDownloader          ,Descargar vídeos de Internet
+vim                     ,                       ,                          ,                                          ,Vi IMproved - enhanced vi editor
 vim-gtk3                ,vim-gtk3               ,                          ,                                          ,Vi IMproved - enhanced vi editor - with GTK3 GUI
 Visual Studio           ,                       ,code                      ,com.visualstudio.code                     ,Code editing. Redefined.
 VLC                     ,vlc                    ,vlc                       ,org.videolan.VLC                          ,multimedia player and streamer
