@@ -138,6 +138,7 @@ Marker                  ,                       ,marker                    ,com.
 Midnight Commander      ,mc                     ,                          ,                                          ,Midnight Commander - a powerful file manager
 mcrypt                  ,mcrypt                 ,                          ,                                          ,Replacement for old unix crypt(1)
 minicom                 ,minicom                ,                          ,                                          ,Friendly menu driven serial communication program
+mono                    ,mono-devel             ,                          ,                                          ,Mono development tools
 Monophony               ,                       ,monophony                 ,io.gitlab.zehkira.Monophony               ,Stream music from YouTube Music
 Moon Buggy              ,moon-buggy             ,moon-buggy                ,                                          ,Drive a car across the moon
 Moon Lander             ,moon-lander            ,                          ,                                          ,game based on the classic moon lander
@@ -154,6 +155,7 @@ OBS Studio              ,obs-studio             ,obs-studio                ,com.
 Octave                  ,octave                 ,octave                    ,org.octave.Octave                         ,GNU Octave language for numerical computations
 Octave (all)            ,octave-*               ,                          ,                                          ,Octave complements
 Only Office             ,                       ,onlyoffice-desktopeditors ,org.onlyoffice.desktopeditors             ,Office productivity suite
+openssl                 ,openssl                ,                          ,                                          ,Secure Sockets Layer toolkit - cryptographic utility
 OrbVis                  ,                       ,                          ,io.github.wojciech_graj.OrbVis            ,A Realtime Satellite Orbit Visualizer
 pbzip2                  ,pbzip2                 ,                          ,                                          ,parallel bzip2 implementation
 picocom                 ,picocom                ,                          ,                                          ,minimal dumb-terminal emulation program
@@ -173,6 +175,7 @@ QtCreator               ,                       ,                          ,io.q
 Quadrapassel            ,quadrapassel           ,quadrapassel              ,org.gnome.Quadrapassel                    ,popular Russian game, similar to Tetris
 ranger                  ,ranger                 ,                          ,                                          ,Console File Manager with VI Key Bindings
 rdesktop                ,rdesktop               ,                          ,                                          ,RDP client for Windows NT/2000 Terminal Server and Windows Servers
+resolvconf              ,resolvconf             ,                          ,                                          ,name server information handler
 Remmina                 ,remmina                ,remmina                   ,org.remmina.Remmina                       ,GTK+ Remote Desktop Client
 Rhythmbox               ,rhythmbox              ,                          ,org.gnome.Rhythmbox3                      ,music player and organizer for GNOME
 Rhythmbox (all)         ,rhythmbox-*            ,                          ,                                          ,Rhythmbox complements
@@ -193,6 +196,7 @@ ssh                     ,ssh                    ,                          ,    
 Stellarium              ,stellarium             ,stellarium-daily          ,org.stellarium.Stellarium                 ,real-time photo-realistic sky generator
 Prolog                  ,swi-prolog             ,                          ,                                          ,ISO/Edinburgh-style Prolog interpreter
 Tango Icon Theme        ,tango-icon-theme       ,                          ,                                          ,Tango icon library
+tcpdump                 ,tcpdump                ,                          ,                                          ,command-line network traffic analyzer
 Teams                   ,                       ,teams-for-linux           ,com.github.IsmaelMartinez.teams_for_linux ,Unofficial Microsoft Teams client for Linux using Electron
 Telegram                ,telegram-desktop       ,telegram-desktop          ,org.telegram.desktop                      ,Fast. Secure. Powerful.
 TexLive                 ,texlive-full           ,                          ,                                          ,TeX Live: metapackage pulling in all components of TeX Live
