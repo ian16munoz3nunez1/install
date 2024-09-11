@@ -1,0 +1,8 @@
+#!/bin/bash
+
+mkdir "$1"
+chmod 700 -R "$1"
+cd "$1"
+git init --bare
+echo "ref: refs/heads/main" > HEAD
+
