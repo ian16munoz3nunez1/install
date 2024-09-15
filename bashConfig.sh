@@ -59,6 +59,6 @@ export PATH=\"\$PATH\":/opt/microchip/xc8/vX.XX/bin\"\"
 export TOKENGIT=''
 export WINEPREFIX=\$HOME/myapp/prefix
 export WINEARCH=win32
-export WINEPATH=\$HOME/myapp\n" >> $shellFile
-unset _JAVA_OPTIONS
+export WINEPATH=\$HOME/myapp\n
+unset _JAVA_OPTIONS" >> $shellFile
 
