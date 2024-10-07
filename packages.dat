@@ -12,7 +12,7 @@ Ark                     ,ark                    ,ark                       ,org.
 Armagetron Advanced     ,armagetronad           ,armagetron                ,                                          ,3D Tron-like high speed game
 ASCII Draw              ,                       ,ascii-draw                ,io.github.nokse22.asciidraw               ,Sketch anything using characters
 Atom                    ,                       ,                          ,io.atom.Atom                              ,A hackable text editor for the 21st Century
-Audacity                ,audacity               ,audacity                  ,                                          ,fast, cross-platform audio editor
+Audacity                ,audacity               ,audacity                  ,                                          ,fast cross-platform audio editor
 AudioTube               ,                       ,audiotube                 ,org.kde.audiotube                         ,Aplicación de música de YouTube
 Avogadro                ,                       ,                          ,org.openchemistry.Avogadro2               ,Free and open source molecular editor
 Barcoder                ,                       ,                          ,cz.ondrejkolin.Barcoder                   ,Create barcodes
@@ -34,36 +34,36 @@ Cambalache              ,                       ,                          ,ar.x
 Cantor                  ,cantor                 ,cantor                    ,org.kde.cantor                            ,Interfaz de KDE para software matemático
 Chrome                  ,                       ,                          ,com.google.Chrome                         ,The web browser from Google
 Chromium                ,chromium               ,chromium                  ,org.chromium.Chromium                     ,web browser
-Chromium B.S.U.         ,                       ,                          ,net.sourceforge.chromium-bsu              ,Fast paced, arcade-style, top-scrolling space shooter
+Chromium B.S.U.         ,                       ,                          ,net.sourceforge.chromium-bsu              ,Fast paced arcade-style top-scrolling space shooter
 Code::Blocks            ,codeblocks             ,                          ,                                          ,Code::Blocks integrated development environment (IDE)
 Code::Blocks (all)      ,codeclocks-*           ,                          ,                                          ,Code::Blocks complements
-Cohesion                ,                       ,                          ,io.github.brunofin.Cohesion
+Cohesion                ,                       ,                          ,io.github.brunofin.Cohesion               ,Unofficial Notion Desktop client
 ColorWall               ,                       ,colorwall                 ,com.ktechpit.colorwall                    ,The Ultimate Desktop Wallpaper Application
 ConvertAll              ,convertall             ,                          ,                                          ,very flexible unit converter
-ConverterNOW            ,                       ,converternow              ,io.github.ferraridamiano.ConverterNOW     ,A simple, immediate and fast unit converter!
+ConverterNOW            ,                       ,converternow              ,io.github.ferraridamiano.ConverterNOW     ,A simple immediate and fast unit converter!
 Convolution             ,                       ,                          ,org.gnome.gitlab.bazylevnik0.Convolution  ,Maze escaping game
 Cozy                    ,                       ,                          ,com.github.geigi.cozy                     ,Listen to audio books
 cowsay                  ,cowsay                 ,                          ,                                          ,configurable talking cow
 cmatrix                 ,cmatrix                ,                          ,                                          ,simulates the display from "The Matrix"
-cmake                   ,cmake                  ,                          ,                                          ,cross-platform, open-source make system
+cmake                   ,cmake                  ,                          ,                                          ,cross-platform open-source make system
 Cura                    ,                       ,cura-slicer               ,com.ultimaker.cura                        ,Slicer to prepare your 3D printing projects
 curl                    ,curl                   ,                          ,                                          ,command line tool for transferring data with URL syntax
 dialog                  ,dialog                 ,                          ,                                          ,Displays user-friendly dialog boxes from shell scripts
-DIY Layout Creator      ,                       ,                          ,com.diy_fever.DIYLayoutCreator            ,Circuit layout design tool supporting PCB, vero-board, point-to-point, perf-board...
+DIY Layout Creator      ,                       ,                          ,com.diy_fever.DIYLayoutCreator            ,Circuit layout design tool supporting PCB vero-board point-to-point perf-board...
 Doggo                   ,                       ,                          ,app.drey.Doggo                            ,Clicker and chance game
 Dolphin                 ,dolphin                ,dolphin                   ,                                          ,file manager
 Draw.io                 ,                       ,drawio                    ,com.jgraph.drawio.desktop                 ,Crea y comparte diagramas
 Duck Station            ,                       ,                          ,org.duckstation.DuckStation               ,PlayStation Emulator
 Duolingo                ,                       ,duolingo-desktop          ,ro.go.hmlendea.DL-Desktop                 ,Unofficial desktop client for the language-learning app Duolingo
 Dust Racing             ,                       ,                          ,com.github.juzzlin.DustRacing2D           ,Traditional top-down car racing game including a level editor
-Eclipse                 ,                       ,eclipse                   ,org.eclipse.Java                          ,The essential tools for any Java developer, including a Java IDE, a Git client, XML Editor...
+Eclipse                 ,                       ,eclipse                   ,org.eclipse.Java                          ,The essential tools for any Java developer including a Java IDE a Git client XML Editor...
 Elastic                 ,                       ,                          ,app.drey.Elastic                          ,Diseñar animaciones spring
 Emblem                  ,                       ,                          ,org.gnome.design.Emblem                   ,Generar avatares de proyectos
 Engrampa                ,engrampa               ,                          ,                                          ,archive manager for MATE
 Eye Of Gnome            ,eog                    ,eog                       ,org.gnome.eog                             ,Eye of GNOME graphics viewer program
 Falkon                  ,falkon                 ,falkon                    ,                                          ,lightweight web browser based on Qt WebEngine
 fastboot                ,fastboot               ,                          ,                                          ,Android fastboot tool
-ffmpeg                  ,ffmpeg                 ,ffmpeg                    ,                                          ,Tools for transcoding, streaming and playing of multimedia files
+ffmpeg                  ,ffmpeg                 ,ffmpeg                    ,                                          ,Tools for transcoding streaming and playing of multimedia files
 figlet                  ,figlet                 ,figlet                    ,                                          ,Make large character ASCII banners out of ordinary text
 File-Roller             ,file-roller            ,                          ,                                          ,archive manager for GNOME
 FileLight               ,filelight              ,filelight                 ,                                          ,show where your diskspace is being used
@@ -76,29 +76,29 @@ Fritzing                ,fritzing               ,                          ,    
 fsarchiver              ,fsarchiver             ,                          ,                                          ,file system archiver
 Funkcio                 ,                       ,                          ,im.bernard.Funkcio                        ,Draw functions from points
 g++                     ,g++                    ,                          ,                                          ,GNU C++ compiler
-Gameeky                 ,                       ,                          ,dev.tchx84.Gameeky                        ,Juega, crea y aprende
+Gameeky                 ,                       ,                          ,dev.tchx84.Gameeky                        ,Juega crea y aprende
 Gapless                 ,                       ,                          ,com.github.neithern.g4music               ,Play your music elegantly
 Gaia Sky                ,                       ,                          ,de.uni_heidelberg.zah.GaiaSky             ,Explore the universe in 3D
-GBrainy                 ,gbrainy                ,                          ,org.gnome.gbrainy                         ,gbrainy is a game to train memory, arithmetical, verbal and logical skills.
+GBrainy                 ,gbrainy                ,                          ,org.gnome.gbrainy                         ,gbrainy is a game to train memory arithmetical verbal and logical skills.
 gcc                     ,gcc                    ,                          ,                                          ,GNU C compiler
 GCompris                ,gcompris-qt            ,gcompris                  ,org.kde.gcompris                          ,Juego educativo multiactividad para niños de 2 a 10 años
 Geogebra                ,geogebra               ,                          ,org.geogebra.GeoGebra                     ,Dynamic mathematics software for education
 Gimp                    ,gimp                   ,gimp                      ,org.gimp.GIMP                             ,GNU Image Manipulation Program
-Git                     ,git                    ,                          ,                                          ,fast, scalable, distributed revision control system
+Git                     ,git                    ,                          ,                                          ,fast scalable distributed revision control system
 GitG                    ,                       ,                          ,org.gnome.gitg                            ,Interfaz gráfica de usuario para git
-GitK                    ,gitk                   ,                          ,                                          ,fast, scalable, distributed revision control system (revision tree visualizer)
-GitKraken               ,                       ,gitkraken                 ,com.axosoft.GitKraken                     ,For repo management, in-app code editing & issue tracking.
+GitK                    ,gitk                   ,                          ,                                          ,fast scalable distributed revision control system (revision tree visualizer)
+GitKraken               ,                       ,gitkraken                 ,com.axosoft.GitKraken                     ,For repo management in-app code editing & issue tracking.
 Gitnuro                 ,                       ,                          ,com.jetpackduba.Gitnuro                   ,Multiplatform Git client
 Gnome Chess             ,gnome-chess            ,gnome-chess               ,org.gnome.Chess                           ,simple chess game
 Gnome Characters        ,gnome-characters       ,gnome-characters          ,org.gnome.Sudoku                          ,character map application
-Gnome Clocks            ,gnome-clocks           ,gnome-clocks              ,org.gnome.clocks                          ,Simple GNOME app with stopwatch, timer, and world clock support
+Gnome Clocks            ,gnome-clocks           ,gnome-clocks              ,org.gnome.clocks                          ,Simple GNOME app with stopwatch timer and world clock support
 Gnome Icon Theme        ,gnome-icon-theme       ,                          ,                                          ,This package contains the default icon theme used by the GNOME
 Gnome Mines             ,gnome-mines            ,gnome-mines               ,org.gnome.Mines                           ,popular minesweeper puzzle game for GNOME
 Gnome Network Displays  ,gnome-network-displays ,                          ,org.gnome.NetworkDisplays                 ,screencasting app for the GNOME desktop
 Gnome Sudoku            ,gnome-sudoku           ,gnome-sudoku              ,org.gnome.Sudoku                          ,Sudoku puzzle game for GNOME
 Gnome Weather           ,gnome-weather          ,gnome-weather             ,org.gnome.Weather                         ,Mostrar las condiciones meteorológicas y el pronóstico
 Godot Engine            ,godot3                 ,godot-3-1                 ,org.godotengine.Godot3                    ,Full 2D and 3D game engine with editor
-Golang                  ,golang-go              ,                          ,                                          ,Go programming language compiler, linker, compiled stdlib
+Golang                  ,golang-go              ,                          ,                                          ,Go programming language compiler linker compiled stdlib
 GParted                 ,gparted                ,                          ,                                          ,GNOME partition editor
 GPick                   ,gpick                  ,                          ,                                          ,advanced GTK+ color picker
 GPredict                ,                       ,                          ,net.oz9aec.Gpredict                       ,Real-time satellite tracking and orbit prediction program
@@ -118,7 +118,7 @@ iproute2                ,iproute2               ,                          ,    
 iputils-ping            ,iputils-ping           ,                          ,                                          ,Tools to test the reachability of network hosts
 JDK                     ,default-jdk            ,                          ,                                          ,Standard Java or Java compatible Development Kit
 JRE                     ,default-jre            ,                          ,                                          ,Standard Java or Java compatible Runtime
-Jupyter Lab             ,                       ,jupyterlab-desktop        ,org.jupyter.JupyterLab                    ,JupyterLab desktop application, based on Electron
+Jupyter Lab             ,                       ,jupyterlab-desktop        ,org.jupyter.JupyterLab                    ,JupyterLab desktop application based on Electron
 Kali Desktop Xfce       ,kali-desktop-xfce      ,                          ,                                          ,Xfce based Kali desktop
 Kali Wallpapers         ,kali-wallpapers-all    ,                          ,                                          ,All wallpapers for Kali Linux
 Kali Themes             ,kali-themes            ,                          ,                                          ,Configure all desktops to use the Kali theme
@@ -154,13 +154,15 @@ mono                    ,mono-devel             ,                          ,    
 Monophony               ,                       ,monophony                 ,io.gitlab.zehkira.Monophony               ,Stream music from YouTube Music
 Moon Buggy              ,moon-buggy             ,moon-buggy                ,                                          ,Drive a car across the moon
 Moon Lander             ,moon-lander            ,                          ,                                          ,game based on the classic moon lander
-mpv                     ,mpv                    ,mpv                       ,io.mpv.Mpv                                ,A free, open source, and cross-platform media player
+Mousam                  ,                       ,                          ,io.github.amit9838.mousam                 ,Weather at a glance
+mpv                     ,mpv                    ,mpv                       ,io.mpv.Mpv                                ,A free open source and cross-platform media player
 Mu Editor               ,mu-editor              ,mu-editor                 ,                                          ,simple editor for beginner Python programmers
-nano                    ,nano                   ,                          ,                                          ,small, friendly text editor inspired by Pico
+nano                    ,nano                   ,                          ,                                          ,small friendly text editor inspired by Pico
 Nautilus                ,nautilus               ,                          ,                                          ,file manager and graphical shell for GNOME
 ncal                    ,ncal                   ,                          ,                                          ,display a calendar and the date of Easter
 neofetch                ,neofetch               ,                          ,                                          ,Shows Linux System Information with Distribution Logo
 net-tools               ,net-tools              ,                          ,                                          ,NET-3 networking toolkit
+Netsleuth               ,                       ,                          ,io.github.vmkspv.netsleuth                ,Calculate IP subnets
 Newsflash               ,                       ,                          ,io.gitlab.news_flash.NewsFlash            ,Manténgase al día con sus canales
 Notesnook               ,                       ,                          ,com.notesnook.Notesnook                   ,A fully open source & end-to-end encrypted note taking alternative to Evernote
 Obsidian                ,                       ,obsidian                  ,md.obsidian.Obsidian                      ,Markdown-based knowledge base
@@ -174,7 +176,7 @@ pbzip2                  ,pbzip2                 ,                          ,    
 picocom                 ,picocom                ,                          ,                                          ,minimal dumb-terminal emulation program
 Pinball                 ,pinball                ,pinball                   ,                                          ,Emilia Pinball Emulator
 Pinhole                 ,pinhole                ,                          ,                                          ,Simple camera application for the GNOME desktop
-Plank                   ,plank                  ,                          ,                                          ,Elegant, simple, clean dock
+Plank                   ,plank                  ,                          ,                                          ,Elegant simple clean dock
 Postman                 ,                       ,postman                   ,com.getpostman.Postman                    ,Platform for building and using APIs
 powertop                ,powertop               ,                          ,                                          ,diagnose issues with power consumption and management
 PPSSPP                  ,                       ,ppsspp-emu                ,org.ppsspp.PPSSPP                         ,A PlayStation Portable emulator
@@ -185,7 +187,7 @@ Python3                 ,python3                ,                          ,    
 Pip3                    ,python3-pip            ,                          ,                                          ,Python package installer
 Qt5 tools               ,qttools5-dev-tools     ,                          ,                                          ,Qt 5 development tools
 QtCreator               ,                       ,                          ,io.qt.QtCreator                           ,Cross-platform integrated development environment (IDE)
-Quadrapassel            ,quadrapassel           ,quadrapassel              ,org.gnome.Quadrapassel                    ,popular Russian game, similar to Tetris
+Quadrapassel            ,quadrapassel           ,quadrapassel              ,org.gnome.Quadrapassel                    ,popular Russian game similar to Tetris
 ranger                  ,ranger                 ,                          ,                                          ,Console File Manager with VI Key Bindings
 rdesktop                ,rdesktop               ,                          ,                                          ,RDP client for Windows NT/2000 Terminal Server and Windows Servers
 resolvconf              ,resolvconf             ,                          ,                                          ,name server information handler
@@ -197,8 +199,8 @@ Ruby                    ,ruby                   ,                          ,    
 Scilab                  ,scilab                 ,                          ,org.scilab.Scilab                         ,Scientific software package for numerical computations
 Secrets                 ,                       ,secrets                   ,org.gnome.World.Secrets                   ,Gestionar sus contraseñas
 Shortwave               ,                       ,shortwave                 ,de.haeckerfelix.Shortwave                 ,Escuchar la radio por Internet
-Shotcut                 ,shotcut                ,shotcut                   ,org.shotcut.Shotcut                                          ,video editor
-SongRec                 ,                       ,                          ,com.github.marinm.songrec                 ,An open-source, unofficial Shazam client for Linux, written in Rust.
+Shotcut                 ,shotcut                ,shotcut                   ,org.shotcut.Shotcut                       ,video editor
+SongRec                 ,                       ,                          ,com.github.marinm.songrec                 ,An open-source unofficial Shazam client for Linux written in Rust.
 Space Cadet Pinball     ,                       ,space-cadet-pinball       ,com.github.k4zmu2a.spacecadetpinball      ,Game engine for Space Cadet Pinball
 Spotify                 ,                       ,spotify                   ,com.spotify.Client                        ,Online music streaming service
 Spyder                  ,spyder                 ,                          ,org.spyder_ide.spyder                     ,Richly-featured Python IDE
@@ -216,7 +218,7 @@ TexLive                 ,texlive-full           ,                          ,    
 TexMaker                ,texmaker               ,                          ,net.xm1math.Texmaker                      ,cross-platform LaTeX editor
 ThiefMD                 ,                       ,                          ,com.github.kmwallio.thiefmd               ,The markdown editor worth stealing.
 Thonny                  ,thonny                 ,thonny                    ,org.thonny.Thonny                         ,Python IDE for beginners
-Thunderbird             ,thunderbird            ,thunderbird               ,org.mozilla.Thunderbird                   ,mail/news client with RSS, chat and integrated spam filter support
+Thunderbird             ,thunderbird            ,thunderbird               ,org.mozilla.Thunderbird                   ,mail/news client with RSS chat and integrated spam filter support
 Thunderbird BiDiUi      ,thunderbird-bidiui     ,                          ,                                          ,BiDirectional support for Thunderbird
 Thunderbird Language    ,thunderbird-l10n-es-mx ,                          ,                                          ,Spanish (Mexican) language package for Thunderbird
 TigerVNC                ,                       ,tigervnc                  ,org.tigervnc.vncviewer                    ,Connect to VNC server and display remote desktop
@@ -224,16 +226,16 @@ tmux                    ,tmux                   ,                          ,    
 Tor                     ,tor                    ,                          ,org.torproject.torbrowser-launcher        ,anonymizing overlay network for TCP
 Tor Launcher            ,torbrowser-launcher    ,                          ,                                          ,helps download and run the Tor Browser Bundle
 traceroute              ,traceroute             ,                          ,                                          ,Traces the route taken by packets over an IPv4/IPv6 network
-tree                    ,tree                   ,                          ,                                          ,displays an indented directory tree, in color
+tree                    ,tree                   ,                          ,                                          ,displays an indented directory tree in color
 ufw                     ,ufw                    ,                          ,                                          ,program for managing a Netfilter firewall
 Ukui Themes             ,ukui-themes            ,                          ,                                          ,Official themes for the UKUI desktop
-UltimateMediaDownloader ,                       ,                          ,com.ktechpit.ultimate-media-downloader    ,Online video & audio downloader for Linux, 1300+ websites support
+UltimateMediaDownloader ,                       ,                          ,com.ktechpit.ultimate-media-downloader    ,Online video & audio downloader for Linux 1300+ websites support
 Video Downloader        ,                       ,                          ,com.github.unrud.VideoDownloader          ,Descargar vídeos de Internet
 vim                     ,vim                    ,                          ,                                          ,Vi IMproved - enhanced vi editor
 vim-gtk3                ,vim-gtk3               ,                          ,                                          ,Vi IMproved - enhanced vi editor - with GTK3 GUI
 Visual Studio           ,                       ,code                      ,com.visualstudio.code                     ,Code editing. Redefined.
 VLC                     ,vlc                    ,vlc                       ,org.videolan.VLC                          ,multimedia player and streamer
-vsftpd                  ,vsftpd                 ,                          ,                                          ,lightweight, efficient FTP server written for security
+vsftpd                  ,vsftpd                 ,                          ,                                          ,lightweight efficient FTP server written for security
 wavemon                 ,wavemon                ,                          ,                                          ,Wireless Device Monitoring Application
 wget                    ,wget                   ,                          ,                                          ,retrieves files from the web
 WhatsApp for Linux      ,                       ,                          ,com.github.eneshecan.WhatsAppForLinux     ,Unofficial WhatsApp application
@@ -250,4 +252,4 @@ Xemu                    ,                       ,                          ,app.
 Xfce4 Screensaver       ,xfce4-screensaver      ,                          ,                                          ,screen saver and locker that is integrated with the xfce4 desktop
 xrdp                    ,xrdp                   ,                          ,                                          ,Remote Desktop Protocol (RDP) server
 xsensors                ,xsensors               ,                          ,                                          ,hardware health information viewer
-Zoom                    ,                       ,zoom-client               ,us.zoom.Zoom                              ,Video Conferencing, Web Conferencing, Webinars, Screen Sharing
+Zoom                    ,                       ,zoom-client               ,us.zoom.Zoom                              ,Video Conferencing - Web Conferencing - Webinars - Screen Sharing

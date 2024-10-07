@@ -67,39 +67,39 @@ do
         continue
     fi
 
-    echo -e "\n\e[1;44m[*] Instalando con aptitude\e[0m" | tee $aptMeslog
+    echo -e "\n\e[1;44m[*] Instalando con aptitude\e[0m" | tee -a $aptMeslog
     [[ $aptName != "" ]] && sudo apt install -y $aptName 2>/dev/null; STATUS=$?
     if [ $STATUS -ne 0 ]
     then
-        echo -e "\n\e[1;41m[!] Error al instalar el paquete \"$name\" con aptitude\e[0m" | tee $aptError
+        echo -e "\n\e[1;41m[!] Error al instalar el paquete \"$name\" con aptitude\e[0m" | tee -a $aptError
         success=0
     else
-        echo -e "\n\e[1;42m[+] Paquete \"$name\" instalado correctamente con aptitude\e[0m" | tee $aptSuccess
+        echo -e "\n\e[1;42m[+] Paquete \"$name\" instalado correctamente con aptitude\e[0m" | tee -a $aptSuccess
         success=1
     fi
 
     if [ $success -eq 0 ]
     then
-        echo -e "\n\e[1;44m[*] Instalando con snap\e[0m" | tee $snapMeslog
+        echo -e "\n\e[1;44m[*] Instalando con snap\e[0m" | tee -a $snapMeslog
         [[ $snapName != "" ]] && sudo snap install $snapName 2>/dev/null; STATUS=$?
         if [ $STATUS -ne 0 ]
         then
-            echo -e "\n\e[1;41m[!] Error al instalar el paquete \"$name\" con snap\e[0m" | tee $snapError
+            echo -e "\n\e[1;41m[!] Error al instalar el paquete \"$name\" con snap\e[0m" | tee -a $snapError
         else
-            echo -e "\n\e[1;42m[+] Paquete \"$name\" instalado correctamente con snap\e[0m" | tee $snapSuccess
+            echo -e "\n\e[1;42m[+] Paquete \"$name\" instalado correctamente con snap\e[0m" | tee -a $snapSuccess
             success=1
         fi
     fi
 
     if [ $success -eq 0 ]
     then
-        echo -e "\n\e[1;44m[*] Instalando con Flatpak\e[0m" | tee $flatpakMeslog
+        echo -e "\n\e[1;44m[*] Instalando con Flatpak\e[0m" | tee -a $flatpakMeslog
         [[ $flatpakName != "" ]] && flatpak install -y $flatpakName 2>/dev/null; STATUS=$?
         if [ $STATUS -ne 0 ]
         then
-            echo -e "\n\e[1;41m[!] Error al instalar el paquete \"$name\" con Flatpak\e[0m" | tee $flatpakError
+            echo -e "\n\e[1;41m[!] Error al instalar el paquete \"$name\" con Flatpak\e[0m" | tee -a $flatpakError
         else
-            echo -e "\n\e[1;42m[+] Paquete \"$name\" instalado correctamente con Flatpak\e[0m" | tee $flatpalSuccess
+            echo -e "\n\e[1;42m[+] Paquete \"$name\" instalado correctamente con Flatpak\e[0m" | tee -a $flatpalSuccess
             success=1
         fi
     fi

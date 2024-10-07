@@ -67,6 +67,7 @@ then
     echo -e "\n\e[1;36m[*] Iniciando descarga de XAMPP...\e[0m"
     xampp=$(curl -L "https://www.apachefriends.org/es/index.html" | grep -Po "href=\"https.+run" | grep -Po "https.+run")
     wget "$xampp"
+    STATUS=$?
     if [ $STATUS -eq 0 ]
     then
         echo -e "\e[1;32m[+] Descarga de XAMPP completada\e[0m"
@@ -85,8 +86,9 @@ then
     echo -e "\n\e[1;36m[*] Iniciando descarga de Boole Deusto...\e[0m"
     mkdir -p $HOME/.bin
     [ ! -d ./booledeusto ] && git clone https://github.com/zstars/booledeusto
+    STATUS=$?
     mv ./booledeusto/exe/boole.exe $HOME/.bin
-    rm -r --interactive=never booledeusto
+    rm -rf booledeusto
     if [ $STATUS -eq 0 ]
     then
         echo -e "\e[1;32m[+] Descarga de Boole Deusto completada\e[0m"
@@ -109,6 +111,7 @@ then
         mkdir $HOME/.bin/xiso/build
         cmake -S $HOME/.bin/xiso -B $HOME/.bin/xiso/build
         make -C $HOME/.bin/xiso/build
+        STATUS=$?
         if [ $STATUS -eq 0 ]
         then
             echo -e "\e[1;32m[+] Instalacion de xiso completada\e[0m"
@@ -159,6 +162,7 @@ then
     simulide=$(curl -L "https://launchpad.net/simulide/1.0.0/1.0.0-sr2" | grep -Po "href=\"https.+gz\"" | grep -Po "https.+gz")
     # simulide=$(curl -L "https://launchpad.net/simulide/1.1.0/1.1.0-sr0" | grep -Po "href=\"https.+gz\"" | grep -Po "https.+gz")
     wget "$simulide"
+    STATUS=$?
     if [ $STATUS -eq 0 ]
     then
         echo -e "\e[1;32m[+] Descarga de SimulIDE completada\e[0m"
@@ -176,6 +180,7 @@ if [[ $ans == "" || ($ans == "S" || $ans == "s") ]];
 then
     echo -e "\n\e[1;36m[*] Iniciando descarga de Ventoy...\e[0m"
     wget "https://sourceforge.net/projects/ventoy/files/v1.0.96/ventoy-1.0.96-linux.tar.gz"
+    STATUS=$?
     if [ $STATUS -eq 0 ]
     then
         echo -e "\e[1;32m[+] Descarga de Ventoy completada\e[0m"
@@ -197,6 +202,7 @@ then
     [ ! -d $HOME/.latino-core ] && git clone https://github.com/lenguaje-latino/latino-core $HOME/.latino-core
     cmake -S $HOME/.latino-core -B $HOME/.latino-core
     sudo make -C $HOME/.latino-core install
+    STATUS=$?
     if [ $STATUS -eq 0 ]
     then
         echo -e "\e[1;32m[+] Instalación de Latino completada\e[0m"
@@ -214,6 +220,7 @@ if [[ $ans == "" || ($ans == "S" || $ans == "s") ]];
 then
     echo -e "\n\e[1;36m[*] Iniciando descarga de rpi-imager...\e[0m"
     wget "https://downloads.raspberrypi.org/imager/imager_latest_amd64.deb"
+    STATUS=$?
     if [ $STATUS -eq 0 ]
     then
         echo -e "\e[1;32m[+] Descarga de rpi-imager completada\e[0m"
@@ -249,6 +256,7 @@ if [[ $ans == "" || ($ans == "S" || $ans == "s") ]];
 then
     echo -e "\n\e[1;36m[*] Iniciando descarga de FigletFonts...\e[0m"
     [ ! -d $HOME/figlet-fonts ] && git clone https://github.com/xero/figlet-fonts.git $HOME/figlet-fonts
+    STATUS=$?
     echo -e "\e[1;32m[+] Descarga de FigletFonts completada\e[0m"
 else
     echo -e "\n\e[1;33m[!] Saltando descarga de FigletFonts\e[0m"
@@ -262,6 +270,7 @@ then
     echo -e "\n\e[1;36m[*] Iniciando descarga de Python Utils...\e[0m"
     [ ! -d $HOME/.utils ] && git clone git@github.com:ian16munoz3nunez1/utils.git $HOME/.utils
     [ ! -d $HOME/.tcpIpy ] && git clone git@github.com:ian16munoz3nunez1/tcpIpy.git $HOME/.tcpIpy
+    STATUS=$?
     echo -e "\e[1;32m[+] Descarga de Python Utils completada\e[0m"
 else
     echo -e "\n\e[1;33m[!] Saltando descarga de Python Utils\e[0m"
@@ -273,13 +282,14 @@ read -n 1 -p "[S/n]: " ans
 if [[ $ans == "" || ($ans == "S" || $ans == "s") ]];
 then
     echo -e "\n\e[1;36m[*] Iniciando descarga de imgs...\e[0m"
+    STATUS=$?
     [ ! -d $HOME/Imágenes/imgs ] && git clone git@github.com:ian16munoz3nunez1/imgs $HOME/Imágenes/imgs
     echo -e "\e[1;32m[+] Descarga de imgs completada\e[0m"
 else
     echo -e "\n\e[1;33m[!] Saltando descarga de imgs\e[0m"
 fi
 
-#### Instalacion de  yt-dlp
+#### Instalacion de yt-dlp
 echo -e "\n\e[1;35m[?] Instalar yt-dlp?...\e[0m"
 read -n 1 -p "[S/n]: " ans
 if [[ $ans == "" || ($ans == "S" || $ans == "s") ]];
