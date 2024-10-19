@@ -13,7 +13,20 @@ else
     exit 1
 fi
 
-echo -e "\n# misAlias
+echo -e "\n# systemAliases
+alias ls='ls --color=auto'
+alias dir='dir --color=auto'
+alias vdir='vdir --color=auto'
+alias grep='grep --color=auto'
+alias fgrep='fgrep --color=auto'
+alias egrep='egrep --color=auto'
+alias diff='diff --color=auto'
+alias ip='ip --color=auto'
+alias ll='ls -l'
+alias la='ls -A'
+alias l='ls -CF'
+
+# misAlias
 alias figletFonts='python3 $HOME/.utils/figletFonts.py'
 alias ftpy='python3 $HOME/.utils/ftpy.py'
 alias httpy='python3 $HOME/.utils/httpy.py'
@@ -55,6 +68,8 @@ alias find4Dirs='find -maxdepth 4 -type d'
 # misVariables
 export PATH=\"\$PATH\":$HOME/.local/bin\"\"
 export PATH=\"$PATH\":/snap/bin\"\"
+export PATH=\"\$PATH\":$HOME/.local/bin\"\"
+export PATH=\"\$PATH\":$HOME/.python/bin\"\"
 export PATH=\"\$PATH\":/opt/microchip/xc8/vX.XX/bin\"\"
 export TOKENGIT=''
 export WINEPREFIX=\$HOME/myapp/prefix
