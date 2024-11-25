@@ -1,0 +1,8 @@
+#!/bin/bash
+
+fileName=$1
+
+find \( -name $1 -prune \) -o \( -type f -print0 \) | xargs -0 -I % md5sum % | tee $1
+
+md5sum -c $1
+
