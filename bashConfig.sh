@@ -43,6 +43,7 @@ alias pycamClient='python3 $HOME/.utils/wificam/client.py'
 alias pycamServer='python3 $HOME/.utils/wificam/server.py'
 alias tcpIpys='python3 $HOME/.tcpIpy/server/main.py'
 alias tcpIpyc='python3 $HOME/.tcpIpy/client/main.py'
+alias pyenv='source ~/.python/bin/activate'
 alias rd='rm -r --interactive=never'
 # alias guiXampp='sudo /opt/lampp/manager-linux-x64.run'
 # alias mysql='sudo /opt/lampp/bin/mysql'
@@ -64,13 +65,13 @@ alias find1Dirs='find -maxdepth 1 -type d'
 alias find2Dirs='find -maxdepth 2 -type d'
 alias find3Dirs='find -maxdepth 3 -type d'
 alias find4Dirs='find -maxdepth 4 -type d'
+alias rpi='ssh ianemn@rpi'
 
 # misVariables
 export PATH=\"\$PATH\":$HOME/.local/bin\"\"
-export PATH=\"$PATH\":/snap/bin\"\"
-export PATH=\"\$PATH\":$HOME/.local/bin\"\"
 export PATH=\"\$PATH\":$HOME/.python/bin\"\"
 export PATH=\"\$PATH\":/opt/microchip/xc8/vX.XX/bin\"\"
+export PATH=\"\$PATH\":/snap/bin\"\"
 export TOKENGIT=''
 export WINEPREFIX=\$HOME/myapp/prefix
 export WINEARCH=win32

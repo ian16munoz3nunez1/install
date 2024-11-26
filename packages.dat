@@ -67,6 +67,7 @@ ffmpeg                  ,ffmpeg                 ,ffmpeg                    ,    
 figlet                  ,figlet                 ,figlet                    ,                                          ,Make large character ASCII banners out of ordinary text
 File-Roller             ,file-roller            ,                          ,                                          ,archive manager for GNOME
 FileLight               ,filelight              ,filelight                 ,                                          ,show where your diskspace is being used
+FileZilla               ,filezilla              ,                          ,org.filezillaproject.Filezilla            ,Full-featured graphical FTP/FTPS/SFTP client
 Filius                  ,                       ,                          ,de.lernsoftware_filius.Filius             ,Filius is a network simulator for educational purpose.
 Foliate                 ,                       ,foliate                   ,com.github.johnfactotum.Foliate           ,Lea libros electrónicos con estilo
 Folio                   ,                       ,                          ,com.toolstack.Folio                       ,Toma apuntes en Markdown
