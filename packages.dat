@@ -48,6 +48,7 @@ cmatrix                 ,cmatrix                ,                          ,    
 cmake                   ,cmake                  ,                          ,                                          ,cross-platform open-source make system
 Cura                    ,                       ,cura-slicer               ,com.ultimaker.cura                        ,Slicer to prepare your 3D printing projects
 curl                    ,curl                   ,                          ,                                          ,command line tool for transferring data with URL syntax
+DBeaver                 ,                       ,                          ,io.dbeaver.DBeaverCommunity               ,Universal Database Manager
 dialog                  ,dialog                 ,                          ,                                          ,Displays user-friendly dialog boxes from shell scripts
 DIY Layout Creator      ,                       ,                          ,com.diy_fever.DIYLayoutCreator            ,Circuit layout design tool supporting PCB vero-board point-to-point perf-board...
 Doggo                   ,                       ,                          ,app.drey.Doggo                            ,Clicker and chance game
@@ -156,6 +157,7 @@ Monophony               ,                       ,monophony                 ,io.g
 Moon Buggy              ,moon-buggy             ,moon-buggy                ,                                          ,Drive a car across the moon
 Moon Lander             ,moon-lander            ,                          ,                                          ,game based on the classic moon lander
 Mousam                  ,                       ,                          ,io.github.amit9838.mousam                 ,Weather at a glance
+Mousepad                ,mousepad               ,                          ,org.xfce.mousepad                         ,simple Xfce oriented text editor
 mpv                     ,mpv                    ,mpv                       ,io.mpv.Mpv                                ,A free open source and cross-platform media player
 Mu Editor               ,mu-editor              ,mu-editor                 ,                                          ,simple editor for beginner Python programmers
 nano                    ,nano                   ,                          ,                                          ,small friendly text editor inspired by Pico
@@ -201,6 +203,7 @@ Scilab                  ,scilab                 ,                          ,org.
 Secrets                 ,                       ,secrets                   ,org.gnome.World.Secrets                   ,Gestionar sus contraseñas
 Shortwave               ,                       ,shortwave                 ,de.haeckerfelix.Shortwave                 ,Escuchar la radio por Internet
 Shotcut                 ,shotcut                ,shotcut                   ,org.shotcut.Shotcut                       ,video editor
+Signal                  ,                       ,                          ,org.signal.Signal                         ,Private messenger
 SongRec                 ,                       ,                          ,com.github.marinm.songrec                 ,An open-source unofficial Shazam client for Linux written in Rust.
 Space Cadet Pinball     ,                       ,space-cadet-pinball       ,com.github.k4zmu2a.spacecadetpinball      ,Game engine for Space Cadet Pinball
 Spotify                 ,                       ,spotify                   ,com.spotify.Client                        ,Online music streaming service
@@ -236,6 +239,7 @@ vim                     ,vim                    ,                          ,    
 vim-gtk3                ,vim-gtk3               ,                          ,                                          ,Vi IMproved - enhanced vi editor - with GTK3 GUI
 Visual Studio           ,                       ,code                      ,com.visualstudio.code                     ,Code editing. Redefined.
 VLC                     ,vlc                    ,vlc                       ,org.videolan.VLC                          ,multimedia player and streamer
+VScodium                ,                       ,                          ,com.vscodium.codium                       ,Telemetry-less code editing
 vsftpd                  ,vsftpd                 ,                          ,                                          ,lightweight efficient FTP server written for security
 wavemon                 ,wavemon                ,                          ,                                          ,Wireless Device Monitoring Application
 wget                    ,wget                   ,                          ,                                          ,retrieves files from the web
