@@ -35,6 +35,7 @@ Cantor                  ,cantor                 ,cantor                    ,org.
 Chrome                  ,                       ,                          ,com.google.Chrome                         ,The web browser from Google
 Chromium                ,chromium               ,chromium                  ,org.chromium.Chromium                     ,web browser
 Chromium B.S.U.         ,                       ,                          ,net.sourceforge.chromium-bsu              ,Fast paced arcade-style top-scrolling space shooter
+clangd                  ,clangd                 ,                          ,                                          ,Language server that provides IDE-like features to editors
 Code::Blocks            ,codeblocks             ,                          ,                                          ,Code::Blocks integrated development environment (IDE)
 Code::Blocks (all)      ,codeclocks-*           ,                          ,                                          ,Code::Blocks complements
 Cohesion                ,                       ,                          ,io.github.brunofin.Cohesion               ,Unofficial Notion Desktop client
@@ -101,6 +102,7 @@ Gnome Sudoku            ,gnome-sudoku           ,gnome-sudoku              ,org.
 Gnome Weather           ,gnome-weather          ,gnome-weather             ,org.gnome.Weather                         ,Mostrar las condiciones meteorológicas y el pronóstico
 Godot Engine            ,godot3                 ,godot-3-1                 ,org.godotengine.Godot3                    ,Full 2D and 3D game engine with editor
 Golang                  ,golang-go              ,                          ,                                          ,Go programming language compiler linker compiled stdlib
+gopls                   ,gopls                  ,                          ,                                          ,language server for the Go language
 GParted                 ,gparted                ,                          ,                                          ,GNOME partition editor
 GPick                   ,gpick                  ,                          ,                                          ,advanced GTK+ color picker
 GPredict                ,                       ,                          ,net.oz9aec.Gpredict                       ,Real-time satellite tracking and orbit prediction program
@@ -131,8 +133,10 @@ Kasts                   ,kasts                  ,kasts                     ,org.
 KCharSelect             ,kcharselect            ,kcharselect               ,org.kde.kcharselect                       ,special character utility
 KDEconnect              ,kdeconnect             ,                          ,                                          ,connect smartphones to your desktop devices
 KDEnLive                ,kdenlive               ,kdenlive                  ,org.kde.kdenlive                          ,non-linear video editor
+kew                     ,kew                    ,                          ,                                          ,play music from the commandline
 KiCad                   ,kicad                  ,kicad                     ,org.kicad.KiCad                           ,Electronic schematic and PCB design software
 Kolibri                 ,                       ,                          ,org.learningequality.Kolibri              ,Offline learning platform
+Konsole                 ,konsole                ,                          ,org.kde.konsole                           ,X terminal emulator
 Krita                   ,krita                  ,krita                     ,org.kde.krita                             ,pixel-based image manipulation program
 KTorrent                ,ktorrent               ,ktorrent                  ,org.kde.ktorrent                          ,BitTorrent client based on the KDE platform
 KWeather                ,                       ,kweather                  ,org.kde.kweather                          ,Ver predicciones meteorológicas en tiempo real y otra información
@@ -149,6 +153,7 @@ lynx                    ,lynx                   ,                          ,    
 Marble                  ,marble                 ,marble                    ,org.kde.marble                            ,globe and map widget
 mariadb-server          ,mariadb-server         ,                          ,                                          ,MariaDB database server binaries
 Marker                  ,                       ,marker                    ,com.github.fabiocolacio.marker            ,Powerful markdown editor for the GNOME desktop.
+maven                   ,maven                  ,                          ,                                          ,Java software project management and comprehension tool
 Midnight Commander      ,mc                     ,                          ,                                          ,Midnight Commander - a powerful file manager
 mcrypt                  ,mcrypt                 ,                          ,                                          ,Replacement for old unix crypt(1)
 minicom                 ,minicom                ,                          ,                                          ,Friendly menu driven serial communication program
