@@ -19,6 +19,8 @@ Barcoder                ,                       ,                          ,cz.o
 bc                      ,bc                     ,                          ,                                          ,GNU bc arbitrary precision calculator language
 Billard                 ,billard-gl             ,                          ,de.billardgl.Billardgl                    ,3D billiards game
 BinEd                   ,                       ,                          ,org.exbin.BinEd                           ,Binary/Hex Editor
+Bitwarden               ,                       ,                          ,com.bitwarden.desktop                     ,A secure and free password manager for all of your devices
+Blanket                 ,                       ,                          ,com.rafaelmardojai.Blanket                ,Listen to ambient sounds
 Blender                 ,                       ,blender                   ,org.blender.Blender                       ,Free and open source 3D creation suite
 Bomberman               ,                       ,bombermaaan               ,com.github.bjaraujo.Bombermaaan           ,Arcade Game
 Bottles                 ,                       ,                          ,com.usebottles.bottles                    ,Ejecute software de Windows
@@ -50,6 +52,7 @@ cmake                   ,cmake                  ,                          ,    
 Cura                    ,                       ,cura-slicer               ,com.ultimaker.cura                        ,Slicer to prepare your 3D printing projects
 curl                    ,curl                   ,                          ,                                          ,command line tool for transferring data with URL syntax
 DBeaver                 ,                       ,                          ,io.dbeaver.DBeaverCommunity               ,Universal Database Manager
+Decoder                 ,                       ,                          ,com.belmoussaoui.Decoder                  ,Scan and generate QR codes
 dialog                  ,dialog                 ,                          ,                                          ,Displays user-friendly dialog boxes from shell scripts
 DIY Layout Creator      ,                       ,                          ,com.diy_fever.DIYLayoutCreator            ,Circuit layout design tool supporting PCB vero-board point-to-point perf-board...
 Doggo                   ,                       ,                          ,app.drey.Doggo                            ,Clicker and chance game
@@ -62,6 +65,8 @@ Eclipse                 ,                       ,eclipse                   ,org.
 Elastic                 ,                       ,                          ,app.drey.Elastic                          ,Diseñar animaciones spring
 Emblem                  ,                       ,                          ,org.gnome.design.Emblem                   ,Generar avatares de proyectos
 Engrampa                ,engrampa               ,                          ,                                          ,archive manager for MATE
+Exhibit                 ,                       ,                          ,io.github.nokse22.Exhibit                 ,Preview your 3D models
+Expandoria              ,                       ,                          ,page.codeberg.terratactician_expandoria.game ,Hexagon based logic game
 Eye Of Gnome            ,eog                    ,eog                       ,org.gnome.eog                             ,Eye of GNOME graphics viewer program
 Falkon                  ,falkon                 ,falkon                    ,                                          ,lightweight web browser based on Qt WebEngine
 fastboot                ,fastboot               ,                          ,                                          ,Android fastboot tool
@@ -71,10 +76,14 @@ File-Roller             ,file-roller            ,                          ,    
 FileLight               ,filelight              ,filelight                 ,                                          ,show where your diskspace is being used
 FileZilla               ,filezilla              ,                          ,org.filezillaproject.Filezilla            ,Full-featured graphical FTP/FTPS/SFTP client
 Filius                  ,                       ,                          ,de.lernsoftware_filius.Filius             ,Filius is a network simulator for educational purpose.
+FlightGear              ,                       ,                          ,org.flightgear.FlightGear                 ,A free and highly sophisticated flight simulator
 Foliate                 ,                       ,foliate                   ,com.github.johnfactotum.Foliate           ,Lea libros electrónicos con estilo
 Folio                   ,                       ,                          ,com.toolstack.Folio                       ,Toma apuntes en Markdown
 fortune                 ,fortune                ,                          ,                                          ,Display a quotation (fortune) in a window for GNUstep
+Fotema                  ,                       ,                          ,app.fotema.Fotema                         ,Admire your photos
+Fragments               ,                       ,                          ,de.haeckerfelix.Fragments                 ,Manage torrents
 FreeCAD                 ,                       ,freecad                   ,org.freecadweb.FreeCAD                    ,An open source parametric 3D CAD modeler
+Fretboard               ,                       ,                          ,dev.bragefuglseth.Fretboard               ,Look up guitar chords
 Fritzing                ,fritzing               ,                          ,                                          ,Easy-to-use electronic design software
 fsarchiver              ,fsarchiver             ,                          ,                                          ,file system archiver
 Funkcio                 ,                       ,                          ,im.bernard.Funkcio                        ,Draw functions from points
@@ -134,10 +143,15 @@ KCharSelect             ,kcharselect            ,kcharselect               ,org.
 KDEconnect              ,kdeconnect             ,                          ,                                          ,connect smartphones to your desktop devices
 KDEnLive                ,kdenlive               ,kdenlive                  ,org.kde.kdenlive                          ,non-linear video editor
 kew                     ,kew                    ,                          ,                                          ,play music from the commandline
+KFourInLine             ,                       ,                          ,org.kde.kfourinline                       ,KFourInLine is a four-in-a-row game by KDE
 KiCad                   ,kicad                  ,kicad                     ,org.kicad.KiCad                           ,Electronic schematic and PCB design software
+KNetWalk                ,knetwalk               ,                          ,org.kde.knetwalk                          ,KNetWalk is a game for system administrators
 Kolibri                 ,                       ,                          ,org.learningequality.Kolibri              ,Offline learning platform
 Konsole                 ,konsole                ,                          ,org.kde.konsole                           ,X terminal emulator
+KRDC                    ,krdc                   ,                          ,
 Krita                   ,krita                  ,krita                     ,org.kde.krita                             ,pixel-based image manipulation program
+KSquares                ,ksquares               ,                          ,org.kde.ksquares                          ,Connect the dots to create squares
+KStars                  ,kstars                 ,                          ,org.kde.kstars                            ,Desktop Planetarium
 KTorrent                ,ktorrent               ,ktorrent                  ,org.kde.ktorrent                          ,BitTorrent client based on the KDE platform
 KWeather                ,                       ,kweather                  ,org.kde.kweather                          ,Ver predicciones meteorológicas en tiempo real y otra información
 LeoCAD                  ,                       ,leocad                    ,org.leocad.LeoCAD                         ,Design virtual models you can build with LEGO bricks
@@ -199,6 +213,7 @@ Quadrapassel            ,quadrapassel           ,quadrapassel              ,org.
 ranger                  ,ranger                 ,                          ,                                          ,Console File Manager with VI Key Bindings
 rdesktop                ,rdesktop               ,                          ,                                          ,RDP client for Windows NT/2000 Terminal Server and Windows Servers
 resolvconf              ,resolvconf             ,                          ,                                          ,name server information handler
+Red Eclipse Legacy      ,                       ,                          ,net.redeclipse.RedEclipse-Legacy          ,First-person shooter with agile gameplay and built-in editor
 Remmina                 ,remmina                ,remmina                   ,org.remmina.Remmina                       ,GTK+ Remote Desktop Client
 Rhythmbox               ,rhythmbox              ,                          ,org.gnome.Rhythmbox3                      ,music player and organizer for GNOME
 Rhythmbox (all)         ,rhythmbox-*            ,                          ,                                          ,Rhythmbox complements
@@ -261,5 +276,6 @@ XDot                    ,xdot                   ,                          ,    
 Xemu                    ,                       ,                          ,app.xemu.xemu                             ,Original Xbox Emulator
 Xfce4 Screensaver       ,xfce4-screensaver      ,                          ,                                          ,screen saver and locker that is integrated with the xfce4 desktop
 xrdp                    ,xrdp                   ,                          ,                                          ,Remote Desktop Protocol (RDP) server
+xsct                    ,xsct                   ,                          ,                                          ,X11 set screen color temperature
 xsensors                ,xsensors               ,                          ,                                          ,hardware health information viewer
 Zoom                    ,                       ,zoom-client               ,us.zoom.Zoom                              ,Video Conferencing - Web Conferencing - Webinars - Screen Sharing
