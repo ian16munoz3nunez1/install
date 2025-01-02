@@ -9,7 +9,7 @@ Aisleriot               ,aisleriot              ,                          ,org.
 AnyDesk                 ,                       ,                          ,com.anydesk.Anydesk                       ,Conéctese a un ordenador de forma remota
 Arduino                 ,arduino                ,arduino                   ,cc.arduino.arduinoide                     ,AVR development board IDE from Arduino CC
 Ark                     ,ark                    ,ark                       ,org.kde.ark                               ,archive utility
-Armagetron Advanced     ,armagetronad           ,armagetron                ,                                          ,3D Tron-like high speed game
+Armagetron Advanced     ,armagetronad           ,armagetron                ,org.armagetronad.ArmagetronAdvanced       ,3D Tron-like high speed game
 ASCII Draw              ,                       ,ascii-draw                ,io.github.nokse22.asciidraw               ,Sketch anything using characters
 Atom                    ,                       ,                          ,io.atom.Atom                              ,A hackable text editor for the 21st Century
 Audacity                ,audacity               ,audacity                  ,                                          ,fast cross-platform audio editor
@@ -21,7 +21,7 @@ Billard                 ,billard-gl             ,                          ,de.b
 BinEd                   ,                       ,                          ,org.exbin.BinEd                           ,Binary/Hex Editor
 Bitwarden               ,                       ,                          ,com.bitwarden.desktop                     ,A secure and free password manager for all of your devices
 Blanket                 ,                       ,                          ,com.rafaelmardojai.Blanket                ,Listen to ambient sounds
-Blender                 ,                       ,blender                   ,org.blender.Blender                       ,Free and open source 3D creation suite
+Blender                 ,blender                ,blender                   ,org.blender.Blender                       ,Free and open source 3D creation suite
 Bomberman               ,                       ,bombermaaan               ,com.github.bjaraujo.Bombermaaan           ,Arcade Game
 Bottles                 ,                       ,                          ,com.usebottles.bottles                    ,Ejecute software de Windows
 Boxes                   ,                       ,                          ,org.gnome.Boxes                           ,Virtualización sencilla
@@ -84,7 +84,7 @@ Fotema                  ,                       ,                          ,app.
 Fragments               ,                       ,                          ,de.haeckerfelix.Fragments                 ,Manage torrents
 FreeCAD                 ,                       ,freecad                   ,org.freecadweb.FreeCAD                    ,An open source parametric 3D CAD modeler
 Fretboard               ,                       ,                          ,dev.bragefuglseth.Fretboard               ,Look up guitar chords
-Fritzing                ,fritzing               ,                          ,                                          ,Easy-to-use electronic design software
+Fritzing                ,fritzing               ,                          ,org.fritzing.Fritzing                     ,Easy-to-use electronic design software
 fsarchiver              ,fsarchiver             ,                          ,                                          ,file system archiver
 Funkcio                 ,                       ,                          ,im.bernard.Funkcio                        ,Draw functions from points
 g++                     ,g++                    ,                          ,                                          ,GNU C++ compiler
@@ -124,7 +124,7 @@ Hopsan                  ,                       ,hopsan                    ,com.
 htop                    ,htop                   ,htop                      ,                                          ,interactive processes viewer
 hwinfo                  ,hwinfo                 ,                          ,                                          ,Hardware identification system
 ImHex                   ,imhex                  ,                          ,net.werwolv.ImHex                         ,Modern REing Hex Editor
-Inkscape                ,inkscape               ,                          ,                                          ,vector-based drawing program
+Inkscape                ,inkscape               ,                          ,org.inkscape.Inkscape                     ,vector-based drawing program
 IntelliJ                ,                       ,intellij-idea-community   ,com.jetbrains.IntelliJ-IDEA-Community     ,Capable and Ergonomic Java IDE
 iotop                   ,iotop                  ,                          ,                                          ,simple top-like I/O monitor
 iproute2                ,iproute2               ,                          ,                                          ,networking and traffic control tools
@@ -136,7 +136,7 @@ Kali Desktop Xfce       ,kali-desktop-xfce      ,                          ,    
 Kali Wallpapers         ,kali-wallpapers-all    ,                          ,                                          ,All wallpapers for Kali Linux
 Kali Themes             ,kali-themes            ,                          ,                                          ,Configure all desktops to use the Kali theme
 Kali Undercover         ,kali-undercover        ,                          ,                                          ,Kali Undercover Mode
-Kate                    ,kate                   ,kate                      ,                                          ,powerful text editor
+Kate                    ,kate                   ,kate                      ,org.kde.kate                              ,powerful text editor
 Kalzium                 ,kalzium                ,kalzium                   ,org.kde.kalzium                           ,Tabla periódica de los elementos
 Kasts                   ,kasts                  ,kasts                     ,org.kde.kasts                             ,Aplicación de podcast
 KCharSelect             ,kcharselect            ,kcharselect               ,org.kde.kcharselect                       ,special character utility
@@ -148,7 +148,7 @@ KiCad                   ,kicad                  ,kicad                     ,org.
 KNetWalk                ,knetwalk               ,                          ,org.kde.knetwalk                          ,KNetWalk is a game for system administrators
 Kolibri                 ,                       ,                          ,org.learningequality.Kolibri              ,Offline learning platform
 Konsole                 ,konsole                ,                          ,org.kde.konsole                           ,X terminal emulator
-KRDC                    ,krdc                   ,                          ,
+KRDC                    ,krdc                   ,                          ,org.kde.krdc                              ,Remote Desktop Connection client
 Krita                   ,krita                  ,krita                     ,org.kde.krita                             ,pixel-based image manipulation program
 KSquares                ,ksquares               ,                          ,org.kde.ksquares                          ,Connect the dots to create squares
 KStars                  ,kstars                 ,                          ,org.kde.kstars                            ,Desktop Planetarium
@@ -187,7 +187,7 @@ net-tools               ,net-tools              ,                          ,    
 Netsleuth               ,                       ,                          ,io.github.vmkspv.netsleuth                ,Calculate IP subnets
 Newsflash               ,                       ,                          ,io.gitlab.news_flash.NewsFlash            ,Manténgase al día con sus canales
 Notesnook               ,                       ,                          ,com.notesnook.Notesnook                   ,A fully open source & end-to-end encrypted note taking alternative to Evernote
-Obsidian                ,                       ,obsidian                  ,md.obsidian.Obsidian                      ,Markdown-based knowledge base
+Obsidian                ,obsidian               ,obsidian                  ,md.obsidian.Obsidian                      ,Markdown-based knowledge base
 OBS Studio              ,obs-studio             ,obs-studio                ,com.obsproject.Studio                     ,Live stream and record videos
 Octave                  ,octave                 ,octave                    ,org.octave.Octave                         ,GNU Octave language for numerical computations
 Octave (all)            ,octave-*               ,                          ,                                          ,Octave complements
@@ -197,7 +197,7 @@ OrbVis                  ,                       ,                          ,io.g
 pbzip2                  ,pbzip2                 ,                          ,                                          ,parallel bzip2 implementation
 picocom                 ,picocom                ,                          ,                                          ,minimal dumb-terminal emulation program
 Pinball                 ,pinball                ,pinball                   ,                                          ,Emilia Pinball Emulator
-Pinhole                 ,pinhole                ,                          ,                                          ,Simple camera application for the GNOME desktop
+Pinhole                 ,pinhole                ,                          ,org.gnome.Snapshot                        ,Simple camera application for the GNOME desktop
 Plank                   ,plank                  ,                          ,                                          ,Elegant simple clean dock
 Postman                 ,                       ,postman                   ,com.getpostman.Postman                    ,Platform for building and using APIs
 powertop                ,powertop               ,                          ,                                          ,diagnose issues with power consumption and management
@@ -224,6 +224,7 @@ Secrets                 ,                       ,secrets                   ,org.
 Shortwave               ,                       ,shortwave                 ,de.haeckerfelix.Shortwave                 ,Escuchar la radio por Internet
 Shotcut                 ,shotcut                ,shotcut                   ,org.shotcut.Shotcut                       ,video editor
 Signal                  ,                       ,                          ,org.signal.Signal                         ,Private messenger
+SimulIDE                ,simulide               ,                          ,com.simulide.simulide                     ,simple real time electronic circuit simulator
 SongRec                 ,                       ,                          ,com.github.marinm.songrec                 ,An open-source unofficial Shazam client for Linux written in Rust.
 Space Cadet Pinball     ,                       ,space-cadet-pinball       ,com.github.k4zmu2a.spacecadetpinball      ,Game engine for Space Cadet Pinball
 Spotify                 ,                       ,spotify                   ,com.spotify.Client                        ,Online music streaming service
