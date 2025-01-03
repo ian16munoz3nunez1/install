@@ -10,6 +10,8 @@ lines=$(awk 'END{ print NR }' packages.dat)
 
 [ ! -d $HOME/.logs ] && mkdir $HOME/.logs
 
+installed="./.installed.dat"
+skipped="./.skipped.dat"
 aptMeslog="$HOME/.logs/aptMeslog.install.log"
 aptError="$HOME/.logs/aptError.install.log"
 aptSuccess="$HOME/.logs/aptSuccess.install.log"
@@ -20,32 +22,20 @@ flatpakMeslog="$HOME/.logs/flatpakMeslog.install.log"
 flatpakError="$HOME/.logs/flatpakError.install.log"
 flatpakSuccess="$HOME/.logs/flatpakSuccess.install.log"
 
-[ -f $aptMeslog ] && rm $aptMeslog
-touch $aptMeslog && echo -e "\e[1;43m[i] Archivo aptMeslog.log creado\e[0m"
+[ ! -f $installed ] && touch $installed && echo -e "\e[1;43m[i] Archivo .installed.dat creado\e[0m"
+[ ! -f $skipped ] && touch $skipped && echo -e "\e[1;43m[i] Archivo .skipped.dat creado\e[0m"
 
-[ -f $aptError ] && rm $aptError
-touch $aptError && echo -e "\e[1;43m[i] Archivo aptError.log creado\e[0m"
+[ ! -f $aptMeslog ] && touch $aptMeslog && echo -e "\e[1;43m[i] Archivo aptMeslog.log creado\e[0m"
+[ ! -f $aptError ] && touch $aptError && echo -e "\e[1;43m[i] Archivo aptError.log creado\e[0m"
+[ ! -f $aptSuccess ] && touch $aptSuccess && echo -e "\e[1;43m[i] Archivo aptSuccess.log creado\e[0m"
 
-[ -f $aptSuccess ] && rm $aptSuccess
-touch $aptSuccess && echo -e "\e[1;43m[i] Archivo aptSuccess.log creado\e[0m"
+[ ! -f $flatpakMeslog ] && touch $flatpakMeslog && echo -e "\e[1;43m[i] Archivo flatpakMeslog.log creado\e[0m"
+[ ! -f $flatpakError ] && touch $flatpakError && echo -e "\e[1;43m[i] Archivo flatpakError.log creado\e[0m"
+[ ! -f $flatpakSuccess ] && touch $flatpakSuccess && echo -e "\e[1;43m[i] Archivo flatpakSuccess.log creado\e[0m"
 
-[ -f $snapMeslog ] && rm $snapMeslog
-touch $snapMeslog && echo -e "\e[1;43m[i] Archivo snapMeslog.log creado\e[0m"
-
-[ -f $snapError ] && rm $snapError
-touch $snapError && echo -e "\e[1;43m[i] Archivo snapError.log creado\e[0m"
-
-[ -f $snapSuccess ] && rm $snapSuccess
-touch $snapSuccess && echo -e "\e[1;43m[i] Archivo snapSuccess.log creado\e[0m"
-
-[ -f $flatpakMeslog ] && rm $flatpakMeslog
-touch $flatpakMeslog && echo -e "\e[1;43m[i] Archivo flapatkMeslog.log creado\e[0m"
-
-[ -f $flatpakError ] && rm $flatpakError
-touch $flatpakError && echo -e "\e[1;43m[i] Archivo flatpakError.log creado\e[0m"
-
-[ -f $flatpakSuccess ] && rm $flatpakSuccess
-touch $flatpakSuccess && echo -e "\e[1;43m[i] Archivo flatpakSuccess.log creado\e[0m"
+[ ! -f $snapMeslog ] && touch $snapMeslog && echo -e "\e[1;43m[i] Archivo snapMeslog.log creado\e[0m"
+[ ! -f $snapError ] && touch $snapError && echo -e "\e[1;43m[i] Archivo snapError.log creado\e[0m"
+[ ! -f $snapSuccess ] && touch $snapSuccess && echo -e "\e[1;43m[i] Archivo snapSuccess.log creado\e[0m"
 
 for (( i=2; i<=$lines; i++))
 do
@@ -54,6 +44,12 @@ do
     snapName=$(awk -F , 'NR == line { print $3 }' line=$i packages.dat | sed 's/\s*$//g' | xargs -I % echo %)
     flatpakName=$(awk -F , 'NR == line { print $4 }' line=$i packages.dat | sed 's/\s*$//g' | xargs -I % echo %)
     description=$(awk -F , 'NR == line { print $5 }' line=$i packages.dat | sed 's/\s*$//g' | xargs -I % echo %)
+
+    grep "$name" $installed &>/dev/null; found=$?
+    [ $found -eq 0 ] && echo -e "\n\e[1;42m[+] Paquete \"$name\" instalado\e[0m" && continue
+
+    grep "$name" $skipped &>/dev/null; skip=$?
+    [ $skip -eq 0 ] && echo -e "\n\e[1;43m[i] Paquete \"$name\" saltado\e[0m" && continue
 
     echo -e "\e[1;35m\n[?] Instalar paquete \"$name\"?...\e[0m"
     echo -e "\e[1;36mDescripcion: $description\e[0m"
@@ -64,6 +60,7 @@ do
         true
     else
         echo -e "\n\e[1;43m[!] Saltando instalación del paquete \"$name\"\e[0m"
+        echo -e $name >> $skipped
         continue
     fi
 
@@ -75,20 +72,8 @@ do
         success=0
     else
         echo -e "\n\e[1;42m[+] Paquete \"$name\" instalado correctamente con aptitude\e[0m" | tee -a $aptSuccess
+        echo -e $name >> $installed
         success=1
-    fi
-
-    if [ $success -eq 0 ]
-    then
-        echo -e "\n\e[1;44m[*] Instalando con snap\e[0m" | tee -a $snapMeslog
-        [[ $snapName != "" ]] && sudo snap install $snapName 2>/dev/null; STATUS=$?
-        if [ $STATUS -ne 0 ]
-        then
-            echo -e "\n\e[1;41m[!] Error al instalar el paquete \"$name\" con snap\e[0m" | tee -a $snapError
-        else
-            echo -e "\n\e[1;42m[+] Paquete \"$name\" instalado correctamente con snap\e[0m" | tee -a $snapSuccess
-            success=1
-        fi
     fi
 
     if [ $success -eq 0 ]
@@ -100,6 +85,21 @@ do
             echo -e "\n\e[1;41m[!] Error al instalar el paquete \"$name\" con Flatpak\e[0m" | tee -a $flatpakError
         else
             echo -e "\n\e[1;42m[+] Paquete \"$name\" instalado correctamente con Flatpak\e[0m" | tee -a $flatpalSuccess
+            echo -e $name >> $installed
+            success=1
+        fi
+    fi
+
+    if [ $success -eq 0 ]
+    then
+        echo -e "\n\e[1;44m[*] Instalando con snap\e[0m" | tee -a $snapMeslog
+        [[ $snapName != "" ]] && sudo snap install $snapName 2>/dev/null; STATUS=$?
+        if [ $STATUS -ne 0 ]
+        then
+            echo -e "\n\e[1;41m[!] Error al instalar el paquete \"$name\" con snap\e[0m" | tee -a $snapError
+        else
+            echo -e "\n\e[1;42m[+] Paquete \"$name\" instalado correctamente con snap\e[0m" | tee -a $snapSuccess
+            echo -e $name >> $installed
             success=1
         fi
     fi
