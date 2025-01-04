@@ -39,19 +39,23 @@ else
     echo -e "\n\e[1;33m[!] Saltando descarga de XC8\e[0m"
 fi
 
-#### Descarga de CoppeliaSim
+#### Instalacion de CoppeliaSim
 echo -e "\n\e[1;35m[?] Descargar CoppeliaSim?...\e[0m"
 read -n 1 -p "[S/n]: " ans
 if [[ $ans == "" || ($ans == "S" || $ans == "s") ]];
 then
     echo -e "\n\e[1;36m[*] Iniciando descarga de CoppeliaSim...\e[0m"
     # coppeliaSim=$(curl -L "https://www.coppeliarobotics.com/downloads?flavor=edu&platform=ubuntu22-x86_64" | grep -Po "href=\"https.+xz" | grep -Po "https.+xz")
-    coppeliaSim="https://downloads.coppeliarobotics.com/V4_5_1_rev4/CoppeliaSim_Edu_V4_5_1_rev4_Ubuntu22_04.tar.xz"
+    coppeliaSim="https://downloads.coppeliarobotics.com/V4_8_0_rev0/CoppeliaSim_Edu_V4_8_0_rev0_Ubuntu24_04.tar.xz"
     wget "$coppeliaSim"
+    fileName=$(ls | grep -iP "coppeliasim")
+    tar -xvf $fileName &>/dev/null
+    dirName=$(find -maxdepth 1 -type d | grep -iP "coppeliasim")
+    mv $dirName $HOME/.bin/coppeliaSim
     STATUS=$?
     if [ $STATUS -eq 0 ]
     then
-        echo -e "\e[1;32m[+] Descarga de CoppeliaSim completada\e[0m"
+        echo -e "\e[1;32m[+] Instalacion de CoppeliaSim completada\e[0m"
     else
         echo -e "\e[1;31m[!] Error al descargar CoppeliaSim\e[0m"
     fi
@@ -78,7 +82,7 @@ else
     echo -e "\n\e[1;33m[!] Saltando descarga de XAMPP...\e[0m"
 fi
 
-#### Descarga de BooleDeusto
+#### Instalacion de BooleDeusto
 echo -e "\n\e[1;35m[?] Descargar Boole Deusto?...\e[0m"
 read -n 1 -p "[S/n]: " ans
 if [[ $ans == "" || ($ans == "S" || $ans == "s") ]];
@@ -91,7 +95,7 @@ then
     rm -rf booledeusto
     if [ $STATUS -eq 0 ]
     then
-        echo -e "\e[1;32m[+] Descarga de Boole Deusto completada\e[0m"
+        echo -e "\e[1;32m[+] Instalacion de Boole Deusto completada\e[0m"
     else
         echo -e "\e[1;31m[!] Error al descargar Boole Deusto\e[0m"
     fi
@@ -99,7 +103,7 @@ else
     echo -e "\n\e[1;33m[!] Saltando descarga de Boole Deusto\e[0m"
 fi
 
-#### Descarga de xiso
+#### Instalacion de xiso
 echo -e "\n\e[1;35m[?] Instalar xiso?...\e[0m"
 read -n 1 -p "[S/n]: " ans
 if [[ $ans == "" || ($ans == "S" || $ans == "s") ]];
@@ -125,7 +129,7 @@ else
     echo -e "\n\e[1;33m[!] Saltando instalacion de xiso\e[0m"
 fi
 
-#### Descarga de espressif para Arduino
+#### Instalacion de espressif para Arduino
 echo -e "\n\e[1;35m[?] Instalar Espressif?...\e[0m"
 read -n 1 -p "[S/n]: " ans
 if [[ $ans == "" || ($ans == "S" || $ans == "s") ]];
@@ -191,7 +195,7 @@ else
     echo -e "\n\e[1;33m[!] Saltando descarga de Ventoy\e[0m"
 fi
 
-#### Descarga de Lenguaje Latino
+#### Instalacion de Lenguaje Latino
 echo -e "\n\e[1;35m[?] Instalar Lenguaje Latino?...\e[0m"
 read -n 1 -p "[S/n]: " ans
 if [[ $ans == "" || ($ans == "S" || $ans == "s") ]];
