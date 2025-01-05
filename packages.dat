@@ -136,6 +136,7 @@ Kali Desktop Xfce       ,kali-desktop-xfce      ,                          ,    
 Kali Wallpapers         ,kali-wallpapers-all    ,                          ,                                          ,All wallpapers for Kali Linux
 Kali Themes             ,kali-themes            ,                          ,                                          ,Configure all desktops to use the Kali theme
 Kali Undercover         ,kali-undercover        ,                          ,                                          ,Kali Undercover Mode
+Kando                   ,                       ,                          ,menu.kando.Kando                          ,Do things with utmost efficiency
 Kate                    ,kate                   ,kate                      ,org.kde.kate                              ,powerful text editor
 Kalzium                 ,kalzium                ,kalzium                   ,org.kde.kalzium                           ,Tabla periódica de los elementos
 Kasts                   ,kasts                  ,kasts                     ,org.kde.kasts                             ,Aplicación de podcast
