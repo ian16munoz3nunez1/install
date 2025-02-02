@@ -27,6 +27,7 @@ set splitbelow splitright " Al dividir la pantalla, los ficheros se abren abajo 
 set shiftwidth=4 " Configura las indentaciones con 4 espacios
 set showcmd " Muestra un historial de comandos. Usar :help showcmd para mas informacion
 set showmatch " Muestra la apertura o cierre de un parentesis al tener el cursor sobre uno
+set showtabline=2 " Con 2 muestra las pesta;as todo el tiempo, con 0, las oculta cuando hay un solo archivo abierto
 set softtabstop=4 " Configura las indentaciones con 4 espacios
 set sw=4 " Configura las indentaciones con 4 espacios
 set tabstop=4 " Configura las indentaciones con 4 espacios
@@ -145,7 +146,7 @@ nmap <Leader>bp :bprevious<CR>
 " Atajo para correr archivos 'python'
 nmap <Leader>py :! python3 %<CR>
 " Atajo para correr archivos 'c'
-nmap <Leader>clang :!gcc % -o main && ./main<CR>
+nmap <Leader>gcc :!gcc % -o main && ./main<CR>
 " Atajo para correr archivos 'c++'
 nmap <Leader>cpp :!g++ % -o main && ./main<CR>
 " Atajo para correr archivos 'go'
@@ -163,6 +164,10 @@ nmap <Leader>java :!java %<CR>
 nmap <Leader>pdf :!pdflatex ./main.tex && open main.pdf<CR>
 " Correr archivos bash
 nmap <Leader>sh :!bash %<CR>
+" Atajos de ejecucion
+nmap <Leader>run :!./run<CR>
+nmap <Leader>clean :!./clean<CR>
+
 " Atajos para git
 nmap <Leader>ga :!git add 
 nmap <Leader>gc :!git commit
