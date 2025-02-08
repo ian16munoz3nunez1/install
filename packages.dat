@@ -39,7 +39,7 @@ Chromium                ,chromium               ,chromium                  ,org.
 Chromium B.S.U.         ,                       ,                          ,net.sourceforge.chromium-bsu              ,Fast paced arcade-style top-scrolling space shooter
 clangd                  ,clangd                 ,                          ,                                          ,Language server that provides IDE-like features to editors
 Code::Blocks            ,codeblocks             ,                          ,                                          ,Code::Blocks integrated development environment (IDE)
-Code::Blocks (all)      ,codeclocks-*           ,                          ,                                          ,Code::Blocks complements
+Code::Blocks (all)      ,codeblocks-*           ,                          ,                                          ,Code::Blocks complements
 Cohesion                ,                       ,                          ,io.github.brunofin.Cohesion               ,Unofficial Notion Desktop client
 ColorWall               ,                       ,colorwall                 ,com.ktechpit.colorwall                    ,The Ultimate Desktop Wallpaper Application
 ConvertAll              ,convertall             ,                          ,                                          ,very flexible unit converter
@@ -51,7 +51,7 @@ cmatrix                 ,cmatrix                ,                          ,    
 cmake                   ,cmake                  ,                          ,                                          ,cross-platform open-source make system
 Cura                    ,                       ,cura-slicer               ,com.ultimaker.cura                        ,Slicer to prepare your 3D printing projects
 curl                    ,curl                   ,                          ,                                          ,command line tool for transferring data with URL syntax
-DBeaver                 ,                       ,                          ,io.dbeaver.DBeaverCommunity               ,Universal Database Manager
+DBeaver                 ,dbeaver                       ,                          ,io.dbeaver.DBeaverCommunity               ,Universal Database Manager
 Decoder                 ,                       ,                          ,com.belmoussaoui.Decoder                  ,Scan and generate QR codes
 dialog                  ,dialog                 ,                          ,                                          ,Displays user-friendly dialog boxes from shell scripts
 DIY Layout Creator      ,                       ,                          ,com.diy_fever.DIYLayoutCreator            ,Circuit layout design tool supporting PCB vero-board point-to-point perf-board...
