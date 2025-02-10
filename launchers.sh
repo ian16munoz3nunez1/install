@@ -78,7 +78,7 @@ else
     echo -e "\n\e[1;43m[!] Saltando la creacion del lanzador\e[0m"
 fi
 
-echo -e "\e[1;35m\n[?] Crear el lanzador para FluidSim Neumatica?...\e[0m"
+echo -e "\e[1;35m\n[?] Crear el lanzador para Mu Editor?...\e[0m"
 read -n 1 -p "[S/n]: " ans
 
 if [[ $ans == "" || $ans == "S" || $ans == "s" ]]
@@ -132,7 +132,7 @@ else
     echo -e "\n\e[1;43m[!] Saltando la creacion del lanzador\e[0m"
 fi
 
-echo -e "\e[1;35m\n[?] Crear el lanzador para Balena Etcher?...\e[0m"
+echo -e "\e[1;35m\n[?] Crear el lanzador para XAMPP?...\e[0m"
 read -n 1 -p "[S/n]: " ans
 
 if [[ $ans == "" || $ans == "S" || $ans == "s" ]]

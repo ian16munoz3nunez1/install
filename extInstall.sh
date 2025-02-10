@@ -52,6 +52,7 @@ then
     tar -xvf $fileName &>/dev/null
     dirName=$(find -maxdepth 1 -type d | grep -iP "coppeliasim")
     mv $dirName $HOME/.bin/coppeliaSim
+    rm $fileName
     STATUS=$?
     if [ $STATUS -eq 0 ]
     then
@@ -332,6 +333,9 @@ then
     echo -e "\n\e[1;36m Iniciando descarga de Balena-Etcher...\e[0m"
     balena="https://github.com/balena-io/etcher/releases/download/v1.18.11/balenaEtcher-1.18.11-x64.AppImage"
     wget "$balena"
+    fileName=$(ls | grep -iP "balenaetcher")
+    chmod 777 $fileName
+    mv $fileName $HOME/.bin/balenaEtcher.AppImage
     STATUS=$?
     if [ $STATUS -eq 0 ]
     then
