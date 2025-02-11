@@ -20,4 +20,5 @@ git config --global alias.ba 'branch -a'
 git config --global alias.bv 'branch -v'
 git config --global alias.cob 'checkout -b'
 git config --global alias.wt 'worktree'
+git config --global alias.tree 'log --oneline --graph --date-order --all'
 
