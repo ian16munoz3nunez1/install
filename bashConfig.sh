@@ -13,6 +13,9 @@ else
     exit 1
 fi
 
+[ ! -d $HOME/.utils ] && git clone git@github.com:ian16munoz3nunez1/utils $HOME/.utils
+[ ! -d $HOME/.tcpIpy ] && git clone git@github.com:ian16munoz3nunez1/tcpIpy $HOME/.tcpIpy
+
 echo -e "\n# systemAliases
 alias ls='ls --color=auto'
 alias dir='dir --color=auto'
@@ -27,22 +30,6 @@ alias la='ls -A'
 alias l='ls -CF'
 
 # misAlias
-alias figletFonts='python3 $HOME/.utils/figletFonts.py'
-alias ftpy='python3 $HOME/.utils/ftpy.py'
-alias httpy='python3 $HOME/.utils/httpy.py'
-alias pydecrypt='python3 $HOME/.utils/pydecrypt.py'
-alias pyencrypt='python3 $HOME/.utils/pyencrypt.py'
-alias pyframes='python3 $HOME/.utils/pyframes.py'
-alias pymedia='python3 $HOME/.utils/pymedia.py'
-alias pyqr='python3 $HOME/.utils/pyqr.py'
-alias pyunzip='python3 $HOME/.utils/pyunzip.py'
-alias pyweb='python3 $HOME/.utils/pyweb.py'
-alias pywget='python3 $HOME/.utils/pywget.py'
-alias pyzip='python3 $HOME/.utils/pyzip.py'
-alias pycamClient='python3 $HOME/.utils/wificam/client.py'
-alias pycamServer='python3 $HOME/.utils/wificam/server.py'
-alias tcpIpys='python3 $HOME/.tcpIpy/server/main.py'
-alias tcpIpyc='python3 $HOME/.tcpIpy/client/main.py'
 alias pyenv='source ~/.python/bin/activate'
 alias rd='rm -r --interactive=never'
 # alias guiXampp='sudo /opt/lampp/manager-linux-x64.run'
@@ -66,11 +53,14 @@ alias find2Dirs='find -maxdepth 2 -type d'
 alias find3Dirs='find -maxdepth 3 -type d'
 alias find4Dirs='find -maxdepth 4 -type d'
 alias rpi='ssh ianemn@rpi'
+alias wrpi='ssh ianemn@wrpi'
 
 # misVariables
 export PATH=\"\$PATH\":$HOME/.local/bin\"\"
 export PATH=\"\$PATH\":$HOME/.python/bin\"\"
 export PATH=\"\$PATH\":/opt/microchip/xc8/vX.XX/bin\"\"
+export PATH=\"\$PATH\":$HOME/.utils\"\"
+export PATH=\"\$PATH\":$HOME/.tcpIpy\"\"
 export PATH=\"\$PATH\":/snap/bin\"\"
 export TOKENGIT=''
 export WINEPREFIX=\$HOME/myapp/prefix
