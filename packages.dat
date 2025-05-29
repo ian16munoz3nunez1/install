@@ -16,6 +16,7 @@ Audacity                ,audacity               ,audacity                  ,    
 AudioTube               ,                       ,audiotube                 ,org.kde.audiotube                         ,Aplicación de música de YouTube
 Avogadro                ,                       ,                          ,org.openchemistry.Avogadro2               ,Free and open source molecular editor
 Barcoder                ,                       ,                          ,cz.ondrejkolin.Barcoder                   ,Create barcodes
+bat                     ,bat                    ,                          ,                                          ,cat(1) clone with syntax highlighting and git integration
 bc                      ,bc                     ,                          ,                                          ,GNU bc arbitrary precision calculator language
 Billard                 ,billard-gl             ,                          ,de.billardgl.Billardgl                    ,3D billiards game
 BinEd                   ,                       ,                          ,org.exbin.BinEd                           ,Binary/Hex Editor

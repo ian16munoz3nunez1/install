@@ -52,16 +52,19 @@ alias find1Dirs='find -maxdepth 1 -type d'
 alias find2Dirs='find -maxdepth 2 -type d'
 alias find3Dirs='find -maxdepth 3 -type d'
 alias find4Dirs='find -maxdepth 4 -type d'
-alias rpi='ssh ianemn@rpi'
-alias wrpi='ssh ianemn@wrpi'
+alias bat='batcat'
+alias rpi='ssh ianemn@rpi' # rpi: 192.168.1.128
+alias wrpi='ssh ianemn@wrpi' # wrpi: 4.4.4.4
 
 # misVariables
+export JAVA_HOME=\"/usr/lib/jvm/java-21-openjdk-amd64\"
 export PATH=\"\$PATH\":$HOME/.local/bin\"\"
 export PATH=\"\$PATH\":$HOME/.python/bin\"\"
 export PATH=\"\$PATH\":/opt/microchip/xc8/vX.XX/bin\"\"
 export PATH=\"\$PATH\":$HOME/.utils\"\"
 export PATH=\"\$PATH\":$HOME/.tcpIpy\"\"
 export PATH=\"\$PATH\":/snap/bin\"\"
+export PATH=\"$PATH\":$JAVA_HOME\"\"
 export TOKENGIT=''
 export WINEPREFIX=\$HOME/myapp/prefix
 export WINEARCH=win32
