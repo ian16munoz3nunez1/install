@@ -1,67 +1,25 @@
 # Instalación y configuración del OS
 
-1. Instalación de paquetes ***apt*** con
-```
-aptInstall.sh
-```
+1. Ejecutar `bashConfig.sh`
 
-2. Configuración de alias y variables de entorno con
-```
-bashConfig.sh
-```
+2. Ejecutar `preInstall`
 
-3. Configuración de ***wine*** con
-```
-wineConfig.sh
-```
+3. Ejecutar `install`
 
-4. Configuracion de git
-```
-gitConfig.sh
-```
+4. Ejecutar `extInstall.sh`
 
-5. Instalación de paquetes ***Flatpak*** con
-```
-flatpakInstall.sh
-```
+5. Ejecutar `sshConfig.sh`, `gitConfig.sh`, `vimConfig.sh`, `wineConfig.sh`,
+`launchers.sh`, `lightdmConfig.sh` y `mimeApps.sh`
 
-6. Instalación de programas externos con
-```
-extInstall.sh
-```
+6. Copiar archivos a sus respectivos directorios
 
-7. Instalación de paquetes ***pip*** con
-```
-pipInstall.sh
-```
-
-8. Configuración de ***ssh*** con
-```
-sshConfig.sh
-```
-
-9. Configuración de ***vim*** con
-```
-vimConfig.sh
-```
-
-10. Instalación y configuración de ***VirtualBox*** con
-```
-virtualBoxInstall.sh
-```
-
-11. Configuración de aplicaciones predeterminadas con
-```
-mimeApps.sh
-```
-
-12. Configuración de ***lightdm*** con
-```
-lightdmConfig.sh
-```
-
-13. Configuración de lanzadores con
-```
-launchers.sh
-```
+- `ccs` a `/usr/bin/`
+- `newRepo` a `/usr/bin/`
+- `rememberMe` a `/home/$USER/.bin/`
+- `search` a `/usr/bin/`
+- `wired.nmconnection` a `/etc/NetworkManager/system-connections/`
+- Importar `bookmarks.html` a `Firefox`
+- `debiandock` y `susedock` a `/home/$USER/`
+- `menus.json` a `/home/ianemn/.var/app/menu.kando.Kando/config/kando/`
+- `settings.json` a `/home/ianemn/.config/kate/lspclient/`
 
