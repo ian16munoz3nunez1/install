@@ -1,5 +1,7 @@
 #!/bin/bash
 
+# Warp: https://releases.warp.dev/stable/v0.2025.07.30.08.12.stable_02/warp-terminal_0.2025.07.30.08.12.stable.02_amd64.deb
+
 cd $HOME/Descargas
 cwd=$PWD
 

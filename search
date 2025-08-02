@@ -1,0 +1,4 @@
+#!/bin/bash
+
+grep -inPr $1 --color=auto *.bat *.css *.csv *.dat *.c *.cpp *.go *.h *.html *.ino *.java *.js *.m *.md *.p *.rb *.sh *.tex *.txt *.xml *.yaml 2>/dev/null
+

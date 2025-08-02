@@ -19,7 +19,7 @@ set nowrap " Si no hay espacio en la ventana, las lineas siguen a la derecha, en
 set nowritebackup " Desactiva la creacion de ficheros swap
 set number " Muestra los numeros de linea a la izquierda
 set numberwidth=1
-" set relativenumber " Muestra numeros relativos
+set relativenumber " Muestra numeros relativos
 set ruler " Muestra la linea y columna en la que se encuentra el cursor
 set scrolloff=8 " Agregar un margen de 8 lineas al hacer scroll (el cursor no se queda pegado arriba o abajo)
 " set spell " Resalta errores ortograficos
@@ -144,7 +144,7 @@ nmap <Leader>nt :NERDTreeFind<CR>
 nmap <Leader>bn :bnext<CR>
 nmap <Leader>bp :bprevious<CR>
 " Atajo para correr archivos 'python'
-nmap <Leader>py :! python3 %<CR>
+nmap <Leader>py :!python3 %<CR>
 " Atajo para correr archivos 'c'
 nmap <Leader>gcc :!gcc % -o main && ./main<CR>
 " Atajo para correr archivos 'c++'
@@ -165,8 +165,11 @@ nmap <Leader>pdf :!pdflatex ./main.tex && open main.pdf<CR>
 " Correr archivos bash
 nmap <Leader>sh :!bash %<CR>
 " Atajos de ejecucion
-nmap <Leader>run :!./run<CR>
-nmap <Leader>clean :!./clean<CR>
+nmap <Leader>build :!./.build<CR>
+nmap <Leader>run :!./.run<CR>
+nmap <Leader>clean :!./.clean<CR>
+" Search
+nmap <Leader>f :!search
 
 " Atajos para git
 nmap <Leader>ga :!git add 
@@ -184,9 +187,10 @@ nmap <Leader>glon :!git log --oneline -n
 nmap <Leader>gco :!git checkout 
 nmap <Leader>gcob :!git checkout -b 
 nmap <Leader>gr :!git restore
+nmap <Leader>gd :!git diff %<CR>
 
 function HighlightsTabsAndSpace ()
-call feedkeys(":set listchars=eol:¬,tab:\\|_,trail:~,extends:>,precedes:<,space:\\|\<CR>")
+call feedkeys(":set listchars=eol:¬,tab:\\-->,trail:~,extends:>,precedes:<,space:\\|\<CR>")
 call feedkeys(":set list\<CR>")
 endfunction
 nmap <leader>t :call HighlightsTabsAndSpace()<CR>

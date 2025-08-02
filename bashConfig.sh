@@ -9,7 +9,7 @@ elif [ $shell == "bash" ];
 then
     shellFile="$HOME/.bashrc"
 else
-    echo "Shell don't recognize"
+    echo "Shell don't recognized"
     exit 1
 fi
 
@@ -27,6 +27,7 @@ alias diff='diff --color=auto'
 alias ip='ip --color=auto'
 alias ll='ls -l'
 alias la='ls -A'
+alias all='ls -Alvh'
 alias l='ls -CF'
 
 # misAlias
@@ -55,6 +56,7 @@ alias find4Dirs='find -maxdepth 4 -type d'
 alias bat='batcat'
 alias rpi='ssh ianemn@rpi' # rpi: 192.168.1.128
 alias wrpi='ssh ianemn@wrpi' # wrpi: 4.4.4.4
+alias dock='ssh ianemn@dock' # dock: 10.1.0.4
 
 # misVariables
 export JAVA_HOME=\"/usr/lib/jvm/java-21-openjdk-amd64\"

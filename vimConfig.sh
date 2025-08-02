@@ -4,3 +4,7 @@ curl -fLo $HOME/.vim/autoload/plug.vim --create-dirs https://raw.githubuserconte
 
 mv ./.vimrc $HOME
 
+vim +PlugInstall +qall
+
+sudo cp search /usr/bin/
+
