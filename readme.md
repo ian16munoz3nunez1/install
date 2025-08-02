@@ -9,7 +9,7 @@
 4. Ejecutar `extInstall.sh`
 
 5. Ejecutar `sshConfig.sh`, `gitConfig.sh`, `vimConfig.sh`, `wineConfig.sh`,
-`launchers.sh`, `lightdmConfig.sh` y `mimeApps.sh`
+`launchers.sh`, `lightdmConfig.sh`, `mimeApps.sh` y `hostsConfig.sh`
 
 6. Copiar archivos a sus respectivos directorios
 
