@@ -11,8 +11,8 @@ cp -a /usr/share/themes/* ~/.themes/
 sudo flatpak override --filesystem=~/.themes/
 echo -e "\n\e[1;42m[+] Instalación y configuración de Flatpak completada\e[0m"
 
-echo -e "\n\e[1;44m[*] Instalando y configurando snap\e[0m"
-sudo apt install -y snapd
-sudo systemctl enable --now snapd apparmor
-echo -e "\n\e[1;42m[+] Instalación y configuración de snap completada\e[0m"
+# echo -e "\n\e[1;44m[*] Instalando y configurando snap\e[0m"
+# sudo apt install -y snapd
+# sudo systemctl enable --now snapd apparmor
+# echo -e "\n\e[1;42m[+] Instalación y configuración de snap completada\e[0m"
 

@@ -2,13 +2,14 @@
 id=wired
 type=ethernet
 autoconnect-priority=-999
-interface-name=eth0
+interface-name=eth1
 
 [ethernet]
 
 [ipv4]
-address1=4.4.4.16/24,4.4.4.1
-method=manual
+method=auto
+# method=manual
+# address1=4.4.4.16/24,4.4.4.1
 
 [ipv6]
 addr-gen-mode=stable-privacy
