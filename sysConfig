@@ -1,100 +1,17 @@
 #!/bin/bash
 
-#### bashConfig
-shell=$(echo $SHELL | xargs basename)
-
-if [ $shell == "zsh" ];
+if [ $EUID != 0 ]
 then
-    shellFile="$HOME/.zshrc"
-elif [ $shell == "bash" ];
-then
-    shellFile="$HOME/.bashrc"
-else
-    echo "Shell don't recognized"
+    echo -e "\e[5m\e[1;41mNecesita ejecutar el programa con permisos de administrador\e[0m"
     exit 1
 fi
 
-[ ! -d $HOME/.utils ] && git clone git@github.com:ian16munoz3nunez1/utils $HOME/.utils
-[ ! -d $HOME/.tcpIpy ] && git clone git@github.com:ian16munoz3nunez1/tcpIpy $HOME/.tcpIpy
-
-echo -e "\n# systemAliases
-alias ls='ls --color=auto'
-alias dir='dir --color=auto'
-alias vdir='vdir --color=auto'
-alias grep='grep --color=auto'
-alias fgrep='fgrep --color=auto'
-alias egrep='egrep --color=auto'
-alias diff='diff --color=auto'
-alias ip='ip --color=auto'
-alias ll='ls -l'
-alias la='ls -A'
-alias all='ls -Alvh'
-alias l='ls -CF'
-
-# misAlias
-alias pyenv='source ~/.python/bin/activate'
-alias rd='rm -r --interactive=never'
-alias boole='wine $HOME/.bin/boole.exe 2>/dev/null'
-alias xiso='$HOME/.bin/xiso/build/extract-xiso'
-alias cmd='wineconsole 2>/dev/null &'
-alias au3='wine $HOME/myapp/prefix/drive_c/Program\ Files/AutoIt3/AutoIt3.exe'
-alias find1Files='find -maxdepth 1 -type f'
-alias find2Files='find -maxdepth 2 -type f'
-alias find3Files='find -maxdepth 3 -type f'
-alias find4Files='find -maxdepth 4 -type f'
-alias find1Dirs='find -maxdepth 1 -type d'
-alias find2Dirs='find -maxdepth 2 -type d'
-alias find3Dirs='find -maxdepth 3 -type d'
-alias find4Dirs='find -maxdepth 4 -type d'
-alias bat='batcat'
-alias rpi='ssh ianemn@rpi' # rpi: 192.168.1.128
-alias wrpi='ssh ianemn@wrpi' # wrpi: 4.4.4.4
-alias dock='ssh ianemn@dock' # dock: 10.1.0.4
-alias desk='ssh ianemn@desk' # desk: 192.168.1.164
-
-# misVariables
-export JAVA_HOME=\"\"
-export PATH=\"\$PATH\":$HOME/.local/bin\"\"
-export PATH=\"\$PATH\":/opt/microchip/xc8/vX.XX/bin\"\"
-export PATH=\"\$PATH\":$HOME/.utils\"\"
-export PATH=\"\$PATH\":$HOME/.tcpIpy\"\"
-export PATH=\"$PATH\":$JAVA_HOME\"\"
-export TOKENGIT=''
-export WINEPREFIX=\$HOME/myapp/prefix
-export WINEARCH=win32
-export WINEPATH=\$HOME/myapp\n
-unset _JAVA_OPTIONS" >> $shellFile
-#### bashConfig
-
-#### gitConfig
-git config --global user.name "ian16munoz3nunez1"
-git config --global user.email "ianemn1603@gmail.com"
-git config --global core.editor nano
-git config --global alias.st 'status'
-git config --global alias.stbs 'status -bs'
-git config --global alias.co 'checkout'
-git config --global alias.l 'log'
-git config --global alias.ln 'log -n'
-git config --global alias.lo 'log --oneline'
-git config --global alias.lon 'log --oneline -n'
-git config --global alias.last 'log -n 1'
-git config --global alias.a 'add'
-git config --global alias.au 'add -u'
-git config --global alias.c 'commit'
-git config --global alias.cm 'commit -m'
-git config --global alias.b 'branch'
-git config --global alias.ba 'branch -a'
-git config --global alias.bv 'branch -v'
-git config --global alias.cob 'checkout -b'
-git config --global alias.wt 'worktree'
-git config --global alias.tree 'log --oneline --graph --date-order --all'
-#### gitConfig
-
 #### hostsConfig
-sudo echo -e "\n10.1.0.4        dock
+[ ! -f .hostsConfig ] && echo -e "\n10.1.0.4        dock
 192.168.1.128   rpi
 4.4.4.4         wrpi
 192.168.1.164   desk" >> /etc/hosts
+[ ! -f .hostsConfig ] && touch .hostsConfig
 #### hostsConfig
 
 #### launchers
@@ -102,8 +19,8 @@ echo -e "\e[1;35m\n[?] Crear el lanzador para Boole Deusto?...\e[0m"
 read -n 1 -p "[S/n]: " ans
 if [[ $ans == "" || $ans == "S" || $ans == "s" ]]
 then
-    sudo touch /usr/share/applications/boole.desktop
-    sudo echo -e "[Desktop Entry]
+    touch /usr/share/applications/boole.desktop
+    echo -e "[Desktop Entry]
     Type=Application
     Name=Boole Deusto
     Comment=Boolean Algebra
@@ -119,8 +36,8 @@ echo -e "\e[1;35m\n[?] Crear el lanzador para CoppeliaSim?...\e[0m"
 read -n 1 -p "[S/n]: " ans
 if [[ $ans == "" || $ans == "S" || $ans == "s" ]]
 then
-    sudo touch /usr/share/applications/coppeliaSim.desktop
-    sudo echo -e "[Desktop Entry]
+    touch /usr/share/applications/coppeliaSim.desktop
+    echo -e "[Desktop Entry]
     Type=Application
     Name=CoppeliaSim
     Comment=Robotics Simulator
@@ -136,8 +53,8 @@ echo -e "\e[1;35m\n[?] Crear el lanzador para FluidSim Hidraulica?...\e[0m"
 read -n 1 -p "[S/n]: " ans
 if [[ $ans == "" || $ans == "S" || $ans == "s" ]]
 then
-    sudo touch /usr/share/applications/fluidSimH.desktop
-    sudo echo -e "[Desktop Entry]
+    touch /usr/share/applications/fluidSimH.desktop
+    echo -e "[Desktop Entry]
     Type=Application
     Name=FluidSIM Hidráulica
     Comment=Hydraulic Simulator
@@ -153,8 +70,8 @@ echo -e "\e[1;35m\n[?] Crear el lanzador para FluidSim Neumatica?...\e[0m"
 read -n 1 -p "[S/n]: " ans
 if [[ $ans == "" || $ans == "S" || $ans == "s" ]]
 then
-    sudo touch /usr/share/applications/fluidSimP.desktop
-    sudo echo -e "[Desktop Entry]
+    touch /usr/share/applications/fluidSimP.desktop
+    echo -e "[Desktop Entry]
     Type=Application
     Name=FluidSIM Neumática
     Comment=Neumatic Simulator
@@ -170,8 +87,8 @@ echo -e "\e[1;35m\n[?] Crear el lanzador para Mu Editor?...\e[0m"
 read -n 1 -p "[S/n]: " ans
 if [[ $ans == "" || $ans == "S" || $ans == "s" ]]
 then
-    sudo touch /usr/share/applications/muEditor.desktop
-    sudo echo -e "[Desktop Entry]
+    touch /usr/share/applications/muEditor.desktop
+    echo -e "[Desktop Entry]
     Type=Application
     Name=Mu-Editor
     Comment=Python code editor
@@ -187,8 +104,8 @@ echo -e "\e[1;35m\n[?] Crear el lanzador para SimulIDE?...\e[0m"
 read -n 1 -p "[S/n]: " ans
 if [[ $ans == "" || $ans == "S" || $ans == "s" ]]
 then
-    sudo touch /usr/share/applications/simulIDE.desktop
-    sudo echo -e "[Desktop Entry]
+    touch /usr/share/applications/simulIDE.desktop
+    echo -e "[Desktop Entry]
     Type=Application
     Name=SimulIDE
     Comment=Electronics Simulator
@@ -204,8 +121,8 @@ echo -e "\e[1;35m\n[?] Crear el lanzador para Balena Etcher?...\e[0m"
 read -n 1 -p "[S/n]: " ans
 if [[ $ans == "" || $ans == "S" || $ans == "s" ]]
 then
-    sudo touch /usr/share/applications/BalenaEtcher.desktop
-    sudo echo -e "[Desktop Entry]
+    touch /usr/share/applications/BalenaEtcher.desktop
+    echo -e "[Desktop Entry]
     Type=Application
     Name=Balena Etcher
     Comment=Flasher
@@ -221,8 +138,8 @@ echo -e "\e[1;35m\n[?] Crear el lanzador para XAMPP?...\e[0m"
 read -n 1 -p "[S/n]: " ans
 if [[ $ans == "" || $ans == "S" || $ans == "s" ]]
 then
-    sudo touch /usr/share/applications/xampp.desktop
-    sudo echo -e "[Desktop Entry]
+    touch /usr/share/applications/xampp.desktop
+    echo -e "[Desktop Entry]
     Type=Application
     Name=XAMPP
     Comment=Database manager
@@ -236,12 +153,12 @@ fi
 #### launchers
 
 #### lightdmConfig
-sudo dpkg-reconfigure lightdm
+dpkg-reconfigure lightdm
 
-sudo cp /etc/lightdm/lightdm.conf /etc/lightdm/lightdm.conf.old
-sudo cp /etc/lightdm/lightdm-gtk-greeter.conf /etc/lightdm/lightdm-gtk-greeter.conf.old
+cp /etc/lightdm/lightdm-gtk-greeter.conf /etc/lightdm/lightdm-gtk-greeter.conf.old
+cp /etc/lightdm/lightdm.conf /etc/lightdm/lightdm.conf.old
 
-sudo echo -e "[greeter]
+echo -e "[greeter]
 background = /usr/share/desktop-base/kali-theme/login/background
 theme-name = Kali-Purple-Dark
 xft-antialias = true
@@ -256,142 +173,18 @@ screensaver-timeout = 60
 default-user-image = #emblem-kali
 keyboard = onboard" > /etc/lightdm/lightdm-gtk-greeter.conf
 
-sudo echo -e "\n[Seat:*]
-greeter-hide-users = false" >> /etc/lightdm/lightdm.conf
+echo -e "\n[Seat:*]
+greeter-hide-users = false" > /etc/lightdm/lightdm.conf
 #### lightdmConfig
 
-#### mimeapps
-echo -e "[Added Associations]
-model/stl=com.ultimaker.cura.desktop;
-text/plain=org.xfce.mousepad.desktop;
-audio/mpeg=org.xfce.Parole.desktop;
-text/csv=libreoffice-calc.desktop;
-text/css=org.xfce.mousepad.desktop;
-text/x-c++src=org.xfce.mousepad.desktop;
-text/x-c++hdr=org.xfce.mousepad.desktop;
-text/x-chdr=org.xfce.mousepad.desktop;
-text/x-csrc=org.xfce.mousepad.desktop;
-text/x-go=org.xfce.mousepad.desktop;
-text/x-java=org.xfce.mousepad.desktop;
-text/x-matlab=org.xfce.mousepad.desktop;
-text/x-python=org.xfce.mousepad.desktop;
-text/x-python3=org.xfce.mousepad.desktop;
-text/x-tex=org.xfce.mousepad.desktop;texmaker.desktop;
-application/x-matroska=vlc.desktop;
-application/javascript=org.xfce.mousepad.desktop;
-application/json=org.xfce.mousepad.desktop;
-application/zip=engrampa.desktop;
-application/pdf=atril.desktop;
-application/vnd.rar=org.kde.ark.desktop;
-video/x-matroska=vlc.desktop;
-image/jpeg=org.xfce.ristretto.desktop;
-image/png=org.xfce.ristretto.desktop;
-image/webp=org.xfce.ristretto.desktop;org.kde.gwenview.desktop;
-x-scheme-handler/http=firefox-esr.desktop;
-x-scheme-handler/https=firefox-esr.desktop;
-x-scheme-handler/chrome=firefox-esr.desktop;
-text/html=firefox-esr.desktop;
-application/x-extension-htm=firefox-esr.desktop;
-application/x-extension-html=firefox-esr.desktop;
-application/x-extension-shtml=firefox-esr.desktop;
-application/xhtml+xml=firefox-esr.desktop;
-application/x-extension-xhtml=firefox-esr.desktop;
-application/x-extension-xht=firefox-esr.desktop;
-video/mp4=mpv.desktop;
-audio/mp4=org.xfce.Parole.desktop;mpv.desktop;
-application/x-shellscript=org.xfce.mousepad.desktop;
-application/octet-stream=coppeliaSim.desktop;
-application/x-trash=org.xfce.ristretto.desktop;
-image/svg+xml=org.xfce.ristretto.desktop;
-inode/directory=org.kde.kate.desktop;
-application/xml=org.xfce.mousepad.desktop;
-audio/x-opus+ogg=org.xfce.Parole.desktop;
-application/x-scilab-bin=org.xfce.mousepad.desktop;
-text/x-pascal=org.xfce.mousepad.desktop;
-video/webm=mpv.desktop;
-image/vnd.microsoft.icon=org.gnome.eog.desktop;
-text/markdown=com.github.fabiocolacio.marker.desktop;
-
-[Default Applications]
-text/csv=libreoffice-calc.desktop
-text/css=org.xfce.mousepad.desktop
-text/x-c++src=org.xfce.mousepad.desktop
-text/x-c++hdr=org.xfce.mousepad.desktop
-text/x-chdr=org.xfce.mousepad.desktop
-text/x-csrc=org.xfce.mousepad.desktop
-text/x-go=org.xfce.mousepad.desktop
-text/x-java=org.xfce.mousepad.desktop
-text/x-matlab=org.xfce.mousepad.desktop
-text/x-python=org.xfce.mousepad.desktop
-text/x-python3=org.xfce.mousepad.desktop
-text/x-tex=texmaker.desktop
-application/x-matroska=vlc.desktop
-application/javascript=org.xfce.mousepad.desktop
-application/json=org.xfce.mousepad.desktop
-application/zip=engrampa.desktop
-application/pdf=atril.desktop
-x-scheme-handler/http=firefox-esr.desktop
-x-scheme-handler/https=firefox-esr.desktop
-x-scheme-handler/chrome=firefox-esr.desktop
-text/html=firefox-esr.desktop
-application/x-extension-htm=firefox-esr.desktop
-application/x-extension-html=firefox-esr.desktop
-application/x-extension-shtml=firefox-esr.desktop
-application/xhtml+xml=firefox-esr.desktop
-application/x-extension-xhtml=firefox-esr.desktop
-application/x-extension-xht=firefox-esr.desktop
-video/mp4=mpv.desktop
-audio/mp4=mpv.desktop
-application/octet-stream=coppeliaSim.desktop
-application/x-trash=org.xfce.ristretto.desktop" > $HOME/.config/mimeapps.list
-#### mimeapps
-
-#### sshConfig
-ssh-keygen -t rsa
-ssh-add $HOME/.ssh/id_rsa
-#### sshConfig
-
-#### vimConfig
-curl -fLo $HOME/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-
-mv ./systemConfig/.vimrc $HOME
-
-vim +PlugInstall +qall
-
-sudo mv ./bin/search /usr/bin/
-#### vimConfig
-
-#### wineConfig
-echo -e "\e[1;34m[*] Iniciando configuración de wine...\e[0m"; sleep 2
-sudo dpkg --add-architecture i386 && sudo apt-get update && sudo apt-get install wine32:i386
-
-[ ! -d $HOME/myapp/prefix ] && mkdir -p ~/myapp/prefix
-export WINEPREFIX=$HOME/myapp/prefix
-export WINEARCH=win32
-export WINEPATH=$HOME/myapp
-wineboot --init winetricks
-
-echo -e "\e[1;32m[+] Configuración de wine completada\e[0m"; sleep 2
-#### wineConfig
-
 #### files
-mv ./systemConfig/debiandock $HOME/
-mv ./systemConfig/susedock $HOME/
-mv ./systemConfig/menus.json $HOME/.var/app/menu.kando.Kando/config/kando/
-mv ./systemConfig/settings.json $HOME/.config/kate/lspclient/
-
-mv ./bin/ccs $HOME/.bin/
-mv ./bin/newRepo $HOME/.bin/
-mv ./bin/rememberMe $HOME/.bin/
-mv ./bin/search $HOME/.bin/
-
-mv ./systemConfig/wired.nmconnection $HOME/.config/ && sudo ln -s /home/ianemn/.config/wired.nmconnection /etc/NetworkManager/system-connections/wired.nmconnection
-mv ./systemConfig/IZZI-BC36 $HOME/.config/ && sudo ln -s /home/ianemn/.config/IZZI-BC36 /etc/NetworkManager/system-connections/IZZI-BC36
-mv ./systemConfig/IZZI-BC36-5G.nmconnection $HOME/.config/ && sudo ln -s /home/ianemn/.config/IZZI-BC36-5G.nmconnection /etc/NetworkManager/system-connections/IZZI-BC36-5G.nmconnection
-mv ./systemConfig/esp32net.nmconnection $HOME/.config/ && sudo ln -s /home/ianemn/.config/esp32net.nmconnection /etc/NetworkManager/system-connections/esp32net.nmconnection
-mv './systemConfig/POCO M5s.nmconnection' $HOME/.config/ && sudo ln -s '/home/ianemn/.config/POCO M5s.nmconnection' '/etc/NetworkManager/system-connections/POCO M5s.nmconnection'
-mv ./systemConfig/TGCS-EMP.nmconnection $HOME/.config/ && sudo ln -s /home/ianemn/TGCS-EMP.config/.nmconnection /etc/NetworkManager/system-connections/TGCS-EMP.nmconnection
-mv ./systemConfig/Totalplay-86A5.nmconnection $HOME/.config/ && sudo ln -s /home/ianemn/.config/Totalplay-86A5.nmconnection /etc/NetworkManager/system-connections/Totalplay-86A5.nmconnection
-mv ./systemConfig/Totalplay-D5AD.nmconnection $HOME/.config/ && sudo ln -s /home/ianemn/.config/Totalplay-D5AD.nmconnection /etc/NetworkManager/system-connections/Totalplay-D5AD.nmconnection
+mv ./systemConfig/wired.nmconnection /etc/NetworkManager/system-connections/wired.nmconnection
+# mv ./systemConfig/IZZI-BC36 /etc/NetworkManager/system-connections/IZZI-BC36
+mv ./systemConfig/IZZI-BC36-5G.nmconnection /etc/NetworkManager/system-connections/IZZI-BC36-5G.nmconnection
+mv ./systemConfig/esp32net.nmconnection /etc/NetworkManager/system-connections/esp32net.nmconnection
+mv './systemConfig/POCO M5s.nmconnection' '/etc/NetworkManager/system-connections/POCO M5s.nmconnection'
+mv ./systemConfig/TGCS-Emp.nmconnection /etc/NetworkManager/system-connections/TGCS-Emp.nmconnection
+mv ./systemConfig/Totalplay-86A5.nmconnection /etc/NetworkManager/system-connections/Totalplay-86A5.nmconnection
+mv ./systemConfig/Totalplay-D5AD.nmconnection /etc/NetworkManager/system-connections/Totalplay-D5AD.nmconnection
 #### files
 
