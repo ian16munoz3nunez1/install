@@ -18,6 +18,7 @@ fi
 [ ! -d $HOME/.utils ] && git clone git@github.com:ian16munoz3nunez1/utils $HOME/.utils
 [ ! -d $HOME/.tcpIpy ] && git clone git@github.com:ian16munoz3nunez1/tcpIpy $HOME/.tcpIpy
 
+[ -f /usr/bin/java ] && java_home=$(readlink /usr/bin/java | xargs readlink | sed -s 's/\/bin\/java//g')
 [ ! -f .bashConfig ] && echo -e "\n# systemAliases
 alias ls='ls --color=auto'
 alias dir='dir --color=auto'
@@ -54,12 +55,12 @@ alias dock='ssh ianemn@dock' # dock: 10.1.0.4
 alias desk='ssh ianemn@desk' # desk: 192.168.1.164
 
 # misVariables
-export JAVA_HOME=\"\"
+export JAVA_HOME=\"$java_home\"
 export PATH=\"\$PATH\":$HOME/.local/bin\"\"
 export PATH=\"\$PATH\":/opt/microchip/xc8/vX.XX/bin\"\"
 export PATH=\"\$PATH\":$HOME/.utils\"\"
 export PATH=\"\$PATH\":$HOME/.tcpIpy\"\"
-export PATH=\"$PATH\":$JAVA_HOME\"\"
+export PATH=\"\$PATH\":\$JAVA_HOME\"\"
 export TOKENGIT=''
 export WINEPREFIX=\$HOME/myapp/prefix
 export WINEARCH=win32
@@ -210,7 +211,7 @@ echo -e "\e[1;32m[+] Configuración de wine completada\e[0m"; sleep 2
 [ -f ./systemConfig/debiandock ] && mv ./systemConfig/debiandock $HOME/
 [ -f ./systemConfig/susedock ] && mv ./systemConfig/susedock $HOME/
 [ -f ./systemConfig/menus.json ] && [ -d $HOME/.var/app/menu.kando.Kando/config/kando ] && mv ./systemConfig/menus.json $HOME/.var/app/menu.kando.Kando/config/kando/
-[ -f ./systemConfig/settings.json] && [ -d $HOME/.config/kate/lspclient ] && mv ./systemConfig/settings.json $HOME/.config/kate/lspclient/
+[ -f ./systemConfig/settings.json ] && [ -d $HOME/.config/kate/lspclient ] && mv ./systemConfig/settings.json $HOME/.config/kate/lspclient/
 
 if [ -d $HOME/.bin ]; then
     [ -f ./bin/ccs ] && mv ./bin/ccs $HOME/.bin/
