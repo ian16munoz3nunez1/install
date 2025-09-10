@@ -221,3 +221,17 @@ if [ -d $HOME/.bin ]; then
 fi
 #### files
 
+#### docker - myserver
+echo -e "\ndocker ps | grep 'myserver' &>/dev/null
+if [ \$? -ne 0 ];
+then
+    now=\$(date +"%Y/%m/%d %H:%M:%S")
+    echo "\$now: Docker server is not running" >> \$HOME/.logs/myserver.log
+    docker start myserver &>/dev/null
+    now=\$(date +"%Y/%m/%d %H:%M:%S")
+    echo "\$now: Docker server is up now" >> \$HOME/.logs/myserver.log
+else
+    echo "Docker server already running" >> \$HOME/.logs/myserver.log
+fi" >> \$HOME/.profile
+#### docker - myserver
+
