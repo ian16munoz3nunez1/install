@@ -8,9 +8,9 @@ netPath="/home/ianemn/.logs/rememberMe.log"
 ping -c 2 -I $iface $ip &>/dev/null
 if [ $? -ge 1 ] ; then
     echo "$now -> Network is DOWN. Restarting" >> $netPath
-    ifconfig $iface down
+    sudo ifconfig $iface down
     sleep 5
-    ifconfig $iface up
+    sudo ifconfig $iface up
 
     now=$(date +"%Y/%m/%d %H:%M:%S")
     echo "$now -> Network RESTARTED" >> $netPath

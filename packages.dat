@@ -241,7 +241,10 @@ Tango Icon Theme        ,tango-icon-theme       ,                          ,    
 tcpdump                 ,tcpdump                ,                          ,                                          ,command-line network traffic analyzer
 Teams                   ,                       ,teams-for-linux           ,com.github.IsmaelMartinez.teams_for_linux ,Unofficial Microsoft Teams client for Linux using Electron
 Telegram                ,telegram-desktop       ,telegram-desktop          ,org.telegram.desktop                      ,Fast. Secure. Powerful.
-TexLive                 ,texlive-full           ,                          ,                                          ,TeX Live: metapackage pulling in all components of TeX Live
+TexLive Full            ,texlive-full           ,                          ,                                          ,TeX Live: metapackage pulling in all components of TeX Live
+TexLive Base            ,texlive                ,                          ,                                          ,TeX Live: A decent selection of the TeX Live packages
+TexLive Spanish Lang    ,texlive-lang-spanish   ,                          ,                                          ,TeX Live: Spanish
+TexLive Extra Fonts     ,texlive-fonts-extra    ,                          ,                                          ,TeX Live: Additional fonts
 TexMaker                ,texmaker               ,                          ,net.xm1math.Texmaker                      ,cross-platform LaTeX editor
 ThiefMD                 ,                       ,                          ,com.github.kmwallio.thiefmd               ,The markdown editor worth stealing.
 Thonny                  ,thonny                 ,thonny                    ,org.thonny.Thonny                         ,Python IDE for beginners

@@ -221,6 +221,13 @@ if [ -d $HOME/.bin ]; then
 fi
 #### files
 
+#### docker
+sudo apt-get install docker.io
+sudo systemctl enable --now docker
+user=$(whoami)
+sudo usermod -aG docker $user
+#### docker
+
 #### docker - myserver
 echo -e "\ndocker ps | grep 'myserver' &>/dev/null
 if [ \$? -ne 0 ];
@@ -228,8 +235,13 @@ then
     now=\$(date +"%Y/%m/%d %H:%M:%S")
     echo "\$now: Docker server is not running" >> \$HOME/.logs/myserver.log
     docker start myserver &>/dev/null
-    now=\$(date +"%Y/%m/%d %H:%M:%S")
-    echo "\$now: Docker server is up now" >> \$HOME/.logs/myserver.log
+    if [ \$? -eq 0 ]; then
+        now=\$(date +"%Y/%m/%d %H:%M:%S")
+        echo "\$now: Docker server is up now" >> \$HOME/.logs/myserver.log
+    else
+        now=\$(date +"%Y/%m/%d %H:%M:%S")
+        echo "\$now: Unable to up the server" >> \$HOME/.logs/myserver.log
+    fi
 else
     echo "Docker server already running" >> \$HOME/.logs/myserver.log
 fi" >> \$HOME/.profile
