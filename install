@@ -64,7 +64,7 @@ do
         continue
     fi
 
-    echo -e "\n\e[1;44m[*] Instalando con aptitude\e[0m" | tee -a $aptMeslog
+    echo -e "\n\e[1;44m[*] Instalando \"$name\" con aptitude\e[0m" | tee -a $aptMeslog
     [[ $aptName != "" ]] && sudo apt install -y $aptName 2>/dev/null; STATUS=$?
     if [ $STATUS -ne 0 ]
     then
@@ -78,7 +78,7 @@ do
 
     if [ $success -eq 0 ]
     then
-        echo -e "\n\e[1;44m[*] Instalando con Flatpak\e[0m" | tee -a $flatpakMeslog
+        echo -e "\n\e[1;44m[*] Instalando \"$name\" con Flatpak\e[0m" | tee -a $flatpakMeslog
         [[ $flatpakName != "" ]] && flatpak install -y $flatpakName 2>/dev/null; STATUS=$?
         if [ $STATUS -ne 0 ]
         then

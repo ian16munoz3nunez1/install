@@ -2,9 +2,32 @@
 
 if [[ $USER == git ]];
 then
-    mkdir "$1"
-    chmod 700 -R "$1"
-    cd "$1"
+    repo=$(echo "$repo" | sed "s/\.git//")
+
+    mkdir "$repo"
+    if [ $? -ne 0 ]; then
+        echo "Error creating directoy \"$repo\""
+        exit 1
+    fi
+
+    chmod 700 -R "$repo"
+    if [ $? -ne 0 ]; then
+        echo "Error with permissions 700 to directoy \"$repo\""
+        exit 2
+    fi
+
+    ln -rs "$repo" "$repo.git"
+    if [ $? -ne 0 ]; then
+        echo "Error linking directoy \"$repo\""
+        exit 3
+    fi
+
+    cd "$repo"
+    if [ $? -ne 0 ]; then
+        echo "Error changing to directoy \"$repo\""
+        exit 4
+    fi
+
     git init --bare
     echo "ref: refs/heads/main" > HEAD
 else

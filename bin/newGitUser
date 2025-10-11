@@ -1,0 +1,13 @@
+#!/bin/bash
+
+if [[ $USER == git ]];
+then
+    mkdir "$1"
+    if [ $? -ne 0 ]; then
+        echo "Error creating user \"$1\""
+        exit 1
+    fi
+else
+    ssh git@$1 "./newGitUser $2"
+fi
+
