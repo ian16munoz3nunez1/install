@@ -2,7 +2,7 @@
 
 if [[ $USER == git ]];
 then
-    repo=$(echo "$repo" | sed "s/\.git//")
+    repo=$(echo "$1" | sed "s/\.git//")
 
     mkdir "$repo"
     if [ $? -ne 0 ]; then
@@ -31,6 +31,17 @@ then
     git init --bare
     echo "ref: refs/heads/main" > HEAD
 else
-    ssh git@$1 "./newRepo $2"
+    if [ $# -lt 2 -o $# -gt 2 ]; then
+        echo "More or less arguments used"
+        echo "Use: $0 <host> <reponame>"
+    fi
+
+    echo "$2" | grep -P "[ !@#$%^&*()\[\]\{\}\"'<>,.?\\|]" >/dev/null
+    if [ $? -eq 0 ]; then
+        echo "Invalid repo name"
+        exit 1
+    fi
+
+    ssh git@$1 "newRepo $2"
 fi
 

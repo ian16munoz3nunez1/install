@@ -57,9 +57,10 @@ Plug 'christoomey/vim-tmux-navigator' " ---
 Plug 'vim-airline/vim-airline' " Agrega una linea de datos debajo del editor
 Plug 'vim-airline/vim-airline-themes' " Temas para la linea de datos
 Plug 'airblade/vim-gitgutter' " Muestra los cambios realizados en un fichero de un repositorio
+Plug 'SirVer/ultisnips' " Snippets
+Plug 'honza/vim-snippets' " Snippets
 " Plug 'ap/vim-buftabline' " Muestra los buffers de ficheros en la parte superior
 " Plug 'jayli/vim-easycomplete'
-" Plug 'SirVer/ultisnips'
 
 " Plug 'nvim-lualine/lualine.nvim'
 " Plug 'kyazdani42/nvim-web-devicons'
@@ -195,4 +196,10 @@ call feedkeys(":set list\<CR>")
 endfunction
 nmap <leader>t :call HighlightsTabsAndSpace()<CR>
 nmap <leader>tt :set nolist<CR>
+
+let g:UltiSnipsExpandTrigger="<tab>"
+let g:UltiSnipsJumpForwardTrigger="<c-b>"
+let g:UltiSnipsJumpBackwardTrigger="<c-z>"
+" If you want :UltiSnipsEdit to split your window.
+let g:UltiSnipsEditSplit="vertical"
 
