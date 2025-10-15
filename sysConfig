@@ -59,7 +59,7 @@ Type=Application
 Name=FluidSIM Hidráulica
 Comment=Hydraulic Simulator
 Icon=/home/ianemn/Imágenes/imgs/lanzadores/fluidSim.png
-Exec=wine \"/home/ianemn/myapp/prefix/drive_c/Program Files (x86)/Didactic/fl_sim_h4.es/bin/fl_sim_h.exe\"
+Exec=wine \"/home/ianemn/c/prefix/drive_c/Program Files (x86)/Didactic/fl_sim_h4.es/bin/fl_sim_h.exe\"
 Terminal=false
 Keywords=Hidraulic;Simulator;Fluid;FluidSim;" > /usr/share/applications/fluidSimH.desktop
 else
@@ -76,7 +76,7 @@ Type=Application
 Name=FluidSIM Neumática
 Comment=Neumatic Simulator
 Icon=/home/ianemn/Imágenes/imgs/lanzadores/fluidSim.png
-Exec=wine \"/home/ianemn/myapp/prefix/drive_c/Program Files (x86)/Didactic/fl_sim_p4.es/bin/fl_sim_p.exe\"
+Exec=wine \"/home/ianemn/c/prefix/drive_c/Program Files (x86)/Didactic/fl_sim_p4.es/bin/fl_sim_p.exe\"
 Terminal=false
 Keywords=Neumatic;Simulator;Fluid;FluidSim;" > /usr/share/applications/fluidSimP.desktop
 else

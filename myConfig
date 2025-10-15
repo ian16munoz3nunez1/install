@@ -39,7 +39,7 @@ alias rd='rm -r --interactive=never'
 alias boole='wine $HOME/.bin/boole.exe 2>/dev/null'
 alias xiso='$HOME/.bin/xiso/build/extract-xiso'
 alias cmd='wineconsole 2>/dev/null &'
-alias au3='wine $HOME/myapp/prefix/drive_c/Program\ Files/AutoIt3/AutoIt3.exe'
+alias au3='wine $HOME/c/prefix/drive_c/Program\ Files/AutoIt3/AutoIt3.exe'
 alias find1Files='find -maxdepth 1 -type f'
 alias find2Files='find -maxdepth 2 -type f'
 alias find3Files='find -maxdepth 3 -type f'
@@ -62,9 +62,9 @@ export PATH=\"\$PATH\":$HOME/.utils\"\"
 export PATH=\"\$PATH\":$HOME/.tcpIpy\"\"
 export PATH=\"\$PATH\":\$JAVA_HOME\"\"
 export TOKENGIT=''
-export WINEPREFIX=\$HOME/myapp/prefix
+export WINEPREFIX=\$HOME/c/prefix
 export WINEARCH=win32
-export WINEPATH=\$HOME/myapp\n
+export WINEPATH=\$HOME/c\n
 unset _JAVA_OPTIONS" >> $shellFile
 [ ! -f .bashConfig ] && touch .bashConfig
 #### bashConfig
@@ -198,10 +198,10 @@ vim +PlugInstall +qall
 echo -e "\e[1;34m[*] Iniciando configuración de wine...\e[0m"; sleep 2
 sudo dpkg --add-architecture i386 && sudo apt-get update && sudo apt-get install wine32:i386
 
-[ ! -d $HOME/myapp/prefix ] && mkdir -p ~/myapp/prefix
-export WINEPREFIX=$HOME/myapp/prefix
+[ ! -d $HOME/c/prefix ] && mkdir -p ~/c/prefix
+export WINEPREFIX=$HOME/c/prefix
 export WINEARCH=win32
-export WINEPATH=$HOME/myapp
+export WINEPATH=$HOME/c
 wineboot --init winetricks
 
 echo -e "\e[1;32m[+] Configuración de wine completada\e[0m"; sleep 2
