@@ -1,0 +1,6 @@
+#!/bin/bash
+
+jfiles=$(find -type f -iname "*$1*")
+
+vim -p $jfiles
+
