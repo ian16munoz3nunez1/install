@@ -32,26 +32,16 @@ RUN echo "bind-address = 0.0.0.0" >> /etc/mysql/my.cnf
 RUN echo "port = 3306" >> /etc/mysql/my.cnf
 
 # Create git user
-RUN useradd -rm -d /home/git -s /bin/bash -g root -G sudo git
+RUN useradd -rm -d /home/git -s /usr/bin/git-shell -g root -G sudo git
 RUN groupadd git -U git
-RUN echo "git:git" | chpasswd
+RUN echo "git:g17" | chpasswd
 RUN chown git:git -R /home/git
 RUN chmod 700 -R /home/git
-RUN touch /home/git/newRepo
-RUN echo "#!/bin/bash" >> /home/git/newRepo
-RUN echo "" >> /home/git/newRepo
-RUN echo "if [[ \$USER == git ]];" >> /home/git/newRepo
-RUN echo "then" >> /home/git/newRepo
-RUN echo "    mkdir \"\$1\"" >> /home/git/newRepo
-RUN echo "    chmod 700 -R \"\$1\"" >> /home/git/newRepo
-RUN echo "    cd \"\$1\"" >> /home/git/newRepo
-RUN echo "    git init --bare" >> /home/git/newRepo
-RUN echo "    echo \"ref: refs/heads/main\" > HEAD" >> /home/git/newRepo
-RUN echo "else" >> /home/git/newRepo
-RUN echo "    ssh git@\$1 \"./newRepo \$2\"" >> /home/git/newRepo
-RUN echo "fi" >> /home/git/newRepo
-RUN chmod 700 /home/git/newRepo
-RUN chown git:git /home/git/newRepo
+COPY --chown=git:git .ssh/id_rsa.pub /home/git/.ssh/authorized_keys
+COPY --chown=git:git .bin/new-repo /home/git/git-shell-commands/new-repo
+COPY --chown=git:git .bin/newgu /home/git/git-shell-commands/newgu
+RUN chmod 700 /home/git/git-shell-commands/new-repo
+RUN chmod 700 /home/git/git-shell-commands/newgu
 
 # User settings
 RUN useradd -rm -d /home/$USER -s /bin/bash -g root -G sudo $USER
@@ -59,6 +49,7 @@ RUN echo "$USER:$PASSWORD" | chpasswd
 RUN groupadd $USER -U $USER
 RUN chown $USER:$USER -R /home/$USER
 RUN chmod 700 -R /home/$USER
+COPY --chown=$USER:$USER .ssh/id_rsa.pub /home/$USER/.ssh/authorized_keys
 
 USER $USER
 WORKDIR /home/$USER
@@ -83,10 +74,6 @@ RUN echo "$PASSWORD" | sudo -S apt install tree -y
 RUN echo "$PASSWORD" | sudo -S apt install ranger -y
 RUN echo "$PASSWORD" | sudo -S apt install python3 -y
 RUN echo "$PASSWORD" | sudo -S apt install python3-flask -y
-
-# ssh configuration
-COPY --chown=git:git .ssh/id_rsa.pub /home/git/.ssh/authorized_keys
-COPY --chown=$USER:$USER .ssh/id_rsa.pub /home/$USER/.ssh/authorized_keys
 
 # OhMyBash configuration
 RUN git clone https://github.com/ohmybash/oh-my-bash
