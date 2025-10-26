@@ -23,9 +23,9 @@ else
     fi
 
     if [ $# -eq 2 ]; then
-        ssh git@$1 "newGitUser $2"
+        ssh git@$1 "newgu $2"
     elif [ $# -eq 3 ]; then
-        ssh git@$1 "newGitUser $2 \"$3\""
+        ssh git@$1 "newgu $2 \"$3\""
     else
         echo "More or less arguments used"
         echo "Use: $0 <host> <username> <optional ssh_key>"

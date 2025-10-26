@@ -35,6 +35,7 @@ caca                    ,caca-utils             ,                          ,    
 Calculus                ,                       ,                          ,com.github.carlos157oliveira.Calculus     ,Compute derivatives and integrals
 Cambalache              ,                       ,                          ,ar.xjuan.Cambalache                       ,Create GTK 4 user interfaces
 Cantor                  ,cantor                 ,cantor                    ,org.kde.cantor                            ,Interfaz de KDE para software matemático
+chafa                   ,chafa                  ,                          ,                                          ,Image-to-text converter supporting a wide range of symbols, etc.
 Chrome                  ,                       ,                          ,com.google.Chrome                         ,The web browser from Google
 Chromium                ,chromium               ,chromium                  ,org.chromium.Chromium                     ,web browser
 Chromium B.S.U.         ,                       ,                          ,net.sourceforge.chromium-bsu              ,Fast paced arcade-style top-scrolling space shooter

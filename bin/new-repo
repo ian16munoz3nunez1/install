@@ -46,6 +46,6 @@ else
         exit 1
     fi
 
-    ssh git@$1 "newRepo $2"
+    ssh git@$1 "new-repo $2"
 fi
 
