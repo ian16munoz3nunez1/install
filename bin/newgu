@@ -1,20 +1,71 @@
 #!/bin/bash
 
-if [[ $USER == git ]];
-then
-    mkdir "$1"
-    if [ $? -ne 0 ]; then
-        echo "Error creating user \"$1\""
+if [[ $USER == git ]]; then
+    user=$1
+    ssh_key=$2
+
+    [[ ! -d /home/git/.ssh ]] && mkdir -p /home/git/.ssh
+    [[ ! -f /home/git/.ssh/authorized_keys ]] && touch /home/git/.ssh/authorized_keys
+
+    if [[ -d $user/ ]]; then
+        echo "User \"$user\" already exists" | tee -a git-audit.log
         exit 1
     fi
 
-    if [[ $2 != "" ]]; then
-        echo "$2" | tee -a .ssh/authorized_keys
-        if [ $? -ne 0 ]; then
-            echo "Error adding ssh keys to authorized_keys"
-            exit 2
-        fi
+    mkdir "$user"
+    if [ $? -ne 0 ]; then
+        echo "Error creating user \"$user\"" | tee -a git-audit.log
+        exit 2
     fi
+    echo "User \"$user\" created" >> git-audit.log
+
+    echo "command=\"$user\" $ssh_key" | tee -a .ssh/authorized_keys
+    if [ $? -ne 0 ]; then
+        echo "Error adding ssh keys to authorized_keys" | tee -a git-audit.log
+        exit 3
+    fi
+    echo "ssh key for user \"$user\" added successfully" >> git-audit.log
+
+    [[ ! -f /home/git/git-shell-commands/$user ]] && touch /home/git/git-shell-commands/$user
+    echo -e "#!/bin/bash
+
+if [[ \"\$SSH_ORIGINAL_COMMAND\" =~ ^git-upload ]]; then
+    cmd=\$(echo \$SSH_ORIGINAL_COMMAND | cut -d' ' -f1)
+    repo=\$(echo \$SSH_ORIGINAL_COMMAND | cut -d' ' -f2 | sed \"s/'//g\")
+
+    if [[ ! \"\$repo\" =~ ^$user ]]; then
+        exit 1
+    fi
+
+    \$cmd \$repo
+
+elif [[ \"\$SSH_ORIGINAL_COMMAND\" =~ ^git-receive ]]; then
+    cmd=\$(echo \$SSH_ORIGINAL_COMMAND | cut -d' ' -f1)
+    repo=\$(echo \$SSH_ORIGINAL_COMMAND | cut -d' ' -f2 | sed \"s/'//g\")
+
+    if [[ ! \"\$repo\" =~ ^$user ]]; then
+        exit 1
+    fi
+
+    \$cmd \$repo
+
+elif [[ \"\$SSH_ORIGINAL_COMMAND\" =~ ^new-repo ]]; then
+    echo \"\$(date +\"%Y/%m/%d %H:%M:%S\") - $user - running git-shell command: \\\"\$SSH_ORIGINAL_COMMAND\\\"\" >> git-audit.log
+
+    repo=\$(echo \$SSH_ORIGINAL_COMMAND | cut -d' ' -f2)
+    if [[ ! \"\$repo\" =~ ^$user ]]; then
+        exit 1
+    fi
+
+    ./git-shell-commands/new-repo \$repo
+
+else
+    echo \"$user: E002: Unrecognized command: \\\"\$SSH_ORIGINAL_COMMAND\\\"\" >> git-audit.log
+    exit 2
+fi\n" > /home/git/git-shell-commands/$user
+    chmod 740 /home/git/git-shell-commands/$user
+    echo "bin file for user \"$user\" created successfully" >> git-audit.log
+
 else
     echo "$2" | grep -P '(\s|[^\w])' >/dev/null
     if [ $? -eq 0 ]; then
@@ -22,13 +73,11 @@ else
         exit 1
     fi
 
-    if [ $# -eq 2 ]; then
-        ssh git@$1 "newgu $2"
-    elif [ $# -eq 3 ]; then
+    if [ $# -eq 3 ]; then
         ssh git@$1 "newgu $2 \"$3\""
     else
         echo "More or less arguments used"
-        echo "Use: $0 <host> <username> <optional ssh_key>"
+        echo "Use: $0 <host> <username> <ssh_key>"
     fi
 fi
 

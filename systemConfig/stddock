@@ -1,7 +1,7 @@
 FROM debian:latest
 SHELL ["/bin/bash", "-c"]
-ENV USER=ianemn
-ENV PASSWORD=IanEMN1631
+ENV USER=user_name
+ENV PASSWORD=1234
 
 # primary configuration
 RUN apt update -y && apt upgrade -y && apt dist-upgrade -y && apt autoremove -y
@@ -9,38 +9,10 @@ RUN apt update -y && apt upgrade -y && apt dist-upgrade -y && apt autoremove -y
 RUN ln -sfn /usr/share/zoneinfo/America/Mexico_City /etc/localtime
 
 # Port configuration
-EXPOSE 21
 EXPOSE 22
-EXPOSE 3306
 
 # services
 RUN apt install sudo -y
-RUN apt install vsftpd -y
-RUN apt install mariadb-server -y
-
-# FTP server
-RUN echo "write_enable=YES" >> /etc/vsftpd.conf
-RUN echo "pasv_min_port=30000" >> /etc/vsftpd.conf
-RUN echo "pasv_max_port=40000" >> /etc/vsftpd.conf
-
-# MariaDB server
-RUN mkdir -p /var/run/mysqld /var/lib/mysql
-RUN chown -R mysql:mysql /var/run/mysqld
-RUN chown -R mysql:mysql /var/lib/mysql
-RUN echo "[mysqld]" >> /etc/mysql/my.cnf
-RUN echo "bind-address = 0.0.0.0" >> /etc/mysql/my.cnf
-RUN echo "port = 3306" >> /etc/mysql/my.cnf
-
-# Create git user
-RUN useradd -rm -d /home/git -s /usr/bin/git-shell -g root -G sudo git
-RUN groupadd git -U git
-RUN echo "git:g17" | chpasswd
-RUN chown git:git -R /home/git
-RUN chmod 700 -R /home/git
-COPY --chown=git:git .bin/new-repo /home/git/git-shell-commands/new-repo
-COPY --chown=git:git .bin/newgu /home/git/git-shell-commands/newgu
-RUN chmod 740 /home/git/git-shell-commands/new-repo
-RUN chmod 740 /home/git/git-shell-commands/newgu
 
 # User settings
 RUN useradd -rm -d /home/$USER -s /bin/bash -g root -G sudo $USER
@@ -64,7 +36,6 @@ RUN echo "$PASSWORD" | sudo -S apt install net-tools -y
 RUN echo "$PASSWORD" | sudo -S apt install iproute2 -y
 RUN echo "$PASSWORD" | sudo -S apt install nano -y
 RUN echo "$PASSWORD" | sudo -S apt install vim -y
-RUN echo "$PASSWORD" | sudo -S apt install vim-gtk3 -y
 RUN echo "$PASSWORD" | sudo -S apt install git -y
 RUN echo "$PASSWORD" | sudo -S apt install bat -y
 RUN echo "$PASSWORD" | sudo -S apt install tmux -y
@@ -76,15 +47,9 @@ RUN echo "$PASSWORD" | sudo -S apt install ranger -y
 RUN echo "$PASSWORD" | sudo -S apt install python3 -y
 RUN echo "$PASSWORD" | sudo -S apt install python3-flask -y
 
-# OhMyBash configuration
-RUN git clone https://github.com/ohmybash/oh-my-bash
-RUN ./oh-my-bash/tools/install.sh
-RUN sed -i 's/OSH_THEME=\"font\"/OSH_THEME=\"agnoster\"/g' /home/$USER/.bashrc
-
-# vim configuration
-COPY --chown=$USER:$USER .vimrc /home/$USER/.vimrc
-COPY --chown=$USER:$USER .vim/ /home/$USER/.vim/
+COPY --chown=$USER:$USER .bin/ /home/$USER/.bin/
+RUN echo -e "\n\nexport PATH=\"\$PATH\":/home/$USER/.bin\"\"" >> /home/$USER/.bashrc
 
 # setup
-ENTRYPOINT echo "$PASSWORD" | sudo -S service ssh start && echo "$PASSWORD" | sudo -S service vsftpd start && echo "$PASSWORD" | sudo -S service mariadb start && tail -f /dev/null
+ENTRYPOINT echo "$PASSWORD" | sudo -S service ssh start && tail -f /dev/null
 
