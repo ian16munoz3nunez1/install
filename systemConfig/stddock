@@ -36,6 +36,7 @@ RUN echo "$PASSWORD" | sudo -S apt install net-tools -y
 RUN echo "$PASSWORD" | sudo -S apt install iproute2 -y
 RUN echo "$PASSWORD" | sudo -S apt install nano -y
 RUN echo "$PASSWORD" | sudo -S apt install vim -y
+RUN echo "$PASSWORD" | sudo -S apt install vim-gtk3 -y
 RUN echo "$PASSWORD" | sudo -S apt install git -y
 RUN echo "$PASSWORD" | sudo -S apt install bat -y
 RUN echo "$PASSWORD" | sudo -S apt install tmux -y

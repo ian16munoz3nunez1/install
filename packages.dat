@@ -220,6 +220,7 @@ Red Eclipse Legacy      ,                       ,                          ,net.
 Remmina                 ,remmina                ,remmina                   ,org.remmina.Remmina                       ,GTK+ Remote Desktop Client
 Rhythmbox               ,rhythmbox              ,                          ,org.gnome.Rhythmbox3                      ,music player and organizer for GNOME
 Rhythmbox (all)         ,rhythmbox-*            ,                          ,                                          ,Rhythmbox complements
+ripgrep                 ,ripgrep                ,                          ,                                          ,Recursively searches directories for a regex pattern
 RISC-V CPU Simulator    ,riscemu                ,                          ,cz.cvut.edu.comparch.qtrvsim              ,RISC-V CPU simulator for education purposes
 Ruby                    ,ruby                   ,                          ,                                          ,Interpreter of object-oriented scripting language Ruby (default version)
 Ruby Dev                ,ruby-dev               ,                          ,                                          ,Header files for compiling extension modules for Ruby (default version)

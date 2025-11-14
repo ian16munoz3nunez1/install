@@ -19,7 +19,7 @@ if [[ $USER == git ]]; then
     fi
     echo "User \"$user\" created" >> git-audit.log
 
-    echo "command=\"$user\" $ssh_key" | tee -a .ssh/authorized_keys
+    echo "command=\"$user\" $ssh_key" >> .ssh/authorized_keys
     if [ $? -ne 0 ]; then
         echo "Error adding ssh keys to authorized_keys" | tee -a git-audit.log
         exit 3
@@ -29,35 +29,76 @@ if [[ $USER == git ]]; then
     [[ ! -f /home/git/git-shell-commands/$user ]] && touch /home/git/git-shell-commands/$user
     echo -e "#!/bin/bash
 
+. /home/git/git-shell-commands/gutils.sh
+
 if [[ \"\$SSH_ORIGINAL_COMMAND\" =~ ^git-upload ]]; then
     cmd=\$(echo \$SSH_ORIGINAL_COMMAND | cut -d' ' -f1)
     repo=\$(echo \$SSH_ORIGINAL_COMMAND | cut -d' ' -f2 | sed \"s/'//g\")
+    user=\$(echo \$repo | cut -d/ -f1)
 
-    if [[ ! \"\$repo\" =~ ^$user ]]; then
+    status=\$(validate_repo .\$user.dat $user \$repo; echo \$?)
+    if [[ ! \"\$repo\" =~ ^$user/ ]] && (( \$status != 0 )); then
+        echo \"Access denied for \"$user\" to cloning the repo \\\"\$repo\\\"\" >> git-audit.log
         exit 1
-    fi
+    else
+        if [[ ! -d \$repo ]]; then
+            echo \"The repo \\\"\$repo\\\" does not exist\" >> git-audit.log
+            exit 2
+        fi
 
-    \$cmd \$repo
+        \$cmd \$repo
+        echo \"User $user has cloned repo \\\"\$repo\\\"\" >> git-audit.log
+    fi
 
 elif [[ \"\$SSH_ORIGINAL_COMMAND\" =~ ^git-receive ]]; then
     cmd=\$(echo \$SSH_ORIGINAL_COMMAND | cut -d' ' -f1)
     repo=\$(echo \$SSH_ORIGINAL_COMMAND | cut -d' ' -f2 | sed \"s/'//g\")
+    user=\$(echo \$repo | cut -d/ -f1)
 
-    if [[ ! \"\$repo\" =~ ^$user ]]; then
+    status=\$(validate_repo .\$user.dat $user \$repo; echo \$?)
+    if [[ ! \"\$repo\" =~ ^$user/ ]] && (( \$status != 0 )); then
+        echo \"Access denied for \"$user\" to pushing to the repo \\\"\$repo\\\"\" >> git-audit.log
         exit 1
-    fi
+    else
+        if [[ ! -d \$repo ]]; then
+            echo \"The repo \\\"\$repo\\\" does not exist\" >> git-audit.log
+            exit 2
+        fi
 
-    \$cmd \$repo
+        \$cmd \$repo
+        echo \"User $user has pushed to repo \\\"\$repo\\\"\" >> git-audit.log
+    fi
 
 elif [[ \"\$SSH_ORIGINAL_COMMAND\" =~ ^new-repo ]]; then
     echo \"\$(date +\"%Y/%m/%d %H:%M:%S\") - $user - running git-shell command: \\\"\$SSH_ORIGINAL_COMMAND\\\"\" >> git-audit.log
 
     repo=\$(echo \$SSH_ORIGINAL_COMMAND | cut -d' ' -f2)
-    if [[ ! \"\$repo\" =~ ^$user ]]; then
+    file=\".\$(echo \$repo | cut -d/ -f1).dat\"
+    if [[ ! \"\$repo\" =~ ^$user/ ]]; then
+        echo \"Access denied for \"$user\" to create the repo \\\"\$repo\\\"\" | tee -a git-audit.log
         exit 1
     fi
 
     ./git-shell-commands/new-repo \$repo
+    sed -i \"1 a\\\\\\\\\$repo\" \$file &>/dev/null
+
+    cmp_repo=\$(get_cmp_repo \$repo)
+    sed -i \"1 a\\\\\\\\\$cmp_repo\" \$file &>/dev/null
+
+    echo \"\$(date +\"%Y/%m/%d %H:%M:%S\") - $user - Repository \\\"\$repo\\\" created\" >> git-audit.log
+
+elif [[ \"\$SSH_ORIGINAL_COMMAND\" =~ ^addu2r ]]; then
+    echo \"\$(date +\"%Y/%m/%d %H:%M:%S\") - $user - running git-shell command: \\\"\$SSH_ORIGINAL_COMMAND\\\"\" >> git-audit.log
+
+    user=\$(echo \$SSH_ORIGINAL_COMMAND | cut -d' ' -f2)
+    repo=\$(echo \$SSH_ORIGINAL_COMMAND | cut -d' ' -f3)
+    if [[ ! \"\$repo\" =~ ^$user/ ]]; then
+        echo \"Access denied to share the repo \"\$repo\" in file \\\"$user.dat\\\"\" >> git-audit.log
+        exit 1
+    fi
+
+    ./git-shell-commands/addu2r .$user.dat \$user \$repo
+    echo \"\$(date +\"%Y/%m/%d %H:%M:%S\") - $user - Repository \\\"\$repo\\\" shared successfully with \\\"\$user\\\" \" >> git-audit.log
 
 else
     echo \"$user: E002: Unrecognized command: \\\"\$SSH_ORIGINAL_COMMAND\\\"\" >> git-audit.log
@@ -65,6 +106,9 @@ else
 fi\n" > /home/git/git-shell-commands/$user
     chmod 740 /home/git/git-shell-commands/$user
     echo "bin file for user \"$user\" created successfully" >> git-audit.log
+
+    echo "[mine]" > .$user.dat
+    chmod 600 .$user.dat
 
 else
     echo "$2" | grep -P '(\s|[^\w])' >/dev/null

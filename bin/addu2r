@@ -1,0 +1,48 @@
+#!/bin/bash
+
+if [[ $USER == git ]]; then
+    . /home/git/git-shell-commands/gutils.sh
+
+    file=$1
+    user=$2
+    repo=$3
+
+    validate_repo $file mine $repo
+    if [ $? -ne 0 ]; then
+        echo "The repo \"$repo\" does not exist" | tee git-audit.log
+        exit 1
+    fi
+
+    validate_section $file $user
+    if [ $? -ne 0 ]; then
+        echo -e "Section [$user] created"
+    fi
+
+    validate_repo $file $user $repo
+    if [ $? -eq 0 ]; then
+        echo "Repo \"$repo\" already shared with \"$user\""
+    else
+        n=$(grep -inP "\[$user\]" $file | cut -d: -f1)
+
+        sed -i "$n a\\$repo" $file &>/dev/null
+
+        cmp_repo=$(get_cmp_repo $repo)
+        sed -i "$n a\\$cmp_repo" $file &>/dev/null
+
+        echo "Repo \"$repo\" shared successfully with \"$user\""
+    fi
+
+else
+    if [ $# -ne 3 ]; then
+        echo "More or less arguments used"
+        echo "Use: $0 <host> <username> <repo>"
+        exit 1
+    fi
+
+    host=$1
+    user=$2
+    repo=$3
+
+    ssh git@$host "addu2r $user $repo"
+fi
+
