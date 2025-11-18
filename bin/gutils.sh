@@ -60,3 +60,44 @@ get_cmp_repo() {
         echo "$1" | sed "s/$/\.git/"
     fi
 }
+
+get_line2delete() {
+    file=$1
+    user=$2
+    repo=$3
+
+    current=$(grep -nP "^\[$user\]" $file | cut -d: -f1)
+    if [ -z $current ]; then
+        echo "User \"$user\" not found"
+        exit 1
+    fi
+
+    validate_repo $file $user $repo
+    if [ $? -ne 0 ]; then
+        echo "Repository \"$repo\" not found for user \"$user\""
+        exit 1
+    fi
+
+    sections=(`grep -nP '^\[\w+\]' $file | cut -d: -f1`)
+    for i in ${!sections[@]}; do
+        if [ "${sections[$i]}" -eq "$current" ]; then
+            next=${sections[$i+1]}
+            break
+        fi
+    done
+
+    matches=$(grep -nP "^$repo\$" $file | cut -d: -f1)
+    for match in ${matches[@]}; do
+        if [[ -z $next && $match -gt $current ]]; then
+            del=$match
+            break
+        fi
+
+        if [[ $match -gt $current && $match -lt $next ]]; then
+            del=$match
+            break
+        fi
+    done
+
+    echo $del
+}

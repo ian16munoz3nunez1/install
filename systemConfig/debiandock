@@ -40,6 +40,7 @@ RUN chmod 700 -R /home/git
 COPY --chown=git:git .bin/new-repo /home/git/git-shell-commands/new-repo
 COPY --chown=git:git .bin/newgu /home/git/git-shell-commands/newgu
 COPY --chown=git:git .bin/addu2r /home/git/git-shell-commands/addu2r
+COPY --chown=git:git .bin/delu2r /home/git/git-shell-commands/delu2r
 COPY --chown=git:git .bin/gutils.sh /home/git/git-shell-commands/gutils.sh
 RUN chmod 740 /home/git/git-shell-commands/new-repo
 RUN chmod 740 /home/git/git-shell-commands/newgu

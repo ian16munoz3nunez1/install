@@ -80,12 +80,14 @@ elif [[ \"\$SSH_ORIGINAL_COMMAND\" =~ ^new-repo ]]; then
     fi
 
     ./git-shell-commands/new-repo \$repo
-    sed -i \"1 a\\\\\\\\\$repo\" \$file &>/dev/null
+    if [ \$? -eq 0 ]; then
+        sed -i \"1 a\\\\\\\\\$repo\" \$file &>/dev/null
 
-    cmp_repo=\$(get_cmp_repo \$repo)
-    sed -i \"1 a\\\\\\\\\$cmp_repo\" \$file &>/dev/null
+        cmp_repo=\$(get_cmp_repo \$repo)
+        sed -i \"1 a\\\\\\\\\$cmp_repo\" \$file &>/dev/null
 
-    echo \"\$(date +\"%Y/%m/%d %H:%M:%S\") - $user - Repository \\\"\$repo\\\" created\" >> git-audit.log
+        echo \"\$(date +\"%Y/%m/%d %H:%M:%S\") - $user - Repository \\\"\$repo\\\" created\" >> git-audit.log
+    fi
 
 elif [[ \"\$SSH_ORIGINAL_COMMAND\" =~ ^addu2r ]]; then
     echo \"\$(date +\"%Y/%m/%d %H:%M:%S\") - $user - running git-shell command: \\\"\$SSH_ORIGINAL_COMMAND\\\"\" >> git-audit.log
@@ -99,6 +101,15 @@ elif [[ \"\$SSH_ORIGINAL_COMMAND\" =~ ^addu2r ]]; then
 
     ./git-shell-commands/addu2r .$user.dat \$user \$repo
     echo \"\$(date +\"%Y/%m/%d %H:%M:%S\") - $user - Repository \\\"\$repo\\\" shared successfully with \\\"\$user\\\" \" >> git-audit.log
+
+elif [[ \"\$SSH_ORIGINAL_COMMAND\" =~ ^delu2r ]]; then
+    echo \"\$(date +\"%Y/%m/%d %H:%M:%S\") - $user - running git-shell command: \\\"\$SSH_ORIGINAL_COMMAND\\\"\" >> git-audit.log
+
+    user=\$(echo \$SSH_ORIGINAL_COMMAND | cut -d' ' -f2)
+    repo=\$(echo \$SSH_ORIGINAL_COMMAND | cut -d' ' -f3)
+
+    ./git-shell-commands/delu2r .$user.dat \$user \$repo
+    echo \"\$(date +\"%Y/%m/%d %H:%M:%S\") - $user - Repository \\\"\$repo\\\" deleted for \\\"\$user\\\" \" >> git-audit.log
 
 else
     echo \"$user: E002: Unrecognized command: \\\"\$SSH_ORIGINAL_COMMAND\\\"\" >> git-audit.log
