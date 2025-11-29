@@ -1,0 +1,14 @@
+#!/bin/bash
+
+tar_file=$1
+file=$2
+tmp_file=/tmp/file
+
+if [[ "$tar_file" =~ \.tar\.gz$ ]]; then
+    tar -xzf "$tar_file" "$file" -O > $tmp_file
+    xdg-open $tmp_file
+else
+    tar -xf "$tar_file" "$file" -O > $tmp_file
+    xdg-open $tmp_file
+fi
+
