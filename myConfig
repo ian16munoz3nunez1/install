@@ -94,6 +94,14 @@ git config --global alias.wt 'worktree'
 git config --global alias.tree 'log --oneline --graph --date-order --all'
 #### gitConfig
 
+#### tmuxConfig
+echo -e "# set -g mouse on
+bind h select-pane -L
+bind j select-pane -D
+bind k select-pane -U
+bind l select-pane -R" > ~/.tmux.conf
+#### tmuxConfig
+
 #### mimeapps
 echo -e "[Added Associations]
 model/stl=com.ultimaker.cura.desktop;

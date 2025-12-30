@@ -1,0 +1,22 @@
+#!/bin/bash
+
+# IFS=$' \t\n'
+# unset IFS
+
+OLD_IFS=$IFS
+IFS=$'\n'
+
+list=(`find -type f | xargs -I % echo \"%\"`)
+before=(`find -type f -print0 | xargs -0 -I % echo %`)
+after=(`find -type f | xargs -I % echo % | sed -r 's/[^a-zA-Z0-9./_ -]//g' | sed -r 's/á/a/g' | sed -r 's/é/e/g' | sed -r 's/í/i/g' | sed -r 's/ó/o/g' | sed -r 's/ú/u/g'`)
+
+n=${#list[@]}
+for ((i=0; i<$n; i++)); do
+    mv "${before[$i]}" "${after[$i]}" &>/dev/null; res=$?
+    if [ $res -eq 0 ];
+    then
+        echo "File \"${before[$i]}\" renamed to \"${after[$i]}\""
+    fi
+done
+
+IFS=$OLD_IFS

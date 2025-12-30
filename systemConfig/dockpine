@@ -1,0 +1,39 @@
+FROM alpine:latest
+SHELL ["/bin/sh", "-c"]
+
+RUN apk update && apk upgrade
+# RUN rm -rf /var/cache/apk/*
+
+EXPOSE 21
+EXPOSE 22
+
+RUN apk add openrc
+RUN apk add openssh openssh-server
+RUN apk add git
+RUN apk add nano
+RUN apk add vim
+RUN apk add neovim
+RUN apk add tree
+RUN apk add ranger
+RUN apk add bat
+RUN apk add wget
+RUN apk add curl
+RUN apk add build-base gcc g++
+RUN apk add clang clang-extra-tools
+RUN apk add ruby ruby-dev libffi-dev openssl-dev yaml-dev
+RUN apk add python3 py3-pip
+RUN apk add openjdk21
+RUN apk add go
+
+COPY .vimrc /root/.vimrc
+COPY .vim/ /root/.vim/
+
+RUN mkdir -p /root/.config
+RUN git clone https://github.com/ian16munoz3nunez1/nvim.git /root/.config/nvim
+
+RUN mkdir -p /var/run/sshd
+RUN echo "root:r00t" | chpasswd
+RUN sed -i 's/#PermitRootLogin prohibit-password/PermitRootLogin yes/' /etc/ssh/sshd_config
+RUN ssh-keygen -A
+
+ENTRYPOINT /usr/sbin/sshd -D && tail -f /dev/null

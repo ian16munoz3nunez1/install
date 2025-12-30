@@ -1,4 +1,4 @@
-FROM debian:latest
+FROM ubuntu:latest
 SHELL ["/bin/bash", "-c"]
 ENV USER=user_name
 ENV PASSWORD=1234
@@ -37,6 +37,7 @@ RUN echo "$PASSWORD" | sudo -S apt install iproute2 -y
 RUN echo "$PASSWORD" | sudo -S apt install nano -y
 RUN echo "$PASSWORD" | sudo -S apt install vim -y
 RUN echo "$PASSWORD" | sudo -S apt install vim-gtk3 -y
+RUN echo "$PASSWORD" | sudo -S apt install neovim -y
 RUN echo "$PASSWORD" | sudo -S apt install git -y
 RUN echo "$PASSWORD" | sudo -S apt install bat -y
 RUN echo "$PASSWORD" | sudo -S apt install tmux -y
@@ -45,12 +46,18 @@ RUN echo "$PASSWORD" | sudo -S apt install curl -y
 RUN echo "$PASSWORD" | sudo -S apt install wget -y
 RUN echo "$PASSWORD" | sudo -S apt install tree -y
 RUN echo "$PASSWORD" | sudo -S apt install ranger -y
+RUN echo "$PASSWORD" | sudo -S apt install gcc g++ -y
 RUN echo "$PASSWORD" | sudo -S apt install python3 -y
 RUN echo "$PASSWORD" | sudo -S apt install python3-flask -y
+RUN echo "$PASSWORD" | sudo -S apt install default-jdk default-jre  -y
+RUN echo "$PASSWORD" | sudo -S apt install golang -y
+RUN echo "$PASSWORD" | sudo -S apt install ruby ruby-dev -y
+
+COPY --chown=$USER:$USER .vimrc /home/$USER/.vimrc
+COPY --chown=$USER:$USER .vim/ /home/$USER/.vim/
 
 COPY --chown=$USER:$USER .bin/ /home/$USER/.bin/
 RUN echo -e "\n\nexport PATH=\"\$PATH\":/home/$USER/.bin\"\"" >> /home/$USER/.bashrc
 
 # setup
 ENTRYPOINT echo "$PASSWORD" | sudo -S service ssh start && tail -f /dev/null
-
