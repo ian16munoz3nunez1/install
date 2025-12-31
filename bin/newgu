@@ -111,6 +111,17 @@ elif [[ \"\$SSH_ORIGINAL_COMMAND\" =~ ^delu2r ]]; then
     ./git-shell-commands/delu2r .$user.dat \$user \$repo
     echo \"\$(date +\"%Y/%m/%d %H:%M:%S\") - $user - Repository \\\"\$repo\\\" deleted for \\\"\$user\\\" \" >> git-audit.log
 
+elif [[ \"\$SSH_ORIGINAL_COMMAND\" =~ ^delgu ]]; then
+    echo \"\$(date +\"%Y/%m/%d %H:%M:%S\") - $user - running git-shell command: \\\"\$SSH_ORIGINAL_COMMAND\\\"\" >> git-audit.log
+
+    username=\$(echo \$SSH_ORIGINAL_COMMAND | cut -d' ' -f2)
+
+    if [[ \$username == $user ]]; then
+        ./git-shell-commands/delgu $user
+    else
+        echo \"Username \\\"\$username\\\" invalid\"
+    fi
+
 else
     echo \"$user: E002: Unrecognized command: \\\"\$SSH_ORIGINAL_COMMAND\\\"\" >> git-audit.log
     exit 2
