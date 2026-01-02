@@ -29,6 +29,9 @@ RUN echo "jenks" | sudo -S apt-get install tree -y
 RUN echo "jenks" | sudo -S apt-get install ranger -y
 RUN echo "jenks" | sudo -S apt-get install python3 -y
 RUN echo "jenks" | sudo -S apt-get install python3-flask -y
+RUN echo "jenks" | sudo -S apt-get install python3-numpy -y
+RUN echo "jenks" | sudo -S apt-get install python3-pytest -y
+RUN echo "jenks" | sudo -S apt-get install python3-matplotlib -y
 RUN echo "jenks" | sudo -S apt-get install default-jdk -y
 RUN echo "jenks" | sudo -S apt-get install default-jre -y
 RUN echo "jenks" | sudo -S apt-get install ruby ruby-dev -y

@@ -43,12 +43,14 @@ COPY --chown=git:git .bin/delu2r /home/git/git-shell-commands/delu2r
 COPY --chown=git:git .bin/gutils.sh /home/git/git-shell-commands/gutils.sh
 COPY --chown=git:git .bin/newgu /home/git/git-shell-commands/newgu
 COPY --chown=git:git .bin/new-repo /home/git/git-shell-commands/new-repo
+COPY --chown=git:git .bin/no-interactive-login /home/git/git-shell-commands/no-interactive-login
 RUN chmod 740 /home/git/git-shell-commands/addu2r
 RUN chmod 740 /home/git/git-shell-commands/delgu
 RUN chmod 740 /home/git/git-shell-commands/delu2r
 RUN chmod 740 /home/git/git-shell-commands/gutils.sh
 RUN chmod 740 /home/git/git-shell-commands/newgu
 RUN chmod 740 /home/git/git-shell-commands/new-repo
+RUN chmod 740 /home/git/git-shell-commands/no-interactive-login
 
 # User settings
 RUN useradd -rm -d /home/$USER -s /bin/bash -g root -G sudo $USER
