@@ -1,0 +1,152 @@
+#!/bin/bash
+
+if [[ $USER == git ]]; then
+    user=$1
+    ssh_key=$2
+
+    [[ ! -d /home/git/.ssh ]] && mkdir -p /home/git/.ssh
+    [[ ! -f /home/git/.ssh/authorized_keys ]] && touch /home/git/.ssh/authorized_keys
+
+    if [[ -d $user/ ]]; then
+        echo "User \"$user\" already exists" | tee -a git-audit.log
+        exit 1
+    fi
+
+    mkdir "$user"
+    if [ $? -ne 0 ]; then
+        echo "Error creating user \"$user\"" | tee -a git-audit.log
+        exit 2
+    fi
+    echo "User \"$user\" created" >> git-audit.log
+
+    echo "command=\"$user\" $ssh_key" >> .ssh/authorized_keys
+    if [ $? -ne 0 ]; then
+        echo "Error adding ssh keys to authorized_keys" | tee -a git-audit.log
+        exit 3
+    fi
+    echo "ssh key for user \"$user\" added successfully" >> git-audit.log
+
+    [[ ! -f /home/git/git-shell-commands/$user ]] && touch /home/git/git-shell-commands/$user
+    echo -e "#!/bin/bash
+
+. /home/git/git-shell-commands/gutils.sh
+
+if [[ \"\$SSH_ORIGINAL_COMMAND\" =~ ^git-upload ]]; then
+    cmd=\$(echo \$SSH_ORIGINAL_COMMAND | cut -d' ' -f1)
+    repo=\$(echo \$SSH_ORIGINAL_COMMAND | cut -d' ' -f2 | sed \"s/'//g\")
+    user=\$(echo \$repo | cut -d/ -f1)
+
+    status=\$(validate_repo .\$user.dat $user \$repo; echo \$?)
+    if [[ ! \"\$repo\" =~ ^$user/ ]] && (( \$status != 0 )); then
+        echo \"Access denied for \\\"$user\\\" to cloning the repo \\\"\$repo\\\"\" >> git-audit.log
+        exit 1
+    else
+        if [[ ! -d \$repo ]]; then
+            echo \"The repo \\\"\$repo\\\" does not exist\" >> git-audit.log
+            exit 2
+        fi
+
+        \$cmd \$repo
+        echo \"User $user has cloned repo \\\"\$repo\\\"\" >> git-audit.log
+    fi
+
+elif [[ \"\$SSH_ORIGINAL_COMMAND\" =~ ^git-receive ]]; then
+    cmd=\$(echo \$SSH_ORIGINAL_COMMAND | cut -d' ' -f1)
+    repo=\$(echo \$SSH_ORIGINAL_COMMAND | cut -d' ' -f2 | sed \"s/'//g\")
+    user=\$(echo \$repo | cut -d/ -f1)
+
+    status=\$(validate_repo .\$user.dat $user \$repo; echo \$?)
+    if [[ ! \"\$repo\" =~ ^$user/ ]] && (( \$status != 0 )); then
+        echo \"Access denied for \\\"$user\\\" to pushing to the repo \\\"\$repo\\\"\" >> git-audit.log
+        exit 1
+    else
+        if [[ ! -d \$repo ]]; then
+            echo \"The repo \\\"\$repo\\\" does not exist\" >> git-audit.log
+            exit 2
+        fi
+
+        \$cmd \$repo
+        echo \"User $user has pushed to repo \\\"\$repo\\\"\" >> git-audit.log
+    fi
+
+elif [[ \"\$SSH_ORIGINAL_COMMAND\" =~ ^new-repo ]]; then
+    echo \"\$(date +\"%Y/%m/%d %H:%M:%S\") - $user - running git-shell command: \\\"\$SSH_ORIGINAL_COMMAND\\\"\" >> git-audit.log
+
+    repo=\$(echo \$SSH_ORIGINAL_COMMAND | cut -d' ' -f2)
+    file=\".\$(echo \$repo | cut -d/ -f1).dat\"
+    if [[ ! \"\$repo\" =~ ^$user/ ]]; then
+        echo \"Access denied for \\\"$user\\\" to create the repo \\\"\$repo\\\"\" | tee -a git-audit.log
+        exit 1
+    fi
+
+    ./git-shell-commands/new-repo \$repo
+    if [ \$? -eq 0 ]; then
+        sed -i \"1 a\\\\\\\\\$repo\" \$file &>/dev/null
+
+        cmp_repo=\$(get_cmp_repo \$repo)
+        sed -i \"1 a\\\\\\\\\$cmp_repo\" \$file &>/dev/null
+
+        echo \"\$(date +\"%Y/%m/%d %H:%M:%S\") - $user - Repository \\\"\$repo\\\" created\" >> git-audit.log
+    fi
+
+elif [[ \"\$SSH_ORIGINAL_COMMAND\" =~ ^addu2r ]]; then
+    echo \"\$(date +\"%Y/%m/%d %H:%M:%S\") - $user - running git-shell command: \\\"\$SSH_ORIGINAL_COMMAND\\\"\" >> git-audit.log
+
+    user=\$(echo \$SSH_ORIGINAL_COMMAND | cut -d' ' -f2)
+    repo=\$(echo \$SSH_ORIGINAL_COMMAND | cut -d' ' -f3)
+    if [[ ! \"\$repo\" =~ ^$user/ ]]; then
+        echo \"Access denied to share the repo \\\"\$repo\\\" in file \\\"$user.dat\\\"\" >> git-audit.log
+        exit 1
+    fi
+
+    ./git-shell-commands/addu2r .$user.dat \$user \$repo
+    echo \"\$(date +\"%Y/%m/%d %H:%M:%S\") - $user - Repository \\\"\$repo\\\" shared successfully with \\\"\$user\\\" \" >> git-audit.log
+
+elif [[ \"\$SSH_ORIGINAL_COMMAND\" =~ ^delu2r ]]; then
+    echo \"\$(date +\"%Y/%m/%d %H:%M:%S\") - $user - running git-shell command: \\\"\$SSH_ORIGINAL_COMMAND\\\"\" >> git-audit.log
+
+    user=\$(echo \$SSH_ORIGINAL_COMMAND | cut -d' ' -f2)
+    repo=\$(echo \$SSH_ORIGINAL_COMMAND | cut -d' ' -f3)
+
+    ./git-shell-commands/delu2r .$user.dat \$user \$repo
+    echo \"\$(date +\"%Y/%m/%d %H:%M:%S\") - $user - Repository \\\"\$repo\\\" deleted for \\\"\$user\\\" \" >> git-audit.log
+
+elif [[ \"\$SSH_ORIGINAL_COMMAND\" =~ ^delgu ]]; then
+    echo \"\$(date +\"%Y/%m/%d %H:%M:%S\") - $user - running git-shell command: \\\"\$SSH_ORIGINAL_COMMAND\\\"\" >> git-audit.log
+
+    username=\$(echo \$SSH_ORIGINAL_COMMAND | cut -d' ' -f2)
+
+    if [[ \$username == $user ]]; then
+        ./git-shell-commands/delgu $user
+    else
+        echo \"Username \\\"\$username\\\" invalid\"
+    fi
+
+elif [[ -z \"\$SSH_ORIGINAL_COMMAND\" ]]; then
+    echo \"Hello $user! You've successfully authenticated, but the server does not provide shell access\"
+
+else
+    echo \"$user: E002: Unrecognized command: \\\"\$SSH_ORIGINAL_COMMAND\\\"\" | tee -a git-audit.log
+    exit 2
+fi\n" > /home/git/git-shell-commands/$user
+    chmod 740 /home/git/git-shell-commands/$user
+    echo "bin file for user \"$user\" created successfully" >> git-audit.log
+
+    echo "[mine]" > .$user.dat
+    chmod 600 .$user.dat
+
+else
+    echo "$2" | grep -P '(\s|[^\w])' >/dev/null
+    if [ $? -eq 0 ]; then
+        echo "Invalid username"
+        exit 1
+    fi
+
+    if [ $# -eq 3 ]; then
+        ssh git@$1 "newgu $2 \"$3\""
+    else
+        echo "More or less arguments used"
+        echo "Use: $0 <host> <username> <ssh_key>"
+    fi
+fi
+
