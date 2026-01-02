@@ -27,7 +27,8 @@ if [[ $USER == git || $USER == root ]]; then
         fi
     fi
 
-    ssh_key=$(grep -inP $u2del@ /home/git/.ssh/authorized_keys | cut -d: -f1)
+    pattern="command=\"$u2del\""
+    ssh_key=$(grep -inP $pattern /home/git/.ssh/authorized_keys | cut -d: -f1)
     [ ! -z $ssh_key ] && sed -i "$ssh_key d" /home/git/.ssh/authorized_keys
     if [ $? -ne 0 ]; then
         echo "E003: Error deleting ssh key for user \"$u2del\""
