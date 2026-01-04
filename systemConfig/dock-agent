@@ -58,4 +58,4 @@ WORKDIR /home/jenkins
 # RUN ssh-keygen -t ecdsa -N "" -f ~/.ssh/id_ecdsa -q
 
 # setup
-ENTRYPOINT echo "jenks" | sudo -S service ssh start && echo "jenks" | sudo -S service vsftpd start && echo "jenks" | tail -f /dev/null
+ENTRYPOINT echo "jenks" | sudo -S service ssh start && echo "jenks" | sudo -S service vsftpd start && python3 ftpy.py /home/jenkins/share && tail -f /dev/null
