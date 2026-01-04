@@ -55,7 +55,7 @@ RUN rm -rf /var/lib/apt/lists/*
 USER jenkins
 WORKDIR /home/jenkins
 
-RUN ssh-keygen -t ecdsa -N "" -f ~/.ssh/id_ecdsa -q
+# RUN ssh-keygen -t ecdsa -N "" -f ~/.ssh/id_ecdsa -q
 
 # setup
 ENTRYPOINT echo "jenks" | sudo -S service ssh start && echo "jenks" | sudo -S service vsftpd start && echo "jenks" | tail -f /dev/null
