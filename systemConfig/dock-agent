@@ -6,38 +6,56 @@ RUN ln -sfn /usr/share/zoneinfo/America/Mexico_City /etc/localtime
 
 EXPOSE 21
 EXPOSE 22
+EXPOSE 8080
 
 RUN apt-get install sudo -y
 RUN apt-get install vsftpd -y
 
-RUN useradd -rm -d /home/jenkins -s /bin/bash jenkins
+RUN useradd -rm -d /home/jenkins -s /bin/bash -g root -G sudo jenkins
 RUN echo "jenkins:jenks" | chpasswd
+RUN groupadd jenkins -U jenkins
 RUN chown jenkins:jenkins -R /home/jenkins
 RUN chmod 700 -R /home/jenkins
+
 RUN mkdir -p /home/jenkins/agent
+RUN mkdir -p /home/jenkins/share
 RUN chown jenkins:jenkins -R /home/jenkins/agent
+RUN chown jenkins:jenkins -R /home/jenkins/share
 RUN chmod 700 -R /home/jenkins/agent
+RUN chmod 700 -R /home/jenkins/share
+
+COPY --chown=jenkins:jenkins .bin/newgu /home/jenkins/newgu
+COPY --chown=jenkins:jenkins .utils/ftpy.py /home/jenkins/ftpy.py
+RUN chmod 740 /home/jenkins/newgu
+RUN chmod 740 /home/jenkins/ftpy.py
 
 # packages
-RUN echo "jenks" | sudo -S apt-get install ssh -y
-RUN echo "jenks" | sudo -S apt-get install iputils-ping -y
-RUN echo "jenks" | sudo -S apt-get install net-tools -y
-RUN echo "jenks" | sudo -S apt-get install iproute2 -y
-RUN echo "jenks" | sudo -S apt-get install rsync -y
-RUN echo "jenks" | sudo -S apt-get install git -y
-RUN echo "jenks" | sudo -S apt-get install tree -y
-RUN echo "jenks" | sudo -S apt-get install ranger -y
-RUN echo "jenks" | sudo -S apt-get install python3 -y
-RUN echo "jenks" | sudo -S apt-get install python3-flask -y
-RUN echo "jenks" | sudo -S apt-get install python3-numpy -y
-RUN echo "jenks" | sudo -S apt-get install python3-pytest -y
-RUN echo "jenks" | sudo -S apt-get install python3-matplotlib -y
-RUN echo "jenks" | sudo -S apt-get install default-jdk -y
-RUN echo "jenks" | sudo -S apt-get install default-jre -y
-RUN echo "jenks" | sudo -S apt-get install ruby ruby-dev -y
-RUN echo "jenks" | sudo -S apt-get install golang -y
+RUN apt-get install ssh -y
+RUN apt-get install iputils-ping -y
+RUN apt-get install net-tools -y
+RUN apt-get install iproute2 -y
+RUN apt-get install rsync -y
+RUN apt-get install git -y
+RUN apt-get install tree -y
+RUN apt-get install ranger -y
+RUN apt-get install python3 -y
+RUN apt-get install python3-colorama -y
+RUN apt-get install python3-psutil -y
+RUN apt-get install python3-flask -y
+RUN apt-get install python3-numpy -y
+RUN apt-get install python3-pytest -y
+RUN apt-get install python3-matplotlib -y
+RUN apt-get install default-jdk -y
+RUN apt-get install default-jre -y
+RUN apt-get install ruby ruby-dev -y
+RUN apt-get install golang -y
 
 RUN rm -rf /var/lib/apt/lists/*
+
+USER jenkins
+WORKDIR /home/jenkins
+
+RUN ssh-keygen -t ecdsa -N "" -f ~/.ssh/id_ecdsa -q
 
 # setup
 ENTRYPOINT echo "jenks" | sudo -S service ssh start && echo "jenks" | sudo -S service vsftpd start && echo "jenks" | tail -f /dev/null
