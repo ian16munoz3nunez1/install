@@ -74,6 +74,9 @@ unset _JAVA_OPTIONS" >> $shellFile
 git config --global user.name "ian16munoz3nunez1"
 git config --global user.email "ianemn1603@gmail.com"
 git config --global core.editor nano
+git config --global diff.tool vimdiff
+git config --global merge.tool vimdiff
+git config --global merge.conflictstyle diff3
 git config --global alias.st 'status'
 git config --global alias.stbs 'status -bs'
 git config --global alias.co 'checkout'
@@ -92,6 +95,7 @@ git config --global alias.bv 'branch -v'
 git config --global alias.cob 'checkout -b'
 git config --global alias.wt 'worktree'
 git config --global alias.tree 'log --oneline --graph --date-order --all'
+git config --global alias.dt 'difftool'
 #### gitConfig
 
 #### tmuxConfig
