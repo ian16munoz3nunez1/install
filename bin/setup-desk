@@ -1,0 +1,21 @@
+#!/bin/sh
+
+apk update && apk upgrade
+
+apk add sudo
+
+addgroup ian -g 1000 -S
+adduser ian -h /home/ian -g "Ian Munoz Nunez" -G wheel -s /bin/ash -S -u 1000
+sed -ir '125s/#\s//g' /etc/sudoers
+sed -ir '131s/#\s//g' /etc/sudoers
+echo "ian:ianemn" | chpasswd
+
+apk add mesa-dri-gallium
+setup-devd udev
+
+apk add dbus && apk add dbus-x11
+
+rc-update add dbus
+rc-service dbus start
+
+setup-desktop

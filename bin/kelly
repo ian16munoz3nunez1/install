@@ -1,0 +1,9 @@
+#!/bin/bash
+
+found=$(tmux ls 2>/dev/null | grep 'kelly')
+
+if [[ "$found" =~ kelly ]]; then
+    tmux a -t kelly
+else
+    tmux new -s kelly
+fi

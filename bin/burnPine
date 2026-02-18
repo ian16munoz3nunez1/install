@@ -1,0 +1,67 @@
+#!/bin/bash
+
+if [ $EUID != 0 ]; then
+    echo "You need to run with root privileges"
+    exit 1
+fi
+
+device=$1
+if [[ ! "$device" =~ /dev/sd[a-z]$ ]]; then
+    echo "You need to use the format /dev/sdX"
+    exit 1
+fi
+echo "Device: $device"
+
+pineDir=/home/ianemn/alpine
+
+# USB format
+dd if=/dev/zero of=$device bs=1M count=1
+fdisk -w always -W always ${device} <<< $(printf "g\nn\n1\n\n+512M\nt\n1\nn\n2\n\n+4G\nt\n2\n19\nn\n3\n\n\nt\n3\n20\np\nw")
+mkfs.vfat ${device}1
+mkswap ${device}2
+mkfs.ext4 ${device}3
+
+# Clone of partition 1
+gunzip -c ${pineDir}/pine-part_1.img.gz | partclone.vfat -r -o ${device}1
+# zcat /home/ianemn/pine-part_1.img.gz | partclone.vfat -r -o ${device}1
+# gzip -c -d /home/ianemn/pine-part_1.img.gz | partclone.vfat -r -o ${device}1
+
+# Decompressing filesystem
+mnt="/mnt/$(echo ${device}3 | sed 's/\/dev\///g')"
+mkdir -p $mnt
+mount ${device}3 $mnt && echo "Partition 3 mounted on ${mnt}"
+tar -xvzf ${pineDir}/pine-part_3.tgz -C $mnt && echo "Filesystem decompressed in ${mnt}"
+
+part1=$(echo ${device}1 | sed 's/\/dev\///g')
+part2=$(echo ${device}2 | sed 's/\/dev\///g')
+part3=$(echo ${device}3 | sed 's/\/dev\///g')
+
+# Editing boot uuid in fstab
+regex='[A-Z0-9]{4}\-[A-Z0-9]{4}'
+uuid=$(grep -oP $regex ${mnt}/etc/fstab)
+boot=$(lsblk -f | grep $part1 | grep -oP $regex)
+sed -i "s/$uuid/$boot/g" ${mnt}/etc/fstab
+
+# Editing swap uuid in fstab
+regex='[\w\d]{8}\-[\w\d]{4}\-[\w\d]{4}\-[\w\d]{4}\-[\w\d]{12}'
+uuid=$(grep -P $regex ${mnt}/etc/fstab | grep swap | grep -oP $regex)
+swap=$(lsblk -f | grep $part2 | grep -oP $regex)
+sed -i "s/$uuid/$swap/g" ${mnt}/etc/fstab
+
+# Editing filesystem uuid in fstab
+uuid=$(grep -P $regex ${mnt}/etc/fstab | grep -v swap | grep -oP $regex)
+fs=$(lsblk -f | grep $part3 | grep -oP $regex)
+sed -i "s/$uuid/$fs/g" ${mnt}/etc/fstab
+
+files=(`grep -nPr $regex ${mnt}/boot/ 2>/dev/null | cut -d: -f1`)
+lines=(`grep -nPr $regex ${mnt}/boot/ 2>/dev/null | cut -d: -f2`)
+uuids=(`grep -nPr $regex ${mnt}/boot/ 2>/dev/null | grep -oP $regex`)
+
+n=${#files[@]}
+for((i = 0; i < $n; i++)); do
+    sed -i "${lines[i]}s/${uuids[i]}/$fs/g" ${files[i]}
+done
+
+echo "Unmounting ${device}3"
+umount ${device}3 && echo "Partition 3 unmounted"
+rmdir $mnt
