@@ -1,0 +1,50 @@
+FROM kalilinux/kali-rolling:latest
+SHELL ["/bin/bash", "-c"]
+
+RUN apt-get update -y && apt-get upgrade -y
+# RUN rm -rf /var/lib/apt/lists/*
+RUN ln -sfn /usr/share/zoneinfo/America/Mexico_City /etc/localtime
+
+RUN apt-get install iputils-ping -y
+RUN apt-get install net-tools -y
+RUN apt-get install iproute2 -y
+RUN apt-get install net-tools -y
+RUN apt-get install tcpdump -y
+RUN apt-get install wireless-tools -y
+RUN apt-get install wpasupplicant -y
+RUN apt-get install ssh -y
+RUN apt-get install powershell -y
+RUN apt-get install rsync -y
+RUN apt-get install ftp -y
+RUN apt-get install nmap -y
+RUN apt-get install ncat -y
+RUN apt-get install git -y
+RUN apt-get install bat -y
+RUN apt-get install htop -y
+RUN apt-get install caca-utils -y
+RUN apt-get install chafa -y
+RUN apt-get install curl -y
+RUN apt-get install wget -y
+RUN apt-get install tshark -y
+RUN apt-get install ktorrent -y
+RUN apt-get install lshw -y
+RUN apt-get install ranger -y
+RUN apt-get install mcrypt -y
+RUN apt-get install vim vim-gtk3 nano -y
+RUN apt-get install ncal -y
+RUN apt-get install pbzip2 -y
+RUN apt-get install tmux -y
+RUN apt-get install xsensors -y
+RUN apt-get install g++ gcc -y
+RUN apt-get install python3 python3-pip python3-virtualenv -y
+RUN apt-get install ruby ruby-dev -y
+RUN apt-get install golang-go -y
+RUN apt-get install neovim ripgrep python3-venv python3-pylsp clangd gopls -y
+RUN gem install solargraph rubocop solar
+
+COPY .vimrc /root/.vimrc
+COPY .vim/ /root/.vim/
+
+RUN git clone https://github.com/ian16munoz3nunez1/nvim.git ~/.config/nvim/
+
+ENTRYPOINT tail -f /dev/null
