@@ -12,6 +12,7 @@ RUN apt-get install net-tools -y
 RUN apt-get install tcpdump -y
 RUN apt-get install wireless-tools -y
 RUN apt-get install wpasupplicant -y
+RUN apt-get install adb -y
 RUN apt-get install ssh -y
 RUN apt-get install powershell -y
 RUN apt-get install rsync -y
@@ -39,12 +40,17 @@ RUN apt-get install g++ gcc -y
 RUN apt-get install python3 python3-pip python3-virtualenv -y
 RUN apt-get install ruby ruby-dev -y
 RUN apt-get install golang-go -y
+RUN apt-get install default-jdk default-jre -y
 RUN apt-get install neovim ripgrep python3-venv python3-pylsp clangd gopls -y
 RUN gem install solargraph rubocop solar
 
 COPY .vimrc /root/.vimrc
 COPY .vim/ /root/.vim/
+COPY .ssh/ /root/.ssh/
+COPY .android/ /root/.android/
 
 RUN git clone https://github.com/ian16munoz3nunez1/nvim.git ~/.config/nvim/
+RUN git clone https://github.com/microsoft/java-debug.git ~/.local/share/java-debug
+RUN cd ~/.local/share/java-debug && ./mvnw clean install
 
 ENTRYPOINT tail -f /dev/null
