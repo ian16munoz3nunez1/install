@@ -1,10 +1,49 @@
 FROM kalilinux/kali-rolling:latest
 SHELL ["/bin/bash", "-c"]
 
+# Run
+# ```
+# sudo xhost +local:docker
+# sudo xhost +local:root // Optional
+# ```
+# to enable docker to use the DISPLAY of the system
+#
+# Run
+# ```
+# docker build . -t kali -f kalidock --no-cache --network host
+# ```
+# to build a new image of kalilinux-rolling
+#
+# Run
+# ```
+# docker run --name kali --privileged --net host -it
+# -e DISPLAY=$DISPLAY
+# -v /tmp/.X11-unix:/tmp/.X11-unix:ro
+# -v /etc/localtime:/etc/localtime:ro
+# -d kali
+# ```
+# to run the kalilinux-rolling image
+#
+# Run
+# ```
+# docker run --name kali --privileged --net host -it
+# -e DISPLAY=$DISPLAY
+# -v /tmp/.X11-unix:/tmp/.X11-unix:ro
+# -v /etc/localtime:/etc/localtime:ro
+# --device /dev/dri
+# --device /dev/snd
+# -e PULSE_SERVER=unix:/run/user/1000/pulse/native
+# -v /run/user/1000/pulse:/run/user/1000/pulse:ro
+# -d kali
+# ```
+
 RUN apt-get update -y && apt-get upgrade -y
 # RUN rm -rf /var/lib/apt/lists/*
 RUN ln -sfn /usr/share/zoneinfo/America/Mexico_City /etc/localtime
 
+RUN apt-get install dbus-x11 ca-certificates -y
+RUN apt-get install ristretto mpv -y
+RUN apt-get install libgl1 libglib2.0-0 -y
 RUN apt-get install iputils-ping -y
 RUN apt-get install net-tools -y
 RUN apt-get install iproute2 -y
@@ -43,6 +82,11 @@ RUN apt-get install golang-go -y
 RUN apt-get install default-jdk default-jre -y
 RUN apt-get install neovim ripgrep python3-venv python3-pylsp clangd gopls -y
 RUN gem install solargraph rubocop solar
+
+RUN apt-get install python3-numpy -y
+RUN apt-get install python3-pyqt5 -y
+RUN apt-get install python3-matplotlib -y
+RUN apt-get install python3-opencv -y
 
 COPY .vimrc /root/.vimrc
 COPY .vim/ /root/.vim/

@@ -6,6 +6,7 @@ if [ $EUID != 0 ]; then
 fi
 
 device=$1
+desk=$2
 if [[ ! "$device" =~ /dev/sd[a-z]$ ]]; then
     echo "You need to use the format /dev/sdX"
     exit 1
@@ -30,7 +31,11 @@ gunzip -c ${pineDir}/pine-part_1.img.gz | partclone.vfat -r -o ${device}1
 mnt="/mnt/$(echo ${device}3 | sed 's/\/dev\///g')"
 mkdir -p $mnt
 mount ${device}3 $mnt && echo "Partition 3 mounted on ${mnt}"
-tar -xvzf ${pineDir}/pine-part_3.tgz -C $mnt && echo "Filesystem decompressed in ${mnt}"
+if [ -z $desk ]; then
+    tar -xvzf ${pineDir}/pine-part_3.tgz -C $mnt && echo "Filesystem decompressed in ${mnt}"
+else
+    tar -xvzf ${pineDir}/pine-part_3-${desk}.tgz -C $mnt && echo "Filesystem decompressed in ${mnt}"
+fi
 
 part1=$(echo ${device}1 | sed 's/\/dev\///g')
 part2=$(echo ${device}2 | sed 's/\/dev\///g')
@@ -61,6 +66,8 @@ n=${#files[@]}
 for((i = 0; i < $n; i++)); do
     sed -i "${lines[i]}s/${uuids[i]}/$fs/g" ${files[i]}
 done
+
+cp /home/ianemn/.bin/setup-desk ${mnt}/root/
 
 echo "Unmounting ${device}3"
 umount ${device}3 && echo "Partition 3 unmounted"

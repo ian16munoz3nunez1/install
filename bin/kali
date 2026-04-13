@@ -22,12 +22,29 @@ fi
 exists=$(docker ps -a | sed -r 's/\s{2,}/,/g' | cut -d, -f6 | grep -i kali &>/dev/null; echo $?)
 if [ $exists -ne 0 ]; then
     echo "Docker kali does not exists"
-    exit 2
 fi
 
 if [ $1 = start ]; then
+    img=$(docker images | grep -i kali:latest &>/dev/null; echo $?)
     up=$(docker ps -a | grep -i kali | sed -r 's/\s{2,}/,/g' | cut -d, -f5 | grep -i up &>/dev/null; echo $?)
 
+    if [ $img -eq 0 -a $up -ne 0 ]; then
+        loading "Running docker"&
+        pid=$!
+        docker run --name kali --privileged --net host -it \
+            -e DISPLAY=$DISPLAY \
+            -v /tmp/.X11-unix:/tmp/.X11-unix:ro \
+            -v /etc/localtime:/etc/localtime:ro \
+            --device /dev/dri \
+            --device /dev/snd \
+            -e PULSE_SERVER=unix:/run/user/1000/pulse/native \
+            -v /run/user/1000/pulse:/run/user/1000/pulse:ro \
+            -d kali
+        kill $pid
+        echo -ne "\r                  \r"
+    fi
+
+    up=$(docker ps -a | grep -i kali | sed -r 's/\s{2,}/,/g' | cut -d, -f5 | grep -i up &>/dev/null; echo $?)
     if [ $up -ne 0 ]; then
         loading "Starting docker"&
         pid=$!
