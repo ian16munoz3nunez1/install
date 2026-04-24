@@ -13,6 +13,39 @@ loading() {
     done
 }
 
+new_passwd() {
+    count=0
+    while [ $count -lt 3 ]; do
+        read -s -p "Enter a new password: " password
+        password_0=$(echo $password | sha256sum | awk '{print $1}')
+        echo
+
+        read -s -p "Confirm your password: " password
+        password_1=$(echo $password | sha256sum | awk '{print $1}')
+
+        if [ "$password_0" = "$password_1" ]; then
+            break
+        else
+            echo -e "\n\e[1;31mPasswords do not match!!\e[0m"
+        fi
+
+        count=$((count+1))
+    done
+
+    if [ $count -eq 3 ]; then
+        echo -e "\n\e[1;31mNumber of attempts exceeded\e[0m"
+        exit 2
+
+    else
+        echo -e "\n\e[1;32mPasswords match!!\e[0m"
+        if [ ! -d /home/$USER/.config/kali ]; then
+            mkdir -p /home/$USER/.config/kali
+        fi
+
+        echo "$password_0" > /home/$USER/.config/kali/passwd.dat
+    fi
+}
+
 if [ $# -ne 1 ]; then
     echo "error: More or less arguments"
     echo "use: $0 <start/stop>"
@@ -29,6 +62,10 @@ if [ $1 = start ]; then
     up=$(docker ps -a | grep -i kali | sed -r 's/\s{2,}/,/g' | cut -d, -f5 | grep -i up &>/dev/null; echo $?)
 
     if [ $img -eq 0 -a $up -ne 0 ]; then
+        if [ ! -f $HOME/.config/kali/passwd.dat ]; then
+            new_passwd
+        fi
+
         loading "Running docker"&
         pid=$!
         docker run --name kali --privileged --net host -it \
@@ -51,6 +88,31 @@ if [ $1 = start ]; then
         docker start kali &>/dev/null
         kill $pid
         echo -ne "\r                  \r"
+    fi
+
+    count=0
+    while [ $count -lt 3 ]; do
+        if [ -f $HOME/.config/kali/passwd.dat ]; then
+            password_0=$(cat /home/$USER/.config/kali/passwd.dat)
+            read -s -p "Insert password: " password
+            password_1=$(echo $password | sha256sum | awk '{print $1}')
+
+            if [ "$password_0" = "$password_1" ]; then
+                break
+            else
+                echo -e "\e[1;31mPassword do not match!!\e[0m"
+            fi
+        else
+            new_passwd
+            exit 3
+        fi
+
+        count=$((count+1))
+    done
+
+    if [ $count -eq 3 ]; then
+        echo -e "\n\e[1;31mNumber of attempts exceeded\e[0m"
+        exit 4
     fi
 
     echo "Entering docker"
