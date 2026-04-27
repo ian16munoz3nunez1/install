@@ -69,6 +69,7 @@ RUN apt-get install tshark -y
 RUN apt-get install ktorrent -y
 RUN apt-get install lshw -y
 RUN apt-get install ranger -y
+RUN apt-get install tree -y
 RUN apt-get install mcrypt -y
 RUN apt-get install vim vim-gtk3 nano -y
 RUN apt-get install ncal -y

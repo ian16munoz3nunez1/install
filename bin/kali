@@ -59,7 +59,7 @@ fi
 
 if [ $1 = start ]; then
     img=$(docker images | grep -i kali:latest &>/dev/null; echo $?)
-    up=$(docker ps -a | grep -i kali | sed -r 's/\s{2,}/,/g' | cut -d, -f5 | grep -i up &>/dev/null; echo $?)
+    up=$(docker ps -a | grep -i kali &>/dev/null; echo $?)
 
     if [ $img -eq 0 -a $up -ne 0 ]; then
         if [ ! -f $HOME/.config/kali/passwd.dat ]; then
