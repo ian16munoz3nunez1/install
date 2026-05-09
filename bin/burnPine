@@ -64,6 +64,7 @@ uuids=(`grep -nPr $regex ${mnt}/boot/ 2>/dev/null | grep -oP $regex`)
 
 n=${#files[@]}
 for((i = 0; i < $n; i++)); do
+    echo "Editing file ${files[i]}"
     sed -i "${lines[i]}s/${uuids[i]}/$fs/g" ${files[i]}
 done
 
