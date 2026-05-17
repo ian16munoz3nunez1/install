@@ -70,6 +70,7 @@ alias desk='ssh ianemn@desk' # desk: 192.168.1.164
 # misVariables
 export JAVA_HOME=\"$java_home\"
 export PATH=\"\$PATH\":$HOME/.local/bin\"\"
+export PATH=\$PATH:$HOME/.bin
 export PATH=\"\$PATH\":/opt/microchip/xc8/vX.XX/bin\"\"
 export PATH=\"\$PATH\":$HOME/.utils\"\"
 export PATH=\"\$PATH\":$HOME/.tcpIpy\"\"
@@ -209,7 +210,7 @@ application/x-trash=org.xfce.ristretto.desktop" > $HOME/.config/mimeapps.list
 #### sshConfig
 
 #### vimConfig
-[ -! -f .vimConfig ] && curl -fLo $HOME/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+[ ! -f .vimConfig ] && curl -fLo $HOME/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 
 [ -f ./systemConfig/.vimrc ] && mv ./systemConfig/.vimrc $HOME
 
@@ -241,7 +242,11 @@ echo -e "\e[1;32m[+] Configuración de wine completada\e[0m"; sleep 2
 
 if [ -d $HOME/.bin ]; then
     [ -f ./bin/ccs ] && mv ./bin/ccs $HOME/.bin/
-    [ -f ./bin/newRepo ] && mv ./bin/newRepo $HOME/.bin/
+    [ -f ./bin/git.tgz ] && tar -xvzf ./bin/git.tgz -C $HOME/.bin/
+    [ -f ./bin/jopen ] && mv ./bin/jopen $HOME/.bin/
+    [ -f ./bin/kali ] && mv ./bin/kali $HOME/.bin/
+    [ -f ./bin/kelly ] && mv ./bin/kelly $HOME/.bin/
+    [ -f ./bin/otarf ] && mv ./bin/otarf $HOME/.bin/
     [ -f ./bin/rememberMe ] && mv ./bin/rememberMe $HOME/.bin/
     [ -f ./bin/search ] && mv ./bin/search $HOME/.bin/
 fi
@@ -272,4 +277,3 @@ else
     echo "Docker server already running" >> \$HOME/.logs/myserver.log
 fi" >> \$HOME/.profile
 #### docker - myserver
-
