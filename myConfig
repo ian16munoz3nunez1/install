@@ -27,7 +27,7 @@ else
 fi
 
 echo -e "\n[?] Install utils?..."
-read -n 1 -p "[S/n]: " ans
+read -n 1 -p "[Y/n]: " ans
 if [[ $ans == "" || $ans == "S" || $ans == "s" ]]; then
     [ ! -d $HOME/.bin ] && mkdir -p $HOME/.bin/
     [ ! -d $HOME/.utils ] && git clone git@github.com:ian16munoz3nunez1/utils $HOME/.utils
@@ -36,7 +36,7 @@ fi
 
 #### bashConfig
 echo -e "\n[?] bash config?..."
-read -n 1 -p "[S/n]: " ans
+read -n 1 -p "[Y/n]: " ans
 if [[ $ans == "" || $ans == "S" || $ans == "s" ]]; then
     [ -f /usr/bin/java ] && java_home=$(readlink /usr/bin/java | xargs readlink | sed -s 's/\/bin\/java//g')
     [ ! -f .bashConfig ] && echo -e "\n# systemAlias
@@ -95,7 +95,7 @@ fi
 
 #### gitConfig
 echo -e "\n[?] git config?..."
-read -n 1 -p "[S/n]: " ans
+read -n 1 -p "[Y/n]: " ans
 if [[ $ans == "" || $ans == "S" || $ans == "s" ]]; then
     git config --global user.name "ian16munoz3nunez1"
     git config --global user.email "ianemn1603@gmail.com"
@@ -127,7 +127,7 @@ fi
 
 #### tmuxConfig
 echo -e "\n[?] tmux config?..."
-read -n 1 -p "[S/n]: " ans
+read -n 1 -p "[Y/n]: " ans
 if [[ $ans == "" || $ans == "S" || $ans == "s" ]]; then
     [ ! -f .tmuxConfig ] && echo -e "# set -g mouse on
     bind h select-pane -L
@@ -139,7 +139,7 @@ fi
 
 #### mimeapps
 echo -e "\n[?] mimeapps file?..."
-read -n 1 -p "[S/n]: " ans
+read -n 1 -p "[Y/n]: " ans
 if [[ $ans == "" || $ans == "S" || $ans == "s" ]]; then
     echo -e "[Added Associations]
     model/stl=com.ultimaker.cura.desktop;
@@ -229,7 +229,7 @@ fi
 
 #### sshConfig
 echo -e "\n[?] ssh config?..."
-read -n 1 -p "[S/n]: " ans
+read -n 1 -p "[Y/n]: " ans
 if [[ $ans == "" || $ans == "S" || $ans == "s" ]]; then
     [ ! -f $HOME/.ssh/id_rsa ] && ssh-keygen -t rsa && ssh-add $HOME/.ssh/id_rsa
 fi
@@ -237,7 +237,7 @@ fi
 
 #### vimConfig
 echo -e "\n[?] vim config?..."
-read -n 1 -p "[S/n]: " ans
+read -n 1 -p "[Y/n]: " ans
 if [[ $ans == "" || $ans == "S" || $ans == "s" ]]; then
     [ ! -f .vimConfig ] && curl -fLo $HOME/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 
@@ -253,7 +253,7 @@ fi
 
 #### wineConfig
 echo -e "\n[?] wine config?..."
-read -n 1 -p "[S/n]: " ans
+read -n 1 -p "[Y/n]: " ans
 if [[ $ans == "" || $ans == "S" || $ans == "s" ]]; then
     echo -e "\e[1;34m[*] Iniciando configuración de wine...\e[0m"; sleep 2
     sudo dpkg --add-architecture i386 && sudo apt-get update && sudo apt-get install wine32:i386
@@ -272,7 +272,7 @@ fi
 
 #### files
 echo -e "\n[?] Copy files?..."
-read -n 1 -p "[S/n]: " ans
+read -n 1 -p "[Y/n]: " ans
 if [[ $ans == "" || $ans == "S" || $ans == "s" ]]; then
     [ -f ./systemConfig/debiandock ] && mv ./systemConfig/debiandock $HOME/
     [ -f ./systemConfig/susedock ] && mv ./systemConfig/susedock $HOME/
@@ -294,7 +294,7 @@ fi
 
 #### docker
 echo -e "\n[?] Install docker?..."
-read -n 1 -p "[S/n]: " ans
+read -n 1 -p "[Y/n]: " ans
 if [[ $ans == "" || $ans == "S" || $ans == "s" ]]; then
     sudo apt-get install docker.io
     sudo systemctl enable --now docker
@@ -304,8 +304,8 @@ fi
 #### docker
 
 #### docker - myserver
-echo "\n[?] myserver config?..."
-read -n 1 -p "[S/n]: " ans
+echo -e "\n[?] myserver config?..."
+read -n 1 -p "[Y/n]: " ans
 if [[ $ans == "" || $ans == "S" || $ans == "s" ]]; then
     echo -e "\ndocker ps | grep 'myserver' &>/dev/null
     if [ \$? -ne 0 ];
