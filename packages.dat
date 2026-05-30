@@ -125,6 +125,7 @@ Hieroglyphic            ,                       ,                          ,io.g
 Hopsan                  ,                       ,hopsan                    ,com.github.hopsan.Hopsan                  ,A modelling and simulation tool for fluid power and mechatronic systems
 htop                    ,htop                   ,htop                      ,                                          ,interactive processes viewer
 hwinfo                  ,hwinfo                 ,                          ,                                          ,Hardware identification system
+Icon Library            ,                       ,                          ,org.gnome.design.IconLibrary              ,Iconos simbólicos para sus aplicaciones
 ImHex                   ,imhex                  ,                          ,net.werwolv.ImHex                         ,Modern REing Hex Editor
 Inkscape                ,inkscape               ,                          ,org.inkscape.Inkscape                     ,vector-based drawing program
 IntelliJ                ,                       ,intellij-idea-community   ,com.jetbrains.IntelliJ-IDEA-Community     ,Capable and Ergonomic Java IDE
@@ -142,6 +143,7 @@ Kando                   ,                       ,                          ,menu
 Kate                    ,kate                   ,kate                      ,org.kde.kate                              ,powerful text editor
 Kalzium                 ,kalzium                ,kalzium                   ,org.kde.kalzium                           ,Tabla periódica de los elementos
 Kasts                   ,kasts                  ,kasts                     ,org.kde.kasts                             ,Aplicación de podcast
+Katharsis               ,                       ,                          ,io.github.buonhobo.Katharsis              ,Emulate computer networks with ease
 KCharSelect             ,kcharselect            ,kcharselect               ,org.kde.kcharselect                       ,special character utility
 KDEconnect              ,kdeconnect             ,                          ,                                          ,connect smartphones to your desktop devices
 KDEnLive                ,kdenlive               ,kdenlive                  ,org.kde.kdenlive                          ,non-linear video editor
