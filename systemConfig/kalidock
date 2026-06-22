@@ -42,7 +42,7 @@ RUN apt-get update -y && apt-get upgrade -y
 RUN ln -sfn /usr/share/zoneinfo/America/Mexico_City /etc/localtime
 
 RUN apt-get install dbus-x11 ca-certificates -y
-RUN apt-get install ristretto mpv -y
+RUN apt-get install ristretto mpv gwenview -y
 RUN apt-get install libgl1 libglib2.0-0 -y
 RUN apt-get install iputils-ping -y
 RUN apt-get install net-tools -y
@@ -57,6 +57,9 @@ RUN apt-get install powershell -y
 RUN apt-get install rsync -y
 RUN apt-get install ftp -y
 RUN apt-get install nmap -y
+RUN apt-get install hydra -y
+RUN apt-get install medusa -y
+RUN apt-get install metasploit-framework -y
 RUN apt-get install ncat -y
 RUN apt-get install git -y
 RUN apt-get install bat -y
