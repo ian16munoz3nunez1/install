@@ -9,7 +9,15 @@ RUN apt-get update -y && apt-get upgrade -y && apt-get dist-upgrade -y && apt-ge
 RUN ln -sfn /usr/share/zoneinfo/America/Mexico_City /etc/localtime
 
 # Port configuration
+EXPOSE 21
 EXPOSE 22
+EXPOSE 80
+EXPOSE 81
+EXPOSE 4444
+EXPOSE 8080
+EXPOSE 8081
+EXPOSE 9999
+EXPOSE 9898
 
 # services
 RUN apt-get install sudo -y
@@ -40,6 +48,8 @@ RUN echo "$PASSWORD" | sudo -S apt-get install ranger -y
 RUN echo "$PASSWORD" | sudo -S apt-get install gcc g++ -y
 RUN echo "$PASSWORD" | sudo -S apt-get install python3 -y
 RUN echo "$PASSWORD" | sudo -S apt-get install python3-flask -y
+RUN echo "$PASSWORD" | sudo -S apt-get install ristretto -y
+RUN echo "$PASSWORD" | sudo -S apt-get install mpv -y
 
 COPY --chown=$USER:$USER .bin/ /home/$USER/.bin/
 RUN echo -e "\n\nexport PATH=\"\$PATH\":/home/$USER/.bin\"\"" >> /home/$USER/.bashrc

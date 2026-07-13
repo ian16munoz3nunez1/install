@@ -13,6 +13,11 @@ EXPOSE 21
 EXPOSE 22
 EXPOSE 3306
 
+RUN mkdir -p /home/ianemn
+RUN mkdir -p /home/git
+VOLUME ["/home/ianemn"]
+VOLUME ["/home/git"]
+
 # services
 RUN apt-get install sudo -y
 RUN apt-get install vsftpd -y
@@ -37,20 +42,20 @@ RUN groupadd git -U git
 RUN echo "git:g17" | chpasswd
 RUN chown git:git -R /home/git
 RUN chmod 700 -R /home/git
-COPY --chown=git:git .bin/addu2r /home/git/git-shell-commands/addu2r
-COPY --chown=git:git .bin/delgu /home/git/git-shell-commands/delgu
-COPY --chown=git:git .bin/delu2r /home/git/git-shell-commands/delu2r
-COPY --chown=git:git .bin/gutils.sh /home/git/git-shell-commands/gutils.sh
-COPY --chown=git:git .bin/newgu /home/git/git-shell-commands/newgu
-COPY --chown=git:git .bin/new-repo /home/git/git-shell-commands/new-repo
-COPY --chown=git:git .bin/no-interactive-login /home/git/git-shell-commands/no-interactive-login
-RUN chmod 740 /home/git/git-shell-commands/addu2r
-RUN chmod 740 /home/git/git-shell-commands/delgu
-RUN chmod 740 /home/git/git-shell-commands/delu2r
-RUN chmod 740 /home/git/git-shell-commands/gutils.sh
-RUN chmod 740 /home/git/git-shell-commands/newgu
-RUN chmod 740 /home/git/git-shell-commands/new-repo
-RUN chmod 740 /home/git/git-shell-commands/no-interactive-login
+COPY --chown=git:git .bin/addu2r /tmp/git-shell-commands/addu2r
+COPY --chown=git:git .bin/delgu /tmp/git-shell-commands/delgu
+COPY --chown=git:git .bin/delu2r /tmp/git-shell-commands/delu2r
+COPY --chown=git:git .bin/gutils.sh /tmp/git-shell-commands/gutils.sh
+COPY --chown=git:git .bin/newgu /tmp/git-shell-commands/newgu
+COPY --chown=git:git .bin/new-repo /tmp/git-shell-commands/new-repo
+COPY --chown=git:git .bin/no-interactive-login /tmp/git-shell-commands/no-interactive-login
+RUN chmod 700 /tmp/git-shell-commands/addu2r
+RUN chmod 700 /tmp/git-shell-commands/delgu
+RUN chmod 700 /tmp/git-shell-commands/delu2r
+RUN chmod 700 /tmp/git-shell-commands/gutils.sh
+RUN chmod 700 /tmp/git-shell-commands/newgu
+RUN chmod 700 /tmp/git-shell-commands/new-repo
+RUN chmod 700 /tmp/git-shell-commands/no-interactive-login
 
 # User settings
 RUN useradd -rm -d /home/$USER -s /bin/bash -g root -G sudo $USER
@@ -58,14 +63,18 @@ RUN echo "$USER:$PASSWORD" | chpasswd
 RUN groupadd $USER -U $USER
 RUN chown $USER:$USER -R /home/$USER
 RUN chmod 700 -R /home/$USER
-COPY --chown=$USER:$USER .ssh/id_rsa.pub /home/$USER/.ssh/authorized_keys
+
+# vim configuration
+COPY --chown=$USER:$USER .vimrc /tmp/.vimrc
+COPY --chown=$USER:$USER .vim/ /tmp/.vim/
+
+# init configuration
+RUN touch /etc/init.lock
+COPY --chown=$USER:$USER init.sh /.init.sh
+RUN chmod 740 /.init.sh
 
 USER $USER
 WORKDIR /home/$USER
-
-RUN mkdir /home/$USER/Desktop /home/$USER/Downloads /home/$USER/Music /home/$USER/Pictures /home/$USER/Videos
-RUN chown $USER:$USER -R /home/$USER/Desktop /home/$USER/Downloads /home/$USER/Music /home/$USER/Pictures /home/$USER/Videos
-RUN chmod 700 -R /home/$USER/Desktop /home/$USER/Downloads /home/$USER/Music /home/$USER/Pictures /home/$USER/Videos
 
 # packages
 RUN echo "$PASSWORD" | sudo -S apt-get install ssh -y
@@ -87,15 +96,5 @@ RUN echo "$PASSWORD" | sudo -S apt-get install ranger -y
 RUN echo "$PASSWORD" | sudo -S apt-get install python3 -y
 RUN echo "$PASSWORD" | sudo -S apt-get install python3-flask -y
 
-# OhMyBash configuration
-RUN git clone https://github.com/ohmybash/oh-my-bash
-RUN ./oh-my-bash/tools/install.sh
-RUN sed -i 's/OSH_THEME=\"font\"/OSH_THEME=\"agnoster\"/g' /home/$USER/.bashrc
-
-# vim configuration
-COPY --chown=$USER:$USER .vimrc /home/$USER/.vimrc
-COPY --chown=$USER:$USER .vim/ /home/$USER/.vim/
-
-# setup
-ENTRYPOINT echo "$PASSWORD" | sudo -S service ssh start && echo "$PASSWORD" | sudo -S service vsftpd start && echo "$PASSWORD" | sudo -S service mariadb start && tail -f /dev/null
-
+# init
+ENTRYPOINT ["/bin/bash", "-c", "echo $PASSWORD | sudo -S /.init.sh $USER"]
