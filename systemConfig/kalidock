@@ -41,6 +41,7 @@ RUN apt-get update -y && apt-get upgrade -y
 # RUN rm -rf /var/lib/apt/lists/*
 RUN ln -sfn /usr/share/zoneinfo/America/Mexico_City /etc/localtime
 
+RUN apt-get install zsh -y
 RUN apt-get install dbus-x11 ca-certificates -y
 RUN apt-get install ristretto mpv gwenview -y
 RUN apt-get install libgl1 libglib2.0-0 -y
@@ -81,7 +82,7 @@ RUN apt-get install tmux -y
 RUN apt-get install xsensors -y
 RUN apt-get install g++ gcc -y
 RUN apt-get install python3 python3-pip python3-virtualenv -y
-RUN apt-get install ruby ruby-dev -y
+RUN apt-get install ruby ruby-dev yaml-dev build-essential -y
 RUN apt-get install golang-go -y
 RUN apt-get install default-jdk default-jre -y
 RUN apt-get install neovim ripgrep python3-venv python3-pylsp clangd gopls -y
@@ -102,5 +103,7 @@ COPY .android/ /root/.android/
 RUN git clone https://github.com/ian16munoz3nunez1/nvim.git ~/.config/nvim/
 RUN git clone https://github.com/microsoft/java-debug.git ~/.local/share/java-debug
 RUN cd ~/.local/share/java-debug && ./mvnw clean install
+
+RUN chsh -s /usr/bin/zsh
 
 ENTRYPOINT tail -f /dev/null
