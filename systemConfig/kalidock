@@ -82,7 +82,7 @@ RUN apt-get install tmux -y
 RUN apt-get install xsensors -y
 RUN apt-get install g++ gcc -y
 RUN apt-get install python3 python3-pip python3-virtualenv -y
-RUN apt-get install ruby ruby-dev yaml-dev build-essential -y
+RUN apt-get install ruby ruby-dev libyaml-dev build-essential -y
 RUN apt-get install golang-go -y
 RUN apt-get install default-jdk default-jre -y
 RUN apt-get install neovim ripgrep python3-venv python3-pylsp clangd gopls -y
