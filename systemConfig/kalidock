@@ -43,7 +43,7 @@ RUN ln -sfn /usr/share/zoneinfo/America/Mexico_City /etc/localtime
 
 RUN apt-get install zsh -y
 RUN apt-get install dbus-x11 ca-certificates -y
-RUN apt-get install ristretto mpv gwenview -y
+RUN apt-get install ristretto mpv gwenview atril -y
 RUN apt-get install libgl1 libglib2.0-0 -y
 RUN apt-get install iputils-ping -y
 RUN apt-get install net-tools -y
@@ -87,6 +87,7 @@ RUN apt-get install golang-go -y
 RUN apt-get install default-jdk default-jre -y
 RUN apt-get install neovim ripgrep python3-venv python3-pylsp clangd gopls -y
 RUN gem install solargraph rubocop solar
+RUN apt-get install texlive-lang-spanish texlive-fonts-extra texlive-xetex -y
 
 RUN apt-get install python3-numpy -y
 RUN apt-get install python3-pyqt5 -y
@@ -100,10 +101,8 @@ COPY .vim/ /root/.vim/
 COPY .ssh/ /root/.ssh/
 COPY .android/ /root/.android/
 
-RUN git clone https://github.com/ian16munoz3nunez1/nvim.git ~/.config/nvim/
-RUN git clone https://github.com/microsoft/java-debug.git ~/.local/share/java-debug
-RUN cd ~/.local/share/java-debug && ./mvnw clean install
+RUN touch /etc/init.lock
+COPY init_kali.sh /.init.sh
+RUN chmod 740 /.init.sh
 
-RUN chsh -s /usr/bin/zsh
-
-ENTRYPOINT tail -f /dev/null
+ENTRYPOINT ["/bin/bash", "-c", "/.init.sh"]
