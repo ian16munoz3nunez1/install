@@ -5,6 +5,8 @@ if [ -f /etc/init.lock ]; then
     # git clone https://github.com/microsoft/java-debug.git ~/.local/share/java-debug
     # cd ~/.local/share/java-debug && ./mvnw clean install
 
+    ranger --copy-config=all
+
     sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" --unattended
 
     git clone git@github.com:zsh-users/zsh-autosuggestions.git ~/.oh-my-zsh/custom/plugins/zsh-autosuggestions
