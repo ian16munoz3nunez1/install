@@ -118,7 +118,7 @@ if [ $1 = start ]; then
     echo "Entering docker"
     xhost +local:docker
     xhost +local:root
-    docker exec -it kali /bin/bash
+    docker exec -it kali /usr/bin/zsh
     exit 0
 fi
 
