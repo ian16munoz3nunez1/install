@@ -70,7 +70,7 @@ COPY --chown=$USER:$USER .vim/ /tmp/.vim/
 
 # init configuration
 RUN touch /etc/init.lock
-COPY --chown=$USER:$USER init_debian.sh /.init.sh
+COPY --chown=$USER:$USER init-debian.sh /.init.sh
 RUN chmod 740 /.init.sh
 
 USER $USER
