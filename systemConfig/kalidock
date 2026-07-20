@@ -102,7 +102,7 @@ COPY .ssh/ /root/.ssh/
 COPY .android/ /root/.android/
 
 RUN touch /etc/init.lock
-COPY init_kali.sh /.init.sh
+COPY init-kali.sh /.init.sh
 RUN chmod 740 /.init.sh
 
 ENTRYPOINT ["/bin/bash", "-c", "/.init.sh"]
