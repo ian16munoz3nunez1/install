@@ -29,4 +29,8 @@ if [ -f /etc/init.lock ]; then
     rm /etc/init.lock
 fi
 
+apt-get update
+apt-get upgrade
+apt-get autoremove
+
 tail -f /dev/null
