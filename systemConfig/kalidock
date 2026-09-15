@@ -87,7 +87,7 @@ RUN apt-get install golang-go -y
 RUN apt-get install default-jdk default-jre -y
 RUN apt-get install neovim ripgrep python3-venv python3-pylsp clangd gopls -y
 RUN gem install solargraph rubocop solar
-RUN apt-get install texlive-lang-spanish texlive-fonts-extra texlive-xetex -y
+RUN apt-get install texlive-base texlive-lang-spanish -y
 
 RUN apt-get install python3-numpy -y
 RUN apt-get install python3-pyqt5 -y
