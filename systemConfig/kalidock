@@ -60,7 +60,9 @@ RUN apt-get install ftp -y
 RUN apt-get install nmap -y
 RUN apt-get install hydra -y
 RUN apt-get install medusa -y
-RUN apt-get install metasploit-framework -y
+RUN apt-get install wordlists -y
+RUN apt-get install gobuster -y
+# RUN apt-get install metasploit-framework -y
 RUN apt-get install ncat -y
 RUN apt-get install git -y
 RUN apt-get install bat -y
