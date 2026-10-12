@@ -1,0 +1,13 @@
+#!/bin/bash
+
+src=$(echo $1 | sed 's#/*$##')
+
+dst=$(echo -n $src | md5sum | awk '{print $1}')
+
+if [ -d "${src}" ]; then
+    mv "${src}" "${dst}"
+    echo "Directory \"${src}\" moved to \"${dst}\""
+else
+    echo "Error moving \"${src}\" to \"${dst}\""
+    exit 1
+fi

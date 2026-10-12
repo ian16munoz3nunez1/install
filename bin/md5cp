@@ -1,0 +1,16 @@
+#!/bin/bash
+
+src=$(echo $1 | sed 's#/*$##')
+
+dst=$(echo -n $src | md5sum | awk '{print $1}')
+
+if [ -d "${src}" ]; then
+    cp -r "${src}" "${dst}"
+    echo "Directory \"${src}\" copied to \"${dst}\""
+elif [ -f "${src}" ]; then
+    cp "${src}" "${dst}"
+    echo "File \"${src}\" copied to \"${dst}\""
+else
+    echo "Error copying \"${src}\" to \"${dst}\""
+    exit 1
+fi
